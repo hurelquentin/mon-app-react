@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         'X-Title': 'mon-app-react-one',
       },
       body: JSON.stringify({
-        model: 'openai/gpt-oss-120b:free',
+        model: 'mistralai/mistral-7b-instruct:free',
         messages: [{ role: 'user', content: prompt }],
       }),
     });
