@@ -24,9 +24,9 @@ export default async function handler(req, res) {
         'X-Title': 'mon-app-react-one',
       },
       body: JSON.stringify({
-  model: 'meta-llama/llama-3-8b-instruct:free',
-  messages: [{ role: 'user', content: prompt }],
-}),
+        model: 'poolside/laguna-m.1:free',
+        messages: [{ role: 'user', content: prompt }],
+      }),
     });
 
     const data = await response.json();
