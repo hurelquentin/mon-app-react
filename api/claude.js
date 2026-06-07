@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         'X-Title': 'mon-app-react-one',
       },
       body: JSON.stringify({
-        model: 'poolside/laguna-m.1:free',
+        model: 'openrouter/free',
         messages: [{ role: 'user', content: prompt }],
       }),
     });
