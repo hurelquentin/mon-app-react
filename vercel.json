@@ -1,0 +1,10 @@
+{
+  "builds": [
+    { "src": "package.json", "use": "@vercel/static-build", "config": { "buildCommand": "npm run build", "outputDirectory": "dist" } }
+  ],
+  "routes": [
+    { "src": "/api/claude", "dest": "/api/claude.js" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
