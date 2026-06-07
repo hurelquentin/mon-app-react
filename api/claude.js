@@ -24,9 +24,9 @@ export default async function handler(req, res) {
         'X-Title': 'mon-app-react-one',
       },
       body: JSON.stringify({
-        model: 'google/gemma-2b-it:free',
-        messages: [{ role: 'user', content: prompt }],
-      }),
+  model: 'meta-llama/llama-3-8b-instruct:free',
+  messages: [{ role: 'user', content: prompt }],
+}),
     });
 
     const data = await response.json();
