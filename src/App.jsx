@@ -157,38 +157,37 @@ export default function LexFuneraire() {
     textareaRef.current?.focus();
   };
 
-  const handleSubmit = async () => {
-    if (!question.trim() || isLoading) return;
-    const userMessage  = { role: "user", content: question.trim() };
-    const newMessages  = [...messages, userMessage];
-    setMessages(newMessages);
-    setQuestion("");
-    setIsLoading(true);
-    setError(null);
-    if (textareaRef.current) textareaRef.current.style.height = "auto";
+const handleSubmit = async () => {
+  if (!question.trim() || isLoading) return;
+  const userMessage  = { role: "user", content: question.trim() };
+  const newMessages  = [...messages, userMessage];
+  setMessages(newMessages);
+  setQuestion("");
+  setIsLoading(true);
+  setError(null);
+  if (textareaRef.current) textareaRef.current.style.height = "auto";
 
-    try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: newMessages,
-        }),
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      const txt  = data.content?.find(b => b.type === "text")?.text || "Réponse indisponible.";
-      setMessages([...newMessages, { role: "assistant", content: txt }]);
-    } catch {
-      setError("Erreur de connexion. Veuillez réessayer.");
-      setMessages(newMessages.slice(0, -1));
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  try {
+    const res = await fetch("/api/claude", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt: question.trim() }),
+    });
+
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    const data = await res.json();
+
+    const txt = data.answer || "Réponse indisponible.";
+
+    setMessages([...newMessages, { role: "assistant", content: txt }]);
+  } catch {
+    setError("Erreur de connexion. Veuillez réessayer.");
+    setMessages(newMessages.slice(0, -1));
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   const handleKey   = (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSubmit(); } };
   const handleReset = () => { setMessages([]); setError(null); setQuestion(""); setShowCategories(false); };
