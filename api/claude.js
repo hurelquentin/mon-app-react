@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         'X-Title': 'mon-app-react-one',
       },
       body: JSON.stringify({
-        model: 'openrouter/free',
+        model: 'qwen/qwen-2.5-7b-instruct:free',
         messages: [{ role: 'user', content: prompt }],
       }),
     });
