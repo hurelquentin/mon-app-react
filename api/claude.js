@@ -1,7 +1,7 @@
-import { GoogleGenAI } from "@google/genai";
+import Groq from "groq";
 
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY,
 });
 
 export default async function handler(req, res) {
@@ -21,18 +21,23 @@ export default async function handler(req, res) {
   const { prompt } = req.body;
 
   try {
-    const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
-      contents: prompt,
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.3-70b",
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
     });
 
-    const text = response.text || "Réponse indisponible.";
+    const text = completion.choices?.[0]?.message?.content || "Réponse indisponible.";
 
     return res.status(200).json({
       answer: text,
     });
   } catch (error) {
-    console.error("Erreur Gemini:", error);
+    console.error("Erreur Groq:", error);
     return res.status(500).json({ error: "Erreur IA" });
   }
 }
