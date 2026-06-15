@@ -1,0 +1,1251 @@
+Direction générale Des collectivités locales
+GUIDE DE RECOMMANDATIONS
+relatif aux parties techniques des chambres funéraires et mortuaires 2020
+Sous-direction des compétences et des institutions locales Bureau des services publics locaux
+
+Table des matières
+
+• Objet du guide et public visé
+
+3
+
+I.Définition et présentation des locaux concernés
+
+4
+
+• Rappel relatif aux modalités d’admission en chambre funéraire et en chambre mortuaire
+
+6
+
+II.Constat et risques encourus par les personnes intervenant dans les chambres funéraires et mortuaires
+
+8
+
+• Risques de nature différente du fait du non-respect des préconisations relatives aux salles de soins
+
+9
+
+• Exemple de schéma d’une salle de soins	 11
+
+III.Intervenants, pratiques et accès aux locaux
+
+27
+
+• Liste des intervenants
+
+27
+
+• Les modalités d’accès et de circulation des personnels et leurs missions
+
+28
+
+IV.Recommandations relatives aux conditions de travail
+
+29
+
+• Les mesures d’hygiène
+
+30
+
+• Recommandations relatives aux risques infectieux
+
+30
+
+• Recommandations relatives aux risques liés aux produits chimiques
+
+31
+
+• Recommandations sur la gestion des salles de préparation des corps
+
+34
+
+• Utilisation des équipements de protection individuelle (EPI)
+
+35
+
+• Focus sur les mesures d’hygiène des locaux et équipements funéraires et mortuaires :
+
+37
+
+V.Recommandations relatives aux risques physiques au travail
+
+42
+
+• La Table de préparation des défunts (ou « table de soins »)
+
+42
+
+• Le Plan de travail
+
+43
+
+• Le Chariot élévateur
+
+44
+
+VI.La gestion des déchets d’activités de soins à risques infectieux (DASRI)
+
+45
+
+• Tri et conditionnement
+
+45
+
+• Entreposage
+
+46
+
+• Collecte et transport
+
+48
+
+• Élimination et suivi de l’élimination
+
+49
+
+• Situation du thanatopracteur qui transporte les déchets dans son véhicule
+
+50
+
+• Préconisations sur la poubelle DASRI (en dépression/à proximité de la bouche d’extraction)
+
+50
+
+VII.Préconisations techniques adaptées aux futurs établissements
+
+51
+
+• Dispositions et aménagement des locaux (surfaces, matières, dispositifs d’évacuation, de ventilation)
+
+51
+
+• La séparation des locaux
+
+51
+
+• Exemple de plan de circulation - Chambre funéraire ou mortuaire
+
+52
+
+• Préconisations pour la salle de soins
+
+53
+
+• La table de soins tout en un
+
+54
+
+• La table élévatrice avec évacuation à la source
+
+55
+
+• La salle de toilettes
+
+56
+
+Conclusion 58
+Annexe 1 - Normes existantes relatives aux chambres funéraires et aux chambres mortuaires	 59
+Annexe 2 – Proposition d’un modèle de règlement d’accès aux parties techniques.	 62
+
+Utilisation des parties techniques	 63
+
+Annexe 3 – Liens web vers de la documentation spécialisée	 64
+
+Objet du guide et public visé
+Le présent document s’inscrit dans la lignée des précédents guides conçus et portés par le Conseil national des opérations funéraires (CNOF) par le biais d’un de ses groupes de travail thématiques, animé par la direction générale des collectivités locales (DGCL) du ministère de la cohésion des territoires et des relations avec les collectivités territoriales.
+Interpellé par des retours d’expérience de professionnels, il semble aujourd’hui nécessaire de rappeler dans un document unique les bonnes pratiques essentielles à recommander pour garantir la sécurité, la salubrité et par là même le bon fonctionnement des salles ou zones techniques des chambres funéraires et des chambres mortuaires. Le respect de ces bonnes pratiques qui découle du droit en vigueur garantira in fine la délivrance de prestations du service extérieur des pompes funèbres conformes à la réglementation, mais également une réponse adaptée aux usagers et utilisateurs de ces équipements. ce guide n’est pas créateur de droit, il souligne les modalités de bonne mise en œuvre du droit.
+Le présent guide s’adresse ainsi en priorité à tous les gestionnaires : opérateurs funéraires ou directeurs d’établissement de santé mais aussi à tous les intervenants potentiels de ces locaux techniques : porteurs et autres personnels funéraires, thanatopracteurs, personnels hospitaliers, agents de police ou de gendarmerie, agents d’entretien, agents de contrôle, ministres du culte. Dans la mesure où les collectivités peuvent, via les régies municipales, exploiter une chambre funéraire, ce guide leur est également destiné.
+En ces lieux, les milliers de personnes qui décèdent chaque année sont traitées avec la décence et le respect qui leur sont dus, ce qui implique l’ensemble des pratiques professionnelles funéraires abordées dans ce manuel.
+Enfin, ce guide ayant vocation à paraître sur Internet, il est à la disposition de tous, afin de renseigner également les proches des défunts en quête d’informations détaillées sur le sujet.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+3
+
+I.Définition et présentation des locaux concernés
+Distinction entre chambre funéraire et chambre mortuaire
+La chambre funéraire tout comme la chambre mortuaire sont des lieux où les proches d’un défunt peuvent se réunir avant les obsèques. Toutes deux sont composées à la fois :
+– d’un espace d’accueil pour les familles (partie publique),
+– d’une zone à accès réglementé pour les professionnels (partie technique).
+Qu’il s’agisse de la chambre mortuaire ou de la chambre funéraire, toutes deux représentent également des lieux de travail, où évoluent des travailleurs salariés de la structure gestionnaire (opérateur funéraire pour une chambre funéraire, établissement de santé pour la chambre mortuaire) ou bien des salariés d’entreprises extérieures, ou encore des travailleurs indépendants voire des représentants institutionnels ou des autorités (policiers, élus…). Ceci signifie que l’utilisation de ces locaux de travail implique le respect d’un certain nombre d’obligations légales, pour majorité d’entre elles à la charge du gestionnaire de l’établissement.
+Par ailleurs, c’est un lieu où sont potentiellement pratiqués les soins de thanatopraxie et les toilettes sur le corps du défunt.
+La chambre mortuaire, parfois appelée dans le langage courant « morgue » ou « amphithéâtre » est rattachée à un établissement de santé et accueille en priorité les corps des patients qui y sont décédés. En fonction du nombre de décès constatés dans un même établissement, la présence d’une chambre mortuaire est obligatoire. L’article R. 2223-90 du code général des collectivités territoriales (CGCT) précise ainsi : « Les établissements de santé publics ou privés doivent disposer au moins d’une chambre mortuaire dès lors qu’ils enregistrent un nombre moyen annuel de décès au moins égal à deux cents. »
+Pour autant, la chambre mortuaire constitue un équipement hospitalier ne relevant pas de la mission de service extérieur des pompes funèbres, sa gestion ne peut ainsi pas être confiée à un opérateur funéraire (article R2223-91 du CGCT).
+La chambre funéraire est gérée par un opérateur funéraire habilité au titre du 6° de l’article L. 2223-19 du CGCT « gestion et utilisation d’une chambre funéraire » - le plus souvent par une agence de pompes funèbres, à titre privé.
+Afin de permettre aux familles de choisir librement un opérateur funéraire, les chambres mortuaires et les chambres funéraires doivent afficher dans la partie publique la liste des opérateurs funéraires habilités dans le département. Dans le même objectif, les chambres mortuaires doivent également afficher la liste des chambres funéraires habilitées dans le département.
+La procédure de création ou d’extension d’une chambre funéraire est encadrée par le code général des collectivités territoriales. Celle-ci est autorisée par le préfet de département, à l’issue d’une procédure également déterminée par ledit code. Par ailleurs, tout nouvel équipement ainsi créé est soumis à l’obligation d’une visite de conformité.
+
+4
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Procédure de création ou d’extension d’une chambre funéraire
+La création ou l’extension d’une chambre funéraire est autorisée par le préfet.
+Le dossier de demande de création ou d’extension d’une chambre funéraire comprend obligatoirement :
+– une notice explicative ;
+– un plan de situation ;
+– un projet d’avis au public [n.d.l.r remplace depuis 2011 l’obligation d’une enquête de commodo et incommodo] détaillant les modalités du projet envisagé. L’avis est ensuite publié, à la charge du demandeur, dans deux journaux régionaux ou locaux.
+Le préfet consulte le conseil municipal, qui se prononce dans un délai de deux mois, et recueille l’avis du conseil départemental de l’environnement et des risques sanitaires et technologiques [CODERST].
+La décision intervient dans le délai de quatre mois suivant le dépôt de la demande. En l’absence de notification de la décision à l’expiration de ce délai, l’autorisation est considérée comme accordée.
+L’autorisation ne peut être refusée qu’en cas d’atteinte à l’ordre public ou de danger pour la salubrité publique.
+Dans les mêmes cas, le préfet peut, après mise en demeure, ordonner la fermeture provisoire ou définitive de la chambre funéraire. Le maire de la commune concernée est tenu informé.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+5
+
+Rappel relatif aux modalités d’admission en chambre funéraire et en chambre mortuaire
+Pour la chambre funéraire
+La chambre funéraire a vocation à accueillir les corps avant mise en bière (sans cercueil) ou après mise en bière (dépôt temporaire du cercueil).
+Conformément à l’article R. 2223-76 du CGCT, quand le corps du défunt est transporté en chambre funéraire avant mise en bière :
+« L’admission en chambre funéraire intervient dans un délai de quarante-huit heures à compter du décès.
+Elle a lieu sur la demande écrite :
+− soit de toute personne qui a qualité pour pourvoir aux funérailles et justifie de son état civil et de son domicile ;
+− soit de la personne chez qui le décès a eu lieu, à condition qu’elle atteste par écrit qu’il lui a été impossible de joindre ou de retrouver l’une des personnes ayant qualité pour pourvoir aux funérailles ;
+− soit du directeur de l’établissement, dans le cas de décès dans un établissement de santé public ou privé qui n’entre pas dans la catégorie de ceux devant disposer obligatoirement d’une chambre mortuaire conformément à l’article L. 2223-39, sous la condition qu’il atteste par écrit qu’il lui a été impossible de joindre ou de retrouver dans un délai de dix heures à compter du décès l’une des personnes ayant qualité pour pourvoir aux funérailles.
+La demande d’admission en chambre funéraire est présentée après le décès. Elle énonce les noms, prénoms, âge et domicile du défunt.
+Le corps d’une personne décédée ne peut être admis dans une chambre funéraire que sur production d’un extrait du certificat prévu à l’article L. 2223-42.
+Lorsque la chambre funéraire d’accueil du corps est située sur le territoire de la commune du lieu du décès, la remise de l’extrait du certificat précité s’effectue auprès du responsable de cette chambre funéraire.
+Dans les autres cas, le maire de la commune où se trouve la chambre funéraire d’accueil du corps et le responsable de la chambre funéraire sont destinataires de l’extrait du certificat précité».
+
+6
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+L’article R. 2223-77 du CGCT prévoit les cas dans lesquels l’admission du corps avant mise en bière n’est pas effectuée à la demande de la « personne ayant qualité pour pourvoir aux funérailles » (proche prenant la responsabilité d’organiser les obsèques) mais sur la réquisition d’une autorité judiciaire :
+« Lorsque le décès a eu lieu sur la voie publique ou dans un lieu ouvert au public, l’admission du corps en chambre funéraire est requise par les autorités de police ou de gendarmerie ». [...]
+«Dans les cas prévus à l’article 81 du code civil et à l’article 74 du code de procédure pénale, l’admission d’un corps en chambre funéraire est autorisée par le procureur de la République ».
+Pour la chambre mortuaire
+L’admission en chambre mortuaire est en principe réservée aux personnes décédées dans l’établissement de santé auquel elle est rattachée. Les corps des enfants déclarés sans vie à l’état civil peuvent également y être déposés.
+En ce cas, elle permet aux familles des défunts de disposer du temps nécessaire à l’organisation des obsèques. L’article R. 2223-89 du CGCT énonce par ailleurs : « Le dépôt et le séjour à la chambre mortuaire d’un établissement de santé public ou privé du corps d’une personne qui y est décédée sont gratuits pendant les trois premiers jours suivant le décès. »
+La chambre mortuaire accueille également le corps des défunts qui ne sont pas décédés dans l’établissement dont elle dépend dans les circonstances suivantes : l’autopsie médicale (recherche des causes du décès) ; le prélèvement d’organes ; le don de corps dit « don de corps à la science ».
+À noter également que dans le cas particulier du décès d’un résident de maison de retraite dans un établissement distinct, le corps peut être admis dans la chambre mortuaire de cet établissement de résidence, et doit être analysé juridiquement comme un retour du corps à domicile.
+Enfin, en l’absence de chambre funéraire - ou de sa disponibilité - la chambre mortuaire peut à titre exceptionnel faire l’objet d’une réquisition administrative ou judiciaire pour accueillir le corps d’une personne qui ne serait pas décédée dans l’établissement.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+7
+
+II.Constat et risques encourus par les personnes intervenant dans les chambres funéraires et mortuaires
+Deux réglementations coexistent et doivent être respectées
+Les salles techniques des chambres funéraires et des chambres mortuaires ont pour point commun d’accueillir les corps des défunts avant mise en bière pour le dépôt temporaire des défunts et éventuellement pour la réalisation de soins de conservation ou de toilette des défunts. Si les codes et textes portant la réglementation technique de ces locaux diffèrent, toutes deux font face aux mêmes enjeux sanitaires, éthiques et de santé et sécurité au travail.
+● Réglementation issue du code général des collectivités territoriales
+S’agissant des prescriptions techniques à respecter pour les locaux techniques, elles concernent essentiellement : la séparation entre la partie de la chambre destinée à l’accueil et celle destinée à la préparation des défunts ; l’aménagement des salons de présentation ; la présentation du corps et le matériel de réfrigération ; les cases réfrigérées ; les caractéristiques de la salle de préparation des corps.
+L’annexe 1 du présent guide propose un rappel sur les principales normes existantes s’appliquant à ces deux équipements. Il s’agit de prescriptions codifiées, pour les chambres funéraires aux articles D. 2223-80 à R. 2223-88 du sous-paragraphe 2 « Chambres funéraires » figurant au sein du CGCT.
+Pour les chambres mortuaires, il convient de se référer aux articles R. 2223-89 à R. 2223-98 du CGCT constituant le sous-paragraphe 3 « Chambres mortuaires » figurant au sein du CGCT, ainsi qu’à l’arrêté du 7 mai 2001 relatif aux prescriptions techniques applicables aux chambres mortuaires des établissements de santé.
+Le présent guide formule, d’une part, des propositions permettant de répondre très concrètement et de façon adaptée à chaque type de structure à ces obligations, et propose aux professionnels, d’autre part, de s’inscrire dans une démarche volontaire de bonnes pratiques visant à améliorer la sécurité et la qualité du service.
+● Réglementation issue du code du travail
+Les salles techniques des chambres funéraires et mortuaires doivent notamment répondre aux dispositions du code du travail, en sa quatrième partie, « santé et sécurité au travail ».
+S’agissant plus particulièrement de leur utilisation en tant que lieux de travail, elles doivent répondre aux prescriptions les plus élémentaires suivantes :
+– Procéder à une analyse des risques conjointe pouvant résulter de l’interférence entre les activités, les installations et les matériels des entreprises qui mettent à disposition leurs chambres funéraires et mortuaires et les intervenants arrêtent d’un commun accord un plan de prévention, art. R. 4512-6 du code du travail ;
+
+8
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+– Capter au fur et à mesure de leur production, au plus près de leur source d’émission et aussi efficacement que possible les émissions délétères pour l’homme, art. R. 4222-12 du code du travail ;
+– Substituer l’agent CMR (formaldéhyde) quand cela est techniquement possible, art. R. 4412-66 du code du travail ;
+– Réaliser les installations de captage et de ventilation de telle sorte que les concentrations dans l’atmosphère ne soient dangereuses en aucun point pour la santé et la sécurité des travailleurs, art. R. 4222-13 du code du travail ;
+– Maintenir celles-ci en bon état de fonctionnement et les vérifier régulièrement, art. R. 4222-20 du code du travail ;
+– Substituer un agent cancérogène, mutagène ou toxique pour la reproduction (CMR) quand cela est techniquement possible, art. R. 4412-66 du code du travail ;
+– Utiliser des équipements de protection individuelle, pour compléter les mesures de protection collective, les maintenir en bon état de fonctionnement et les désinfecter s’ils sont réutilisables, art. R. 4222-26 du code du travail ;
+– Stocker et transporter les déchets de manière sûre, art. R.4412-11 7°, R. 4412-70 13° et R. 4424-3 8° du code du travail ;
+
+Risques de nature différente du fait du non-respect des préconisations relatives aux salles de soins
+
+Le non-respect des prescriptions techniques fixées par la réglementation peut être lourd de conséquences à plusieurs égards : d’un point de vue sanitaire, tout d’abord. On comprendra aisément que la salubrité des locaux accueillant des corps dans des délais déterminés mais extensibles (le délai légal pour procéder à l’inhumation ou à la crémation d’un défunt est fixé à 6 jours à compter du décès - cf. articles R. 2213-33 et R. 2213-35 du CGCT- mais il peut exceptionnellement y être dérogé sur autorisation du préfet).
+Les conditions de conservation des corps relèvent également de considérations éthiques, puisque le respect qui leur est dû ne cesse pas avec la mort et qu’à cet égard « Les restes des personnes décédées […] doivent être traités avec respect, dignité et décence. » (article 16-1-1 du Code civil) et ce y compris lorsqu’ils font l’objet d’un dépôt temporaire en chambre, qu’elle soit funéraire ou mortuaire.
+Enfin, le non-respect de prescriptions techniques peut entraîner des sanctions.
+En effet, les gestionnaires des chambres funéraires sont des opérateurs funéraires habilités. À cet égard, s’ils ne respectent pas leurs obligations s’agissant de la conformité de l’équipement exploité ou de son utilisation, ils s’exposent à des sanctions administratives mises en œuvre par le Préfet.
+Ainsi, conformément à l’article L. 2223-25 du CGCT, en cas de danger pour la salubrité publique, le préfet peut suspendre pour une durée maximum d’un an ou retirer une habilitation. Il en va de même en cas de non-respect des dispositions du code général des collectivités territoriales […].
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+9
+
+En outre, le gestionnaire de la chambre funéraire peut également interdire l’accès à certains intervenants refusant de se conformer à la réglementation du travail. De même la facturation de suppléments peut intervenir, par exemple, pour assurer un nettoyage qui n’aurait pas été réalisé ou non conforme. Par ailleurs, lorsque le gestionnaire constate l’utilisation par un intervenant d’un produit de thanatopraxie non agrée dans ses locaux, il intervient et impose un autre produit.
+Quant au non-respect des dispositions du code du travail, tant les chefs d’établissement gestionnaires que les entreprises intervenantes, s’exposent à des sanctions financières
+et à des poursuites pénales.
+
+10
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Exemple de schéma d’une salle de soins
+
+Évier/bac lave-mains
+
+Unité de filtration
+
+Plan de travail
+
+Module de conservation
+
+Bac à DASRI Station d’hygiène
+
+Table de préparation
+
+Chariot élévateur
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+11
+
+VIS-À-VIS DES PROFESSIONNELS
+Est considéré comme professionnel, tout intervenant, ayant une mission en rapport avec un corps et devant intervenir dans la zone technique.
+
+Pratiques à proscrire :
+● Accès trop facile à certaines salles techniques par les personnes non autorisées ;
+● Identification incertaine des zones techniques par les personnels ;
+● Flux des personnels : Trop de passages de personnels non justifiés en zones techniques et durant les interventions ;
+● Absence ou non port d’ EPI (Équipement de Protection Individuelle) : les professionnels ne portent pas ou partiellement leurs protections (port de costumes ou tenues civiles) ;
+● Personnels peu ou pas formés sur la pratique de certaines interventions (toilettes ou retrait de stimulateurs cardiaques) ;
+● Impossibilité de se changer ou de déposer des affaires personnelles durant les interventions ;
+● Co activité des différents personnels non régulée.
+Préconisations :
+● Limiter et contrôler l’accès en zones techniques, la salle de soins accueille une seule intervention à la fois ;
+● Identifier les interférences liées à la coactivité des différents personnels qui doivent faire l’objet d’une analyse commune des risques et transcrite dans un plan de prévention ;
+● Identifier et enregistrer les intervenants et les demandes de prises de rendez-vous préalables avant interventions auprès du gestionnaire de l’établissement ;
+● S’assurer que les personnels disposent d’une formation en adéquation avec leurs postes de travail ;
+● Effectuer les rappels nécessaires en la matière de façon écrite et afficher en zone technique. « Ports des EPI OBLIGATOIRES en zones techniques » ;
+● Inciter et contrôler le port des EPI dans les zones techniques par le gestionnaire de l’établissement Accentuer les contrôles du gestionnaire de l’équipement ;
+● Prévoir des patères à vêtements, un local fermant à clefs ou une armoire à cadenas ;
+● Prévoir une armoire haute pour le stockage des EPI.
+
+12
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+MODULE DE CONSERVATION Le module de conservation permet la préservation par le froid des défunts qu’il accueille.
+Pratiques à proscrire  ● Installations de petite et de moyenne
+importance qui fonctionnent mal ; ● Aménagements intérieurs mal adaptés ou
+détériorés ; ● Portes qui ferment mal ; ● Nettoyage aléatoire du module ; ● Absence de repose-tête.
+Préconisations 
+● Laisser systématiquement les cellules en fonctionnement ;
+● Bien veiller à la fermeture des portes ; ● Vérifier les joints d’étanchéité des portes
+pour éviter l’apparition de givre ; ● Veiller à son nettoyage et établir un suivi
+programmé ; ● Bien identifier chaque emplacement lors
+de l’admission du défunt.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+13
+
+GROUPE FRIGORIFIQUE
+Le groupe frigorifique est un mécanisme qui assure les flux de froid au sein d’une unité où sont entreposés les défunts.
+Pratiques à proscrire 
+● Arrêt des groupes de froid ;
+● Nuisances sonores – Mauvais entretiens des groupes de froid : givre, grille obstruée, vétusté, fonctionnement bruyant ;
+● Installation des groupes frigorifiques directement sur le module de conservation et donnant directement dans le laboratoire, ce qui fait monter la température, avec effet amplifié en cas de présence de plusieurs groupes dans une même pièce.
+Préconisations 
+● Ne jamais arrêter le groupe de froid (contrairement aux idées reçues) afin d’éviter toute défaillance du matériel et assurer une température constante ;
+● Équipement type « déporté » c’est-à-dire qui ne se situe pas dans une zone de chaleur. Autres avantages : maintenance facilitée, aucun apport calorifique supplémentaire dans la salle, ni de nuisance sonore ;
+● Veiller à l’entretien périodique du groupe (visites de contrôles techniques régulières, vérifications des grilles d’aération, propreté) ;
+● Veiller régulièrement aux indicateurs de températures. Intervenir rapidement en cas de défaillance de l’équipement.
+
+14
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+UNITÉ DE FILTRATION :
+L’unité de filtration traite 4 fois le volume par heure de la salle de préparation des défunts en vue de protéger les intervenants de vapeurs de produits chimiques utilisés durant les soins de thanatopraxie. Ainsi l’air vicié est filtré avant d’être évacué vers l’extérieur. L’unité de filtration vient en complément des dispositifs de captage aux postes de dilution et d’injection des produits chimiques.
+Pratiques à proscrire 
+● Mise en fonctionnement non systématique ;
+● Moteurs trop bruyants dans un milieu silencieux souvent proche des lieux de recueillement ;
+● Interrupteurs inaccessibles ou mal identifiés ;
+● Filtres obstrués donc inefficaces ;
+● Encombrement des grilles par des objets hétéroclites (poubelles, meubles, tables…) ;
+● Méconnaissance des risques d’obstruction et d’utilisation du dispositif ;
+● Absence de suivi des entretiens et des changements de filtres.
+Préconisations 
+● Le dossier d’installation comprend tout ce qui a trait à la maintenance des installations ; à savoir, l’entretien, les changements de filtres, les vérifications réglementaires, les mesures en cas de panne, art. R. 4212-7 et R. 4222-21 du code du travail ;
+● Sensibilisation du personnel sur le respect des changements périodiques des filtres, avec respect des règles du constructeur des unités de filtration ;
+● Mise en place d’un registre de suivi sur l’entretien mécanique, et l’historique des changements de filtres (Filtres à ouate et filtres à charbon) ;
+● Asservissement sur interrupteur de lumière du laboratoire selon les possibilités des locaux existants. Ces locaux étant souvent aveugles, le fait d’allumer systématiquement la lumière, entraîne de fait l’enclenchement de la ventilation ;
+● Recommandation sur le modèle de ventilation « Split » (caisson de ventilation extérieur). Élimine le problème du bruit.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+15
+
+CHARIOT ÉLÉVATEUR
+Le chariot élévateur est un équipement qui permet le déplacement des défunts à l’aide d’une civière sur rail. Il est équipé d’un vérin hydraulique ou électromécanique pour permettre la manipulation des civières à différentes hauteurs dans le module de conservation.
+Pratiques à proscrire 
+● Faible entretien de l’équipement, usure prématurée du matériel, fuites d’huile, freins, roues dévissées, soudures fatiguées, vétusté, rails tordus ;
+● Utilisation autre que pour le déplacement de corps et avec risques non prévus par le constructeur, augmentant le risque de blessures (écrasements des membres, coupures, pincements, chutes) ;
+● Utilisation des chariots en remplacement des tables de préparation des corps.
+Préconisations 
+● Respecter la charge maximum préconisée par le constructeur ;
+● Vérifier régulièrement l’état du matériel et remédier aux défaillances par des réparations adaptées ou par le remplacement du matériel. Assurer un suivi de l’entretien pour faciliter les contrôles ;
+● Veiller à la présence de chariot élévateur dans chaque structure équipée de module réfrigéré ;
+● Ne pas utiliser les chariots pour les interventions sur les défunts mais déposer le corps sur la table de préparation pour effectuer ces opérations ;
+● Être vigilant sur l’utilisation du matériel (pieds et mains éloignés des organes de roulements et de soulèvements – Vérins hydrauliques et rails) ;
+● Veiller à laisser les chariots en position basse (longévité du système hydraulique) ;
+● Le système de blocage de la civière sur le rail doit être muni obligatoirement d’un ressort de rappel en position fermée afin d’éviter les risques d’oubli de fermeture du blocage et ainsi éviter à la civière de sortir du rail.
+
+16
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+TABLE DE PRÉPARATION
+La table de préparation des corps est un matériel permettant le support sécurisé d’un corps lors d’une intervention technique. Elle peut être mobile ou fixée au sol.
+Pratiques à proscrire  ● Absence de table ; ● Vétusté des équipements : roues voilées, freins
+cassés, tuyau d’évacuation percé ou absent, matériel rouillé.
+
+Préconisations :
+● Équiper TOUS les établissements funéraires et mortuaires conformément aux dispositions réglementaires en vigueur Cette prescription fait partie des matériels obligatoires qui équipent les zones techniques (les chariots élévateurs, les portes civières, ne pouvant servir de substitut, risques importants de chutes de corps et de blessures des personnels) ;
+● Le gestionnaire privilégiera les tables à fixation au sol (diminue considérablement le risque de chute de corps) ;
+● Il est fortement conseillé de choisir une table réglable en hauteur afin de dissuader les professionnels de travailler sur chariot élévateur. Pour des questions pratiques de rangement, cette table peut être sur roulettes, disposant d’au moins 2 freins pour bloquer la table lors du travail ;
+● Si les conditions le permettent, il est préconisé une table tout en un (table équipée d’un évier, d’une arrivée d’eau, d’un tuyau douchette, et d’une aspiration directement à la source).
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+17
+
+PLAN DE TRAVAIL Le plan de travail doit permettre aux utilisateurs de poser leurs matériels respectifs. Il s’agit d’isoler leurs outils de travail des sols à fort pouvoir contaminant et de mettre à disposition leurs matériels à hauteur d’homme.
+Pratiques à proscrire  ● Absence de plan de travail ; ● Plan de travail trop petit ; ● Plan de travail en matériau poreux ; ● Plan de travail éloigné de la table de préparation de corps.
+
+Préconisations 
+● Mise en œuvre d’un plan de travail à matériau non poreux, lavable, et prévu pour une utilisation intensive ;
+● Plan de travail solide et stable ;
+● Dimension du plan de travail au minimum de 1.2 mètres pour permettre le dépôt des valises de thanatopracteur.
+
+18
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+ÉVIER/BAC/LAVE-MAINS
+Pratiques à proscrire  ● Équipement hors fonction (pas d’eau, sert de bac à rangement) ; ● Matériel non entretenu, sale, bouché ou entartré ; ● Absence d’eau chaude ou à l’inverse distribution d’eau bouillante uniquement (difficulté
+de nettoyage et désinfection des instruments, dilution des produits chimiques) ; ● Élément de robinetterie manuel – danger de contact contaminant pour l’utilisateur ; ● Évier avec fuite d’évacuation ; ● Mauvaises odeurs de siphon ; ● Vider le reste de produit dans l’évier.
+Préconisations 
+● Entretenir fréquemment les éviers, bacs, vidoirs et les siphons et canalisations (limite les transmissions pathogènes et les mauvaises odeurs). Enregistrer les entretiens pour suivi et contrôle ;
+● Veiller au détartrage des robinetteries et des bacs ; ● Le gestionnaire veillera à mettre à disposition un flexible et sa douchette d’un minimum de
+3 mètres pour permettre le lavage des corps (si possible intégré à la table de préparation) ; ● Privilégier l’installation d’une robinetterie sans contact (cellule infrarouge, commande au
+pied ou commande au coude) ; ● Lors des phases de désinfection des instruments ou dans le cas où l’évier sert de poste
+de préparation du produit, prévoir une ventilation localisée sous forme d’évier ventilé ou prévoir un dispositif d’aspiration à la source (de type dosseret par exemple).
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+19
+
+POSTE DE LAVAGE DES MAINS Le poste de lavage des mains est composé d’un évier, d’un distributeur de savon, d’un distributeur à papier essuie-mains et d’une poubelle standard à commande à pied.
+Pratiques à proscrire  ● Absence de distributeurs à papiers ; ● Absence de distributeur à savon ; ● Utilisation d’un savon classique ; ● Savon et papiers non disponibles faute de ravitaillement.
+Préconisations  ● Mise en place de distributeurs à savon et à papiers essuie-mains dans toutes les zones
+techniques de sa structure ; ● Distributeurs solidement fixés aux murs et à proximité du point d’eau ; ● Température de l’eau réglable pour le lavage des mains ; ● Obligation de savon antiseptique (Les corps étant toujours considérés comme pathogènes) ; ● Approvisionnement permanent de ces deux consommables par le gestionnaire.
+
+20
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+CENTRALE D’HYGIÈNE La centrale d’hygiène est une unité qui permet de nettoyer des locaux et des mobiliers en utilisant l’eau et un produit désinfectant.
+Préconisations
+● Fortement préconisée dans toutes les pièces destinées à la préparation des corps (toilettes rituelles, toilettes funéraires, toilettes mortuaires, soins de thanatopraxie)
+● présence d’une centrale dans toutes les salles de préparation des défunts de toute unité funéraire ou mortuaire ;
+● Le gestionnaire veille à la mise à disposition constante d’un produit décontaminant répondant aux normes en vigueur et recommandé par le ministère de la santé ;
+● Utilisations sur sols, parties hautes.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+21
+
+SIPHON DE SOL :
+Les siphons de sol sont obligatoires en zones techniques.
+Ils ont pour rôle d’évacuer tous liquides vers l’extérieuren ayant préalablement filtré les macros déchets à l’aide d’un panier démontable incorporé.
+
+Pratiques à proscrire  ● Absence de siphon ; ● Absence de siphon équipé d’un panier ; ● Panier obstrué, mauvaises odeurs ; ● Entretiens sporadiques, manque de formation des personnels.
+Préconisations  ● Faire installer un siphon à panier démontable si ce dernier n’existe pas (obligatoire) ; ● Entretenir les siphons sans omettre leurs paniers démontables respectifs à l’aide
+de produits décontaminant ; ● Sensibiliser le personnel d’entretien ; ● Mettre en place un document écrit de traçabilité des entretiens ; ● Le gestionnaire s’engage à veiller à leurs entretiens périodiques et à faire limiter
+autant que faire se peut l’émanation de remontées nauséabondes dans la structure souvent décriée par les familles.
+
+22
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+BAC À DÉSINFECTION Le bac à désinfection est un bac qui permet la désinfection des instruments et du petit matériel des intervenants en salle de préparation des corps.
+Pratiques à proscrire  ● Absence de bacs dans certaines structures ; ● États de propreté des bacs de désinfection contestables ; ● Bacs de désinfection cassés ou sans couvercles ; ● Bac de désinfection entreposé sous les éviers ou au milieu de produits d’entretien rendant
+son utilisation difficile.
+Préconisations  ● Veiller à la mise en place du bac de désinfection dans toutes les chambres funéraires et
+mortuaires ; ● Le bac de désinfection est facilement accessible ; ● Le bac de désinfection est conservé dans un état de propreté irréprochable ; ● En l’absence de bac, les éviers disposent d’un bouchon permettant le remplissage ; ● Identifier le bac par une signalisation spécifique.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+23
+
+POUBELLE A DÉCHETS dits « MÉNAGERS » 
+Pratiques à proscrire  ● Absence de poubelle ; ● Absence ou signalisation spécifique mal adaptée (Pas de plastification,
+mauvaises dénominations) ; ● Couleur de la poubelle inappropriée par rapport aux codes des couleurs
+permettant d’identifier la nature des déchets ; ● Poubelle non entretenue ; ● Capacité inadaptée ; ● Ouverture manuelle ; ● Des DASRI (Déchets d Activités de Soins à Risques Infectieux) sont
+déposés dans cette poubelle.
+Préconisations 
+● Mise en place d’un système de tri ; ● Une identification adaptée sera appliquée à proximité de la poubelle
+pour identifier les rappels des déchets acceptés dans ce type de contenant ; ● Il est conseillé d’utiliser un récipient de couleur verte pour déchets classiques. La couleur jaune est proscrite pour le récipient destiné aux déchets de type ménagers, couleur déjà réservé un autre type de déchets ; ● Le gestionnaire veille à la mise en place d’une poubelle à capacité adaptée à l’activité de la chambre mortuaire ou funéraire ; ● La poubelle est tenue éloignée à côté des filtres de l’unité de filtration ; ● Il est préconisé une ouverture par système de pédale au pied.
+
+24
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+BACS A DASRI :
+Les DASRI (Déchets d’Activités de Soins à Risques Infectieux) sont potentiellement dangereux et doivent suivre un processus spécifique d’élimination. Les contenants sont normalisés, leurs transports et leurs traitements sont particulièrement encadrés compte tenu des dangers qu’ils représentent pour l’Homme.
+
+Pratiques à proscrire 
+● Absence de bacs ou sacs à DASRI dans de nombreuses structures ;
+● Identification des bacs par le gestionnaire inexistante ou partielle ;
+● Identification inexistante pour les DASRI en salle ;
+● Mauvaises fermetures des bacs – Personnels mal sensibilisés ;
+● Entreposage des bacs à DASRI pleins dans un milieu et une température inappropriés (garages) ;
+● Nombre d’unités et volumes insuffisants ;
+● Bacs à DASRI pleins en salle de préparation des corps - Évacuations tardives ;
+● Déformations par l’humidité et déchirements des bacs en carton en salles de préparation des corps ;
+● Les bacs à DASRI débordent de déchets à risques infectieux ;
+● Surcharge des bacs à DASRI (poids maximum autorisé pour transport).
+
+Préconisations 
+● Mise à disposition de contenants spécifiques pour recueillir les DASRI dans toutes les salles de préparation des corps des chambres funéraires et mortuaires ;
+● Identifications claires et complètes sur les emballages (établissement, dates d’ouverture et de fermeture des emballages) ;
+● Respect des évacuations périodiques ; ● Respect de la limite de remplissage et de son poids réglementaire ; ● Identification murale plastifiée ; ● Sensibilisation au tri à renforcer pour les intervenants sur les toilettes rituelles ; ● Respect des températures de stockage pour les bacs en carton ; ● Poser les bacs en carton sur un support les protégeant des sols humides (supports à roulettes).
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+25
+
+ÉLECTRICITÉ
+L’électricité en salle de préparation des corps des chambres funéraires et mortuaires répond à des normes très précises. Le milieu humide du laboratoire constitue un danger supplémentaire lié à l’électrocution. La vigilance du gestionnaire et des personnels doit être à la hauteur des risques.
+Pratiques à proscrire  ● Non-respect des normes en la matière, prises et interrupteurs non conformes à la
+réglementation (non étanches - trop près d’une source d’eau - risques d’électrocution) ; ● Problèmes de fonctionnement. (Interrupteurs et prises HS) ; ● Éclairage défectueux (ampoules ou néon HS - protection plastique non nettoyée, cassée,
+absente ou contenant des insectes morts) ; ● Source lumineuse complète, mais insuffisante (poste de travail mal éclairé et mal adapté
+à la dissection) ; ● Radiateurs électriques trop bas (risques d’électrocution lors de l’entretien des locaux) ; ● Présence de multiprises au sol ; ● Prises électriques trop hautes (inaccessibles) ou trop près du sol (risque en cas de
+lavage à grandes eaux) ; ● Tableau électrique à l’intérieur de la salle de préparation.
+Préconisations 
+● Respect de la conformité de l’installation électrique en adéquation avec les normes en vigueurs qui régissent ce type de local ;
+● Emplacement des lumières en vis-à-vis du poste de travail (au-dessus et en décalé) ; ● privilégier un éclairage à LED (économiques, lumières puissantes et homogènes) ; ● Surélever les radiateurs électriques pour permettre un nettoyage à grandes eaux (murs
+carrelés, mobiliers de salle de soins) ; ● Préférer la mise en place de radiateur à bain d’huile ou à inertie ; ● Proscrire toute rallonge électrique en salle de préparation des corps.
+
+26
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+III.Intervenants, pratiques et accès aux locaux
+Liste des intervenants
+Au sein de la chambre funéraire ou de la chambre mortuaire, sont amenés à se côtoyer professionnels et particuliers. Les parties techniques sont en revanche d’accès restreint, tel que prévu par la réglementation et rappelé par le règlement intérieur.
+
+En fonction de l’endroit où l’on se situe, on retrouvera donc :
+Au sein de la partie ou de la zone publique
+● Personnel du gestionnaire. ● Personnel des opérateurs funéraires. ● Thanatopracteurs. ● Les familles, parents et amis. ● Autres publics. ● Officiants cultuels. ● Fleuristes. ● Personnel de ménage et d’entretien. ● Représentants des autorités publiques : policiers…
+Au sein de la partie ou de la zone technique
+● Personnel du gestionnaire. ● Personnel des opérateurs funéraires. ● Thanatopracteurs. ● Officiants cultuels. ● Fleuristes. ● Personnel de ménage spécialisé. ● Personnel de maintenance technique. ● Représentants des autorités publiques : policiers, agents de l’inspection du travail, agents
+de la Caisse régionale d’assurance maladie Cram et de la Caisse d’assurance retraite et de la santé au travail Carsat…
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+27
+
+Les modalités d’accès et de circulation des personnels et leurs missions
+Le règlement intérieur
+Focus sur un outil adapté au respect de la réglementation en la matière :
+« Les gestionnaires d’une chambre funéraire, d’une chambre mortuaire, d’un crématorium sont tenus d’adopter un règlement intérieur conforme aux dispositions prévues par le présent paragraphe. Ce règlement doit être affiché à la vue du public dans les locaux d’accueil du public […] », art. R. 2223-67 du CGCT.
+Au vu de la diversité des intervenants au sein des chambres funéraires et mortuaires, l’obligation de création d’un règlement intérieur et e son affichage à la vue du public dans les locaux d’accueil (partie publique et partie technique) est concrètement indispensable.
+À cette fin, l’annexe 2 propose un document-type ciblé sur les règles d’accès aux parties techniques, document à distribuer de façon individuelle pour sensibiliser et responsabiliser davantage les intervenants. Ce document, dont les gestionnaires pourront librement s’inspirer, reprend notamment, comme évoqué ci-dessus les dispositions relatives à l’accès et à la régulation des flux, à l’hygiène, à l’intervention des officiants cultuels.
+
+L’accès à la chambre funéraire doit être garanti tant pour les représentants des autorités publiques que pour la famille du défunt ou les différents professionnels des services funéraires.
+Le personnel du gestionnaire a accès à l’ensemble de la structure soit par des clés, des codes ou autre système. Il assure la bonne utilisation des locaux par les différents intervenants et veille aux règles d’hygiène et de sécurité ainsi qu’au respect de la législation.
+L’accès à la partie publique par les familles, parents, amis, fleuristes se fait par une porte d’entrée pouvant être sécurisée au moyen d’une clé, un code ou tout autre système. L’entrée des salons peut être sécurisée de la même manière. De façon logique, les portes permettant l’accès entre la partie publique et la partie technique ne s’ouvrent que depuis la partie technique.
+Personnel des services funéraires : ils interviennent pour différentes opérations dans le respect de la réglementation funéraire et des règles d’hygiène et de sécurité, soit pour les mises en bière, toilettes funéraires ou transferts d’un défunt sans cercueil. Les agents administratifs et commerciaux peuvent dans certaines conditions (port d’EPI) passer en zone technique (apport de vêtements, consignes de dernière minute, avancée des interventions).
+Thanatopracteurs : ils ont pour mission toutes les interventions liées aux traitements des corps. Ils interviennent majoritairement en salle de préparation des défunts (salle de soins) mais leur périmètre peut s’étendre en zone publique si nécessaire (accompagnement des familles dans les salons, retouches sur le défunt lors de présentation en cercueil ou sur table de présentation).
+
+28
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Officiants cultuels : ils ont accès aux parties publique et technique. Dans le cadre de la toilette rituelle les officiants et les toiletteurs passeront des installations techniques à la partie publique par le même circuit que les professionnels. Ce flux étant le plus aléatoire (rites, durée, statut des intervenants…) il semble judicieux de limiter le nombre d’officiants cultuels accédant à la partie technique en fonction de la taille de celle-ci.
+Fleuristes : ils accèdent principalement à la partie publique, à l’exception des chambres funéraires des grands centres urbains où le dépôt des fleurs peut éventuellement se faire en partie technique avec l’accord du gestionnaire du site.
+Personnel de ménage et d’entretien : ils interviennent dans la partie publique comme dans la partie technique. Certains espaces de la partie technique (salle de soins) pourront faire l’objet d’un nettoyage par un personnel spécifique.
+Les flux des différents opérateurs sont anticipés, encadrés, et fluidifiés pour permettre à chacun de remplir sa mission et mettre fin aux défaillances sécuritaires. Privilégier la prise de réservation de salles préalablement aux interventions, ainsi que du registre de suivi des intervenants.
+
+IV.Recommandations relatives aux conditions de travail
+
+Les personnels évoluant dans les salles techniques, (notamment les thanatopracteurs), sont exposés à des risques chimiques liés aux produits utilisés, à des risques infectieux, aux risques physiques, aux risques psychosociaux (RPS), aux troubles musculosquelettiques (TMS) etc. Une démarche de prévention globale permet de repérer les facteurs à risques. Conformément au code du travail, des mesures de prévention doivent être appliquées pour protéger les personnels, en fonction du type de risque.
+Les interférences liées à la coactivité des différents personnels doivent faire l’objet d’une analyse commune des risques et donner lieu à l’élaboration du plan de prévention.
+
+Pertinence du plan de prévention
+
+Les mesures prévues par le plan de prévention comportent au moins des dispositions dans les domaines suivants :
+
+• La définition des phases d’activité dangereuses et des moyens de prévention spécifiques correspondants ;
+
+• L’adaptation des matériels, installations et dispositifs à la nature des opérations à effectuer ainsi que la définition de leurs conditions d’entretien ;
+
+• Les instructions à donner aux salariés ;
+
+• L’organisation mise en place pour assurer les premiers secours en cas d’urgence et la description du dispositif mis en place à cet effet par l’entreprise utilisatrice ;
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+29
+
+• Les conditions de la participation des salariés d’une entreprise aux travaux réalisés par une autre en vue d’assurer la coordination nécessaire au maintien de la sécurité et, notamment, de l’organisation de la prise de décision.
+Les mesures d’hygiène
+Le présent chapitre vise à rappeler l’impératif du respect des règles d’hygiène, aux vertus préventives et souvent curatives.
+L’enseignement et la mise en œuvre de ces processus doivent être urgemment envisagés auprès de tous les personnels évoluant dans les parties techniques.
+Il convient de distinguer les mesures préconisées à destination des locaux et des mobiliers, de celles applicables au périmètre humain comme le port des équipements de protection individuelle (EPI).
+Les équipements des parties techniques des chambres funéraires et des chambres mortuaires restent à la charge exclusive des gestionnaires de ces structures.
+Recommandations relatives aux risques infectieux
+Les personnes décédées peuvent être porteuses d’agents infectieux. Ces infections peuvent être méconnues des différents acteurs y compris le médecin ayant signé le certificat de décès. Certains de ces agents infectieux peuvent être à l’origine de maladies graves (virus des hépatites B ou C – VIH…).
+Les risques infectieux encourus lors des soins de thanatopraxie sont essentiellement les risques d’accidents d’exposition au sang (AES) et aux liquides biologiques contenant du sang, du fait des gestes techniques invasifs et de la gestion des DASRI (déchets d’activité de soins à risque infectieux).
+Mesures de prévention des accidents d’exposition au sang (AES)
+Les gestes les plus à risque d’AES (piqûre, coupure, projection sur les muqueuses du visage) sont les plus prégnants lors de l’utilisation des aiguilles, scalpels et des canules (suture des plaies, incision de la carotide ou de l’épigastre, insertion et repositionnement des canules) et de leur nettoyage. Un nombre non négligeable d’employés rapportent des accidents exposant au sang.
+Les virus des hépatites B et C ainsi que le VIH font partie des virus transmissibles par voie sanguine à l’occasion d’un AES.
+Les risques d’AES sont clairement majorés par certaines conditions de travail. En font partie le manque de place, une table de soins non adaptée, un éclairage insuffisant et éventuellement des équipements de protection individuelle gênant les gestes (port d’un masque de protection contre le risque chimique en l’absence de mesures de protection collective vis-à-vis des vapeurs des produits de conservation).
+
+30
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Les précautions standards visent à la prévention des AES grâce au port d’équipements de protection individuelle (gants, tenue adaptée), à l’utilisation de matériels de sécurité (conteneurs à piquants et coupants par exemple) et au respect de procédures de travail visant à minimiser les risques. Le matériel à usage unique doit être privilégié. Les instruments réutilisables doivent être nettoyés et désinfectés entre deux utilisations. Ces précautions standards sont décrites dans l’arrêté du 10 juillet 2013 relatif à la prévention des risques biologiques auxquels sont soumis certains travailleurs susceptibles d’être en contact avec des objets perforants.
+Lorsque le thanatopracteur est salarié, l’employeur fournit les matériels nécessaires. En outre, il organise la prise en charge en cas d’AES. Afin de pallier au risque de contamination par VHB par AES, la vaccination est devenue obligatoire en 2016 (art. L.3111-4 du code de la Santé publique) pour les thanatopracteurs en formation ou en exercice en l’absence d’infection en cours ou d’immunisation antérieure.
+Mesures de prévention des risques infectieux
+L’intégration de la prévention des risques infectieux lors de la conception des locaux n’est réalisable que dans les lieux dédiés aux soins de conservation. Ces mesures doivent inclure notamment des exigences sur la salle (dimensions, nettoyable, ventilation), la table de préparation des corps, la présence de moyens d’hygiène (évier à commande non manuelle, distributeur de savon et d’essuie-mains en papier) et la mise à disposition de moyens de réaliser le nettoyage et la désinfection du matériel réutilisable.
+Recommandations relatives aux risques liés aux produits chimiques
+Les produits de thanatopraxie utilisés permettent de réduire la charge microbiologique du corps du défunt en diminuant la quantité de micro-organismes impliqués dans les phénomènes de décomposition (thanatomorphose).
+En raison de leurs caractéristiques physiques et de leur toxicité envers les organismes vivants, les produits utilisés pour la thanatopraxie restent considérés comme des agents chimiques dangereux.
+À noter que, sans présumer des résultats définitifs des procédures européennes en cours, une première analyse globale des produits alternatifs aux formaldéhydes réalisée par l’Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (ANSES) selon une méthode globale tend à affirmer leur efficacité (voir rapport d’expertise cité annexe 3).
+À ce jour, les principaux produits utilisés contiennent en effet du formaldéhyde. Les risques connus de cette substance sont : cancérogène, allergène, inflammable, irritant, toxique par inhalation, contact cutané, ingestion ou exposition chronique.
+En conséquence, les polluants doivent être captés à la source, au fur et à mesure de leurs émissions, sans qu’elles ne transitent par les voies respiratoires des salariés.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+31
+
+À noter que, sans présumer des résultats définitifs des procédures européennes en cours, une analyse globale de produits alternatifs au formaldéhyde réalisée par l’Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail (Anses), selon une méthode d’évaluation comparée, tend à affirmer l’efficacité de certains d’entre eux (voir rapport d’expertise cité annexe 3).
+La réduction de l’exposition des salariés est guidée par la démarche suivante :
+Supprimer à défaut réduire les émissions :
+Si la suppression n’est pas possible, le risque doit être réduit en remplaçant l’agent cancérogène, mutagène ou toxique pour la reproduction (CMR) par un produit ou un procédé (pas ou) moins dangereux.
+Voir article R. 4412-66 du Code du travail :
+« Lorsque l’utilisation d’un agent cancérogène, mutagène ou toxique pour la reproduction est susceptible de conduire à une exposition, l’employeur réduit l’utilisation de cet agent sur le lieu de travail, notamment en le remplaçant, dans la mesure où cela est techniquement possible, par une substance, une préparation ou un procédé qui, dans ses conditions d’emploi, n’est pas ou est moins dangereux pour la santé ou la sécurité des travailleurs ».
+L’employeur consigne le résultat de ses investigations dans le document unique d’évaluation des risques.
+
+Capter les émissions à la source :
+Il faut donc capter les polluants au plus près de la zone d’émission et avant qu’ils ne pénètrent dans les voies respiratoires. L’air vicié chargé de ces polluants doit être rejeté à l’extérieur du bâtiment après filtration, sans recyclage.
+
+Le dispositif d’aspiration doit prendre en compte les différentes phases de travail : ● la préparation du produit, ● les opérations de soins.
+Les dispositifs d’aspiration suivants peuvent être mis en place : ● le dosseret aspirant fixe (phase de soins), ● le mur aspirant fixe ou mobile (phase de soins), ● la table aspirante (phase de soins),
+
+32
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+L’objectif de ces dispositifs est d’obtenir une vitesse d’air au point d’émission des polluants de 0,5 m/s au point d’émission des polluants le plus éloigné des dispositifs de captage.
+Le niveau de bruit d’ambiance induit par le dispositif d’aspiration devra être inférieur à 65 dB (A). L’idéal étant de ne pas augmenter de plus de 2 dB (A) le niveau sonore ambiant mesuré aux postes de travail, sauf si elle n’engendre pas un niveau supérieur à 50 dB (A).
+À consulter pour permettre d’installer un dispositif d’aspiration efficace : les 9 principes de ventilation décrits dans le guide de ventilation de l’INRS
+Ventiler les locaux
+Les équipements de la salle de préparation relèvent de la circulaire DGS/VS 3 n° 68 du 31 juillet 1995 et du décret n° 99-662 du 28 juillet 1999, relatifs aux prescriptions techniques applicables aux chambres funéraires et à l’arrêté du 7 mai 2001 relatif aux prescriptions techniques applicables aux chambres mortuaires des établissements de santé pour les chambres mortuaires.
+La salle de préparation doit être équipée d’une ventilation avec entrée haute et sortie basse. Cette ventilation doit assurer un renouvellement d’air minimum de 4 volumes par heure pendant la durée de la préparation d’un corps. L’air rejeté à l’extérieur du bâtiment est préalablement traité par un filtre absorbant et désodorisant. Ce système de filtration peut notamment comporter du charbon actif.
+Le taux de renouvellement d’air n’est pas le seul critère à respecter. Pour obtenir une ventilation générale efficace, il faut donc éviter de positionner les bouches de soufflage à proximité des bouches d’extraction (l’air prend toujours le chemin le plus court). Les bouches de soufflage positionnées en partie haute doivent être installées sur le mur opposé par rapport aux bouches d’extraction. De plus, pour empêcher les sensations d’inconfort thermique, les bouches de soufflage doivent être positionnées de façon à ce que l’air introduit ne soit pas dirigé directement sur les salariés.
+Les parties techniques restent un lieu normé à accès obligatoirement contrôlé.
+Cet accès restreint nécessite de bien identifier cette zone par des panneaux lavables clairs et lisibles.
+Si la source principale des contaminations directes (aérienne ou par contact) provient majoritairement des défunts, le reste de la contamination s’effectue de manière indirecte par l’intermédiaire de mobiliers souillés, ou par un flux mal maîtrisé des intervenants.
+De façon involontaire, ces personnels deviennent des vecteurs de transmission d’agents pathogènes invisibles. Il est important, ainsi, de lutter contre une certaine banalisation des interventions par des personnels peu ou pas sensibilisés à ces questions. Les dangers de contamination sont bien réels, et la prise de risque doit être appréhendée de façon rationnelle.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+33
+
+Recommandations sur la gestion des salles de préparation des corps
+● Rotation des interventions et des flux de personnels : il est recommandé de demander à tout utilisateur destiné à travailler en zone technique, de prendre préalablement à son intervention un rendez-vous auprès du gestionnaire.
+● Lors de la prise de rendez-vous, prendre en compte le type d’intervention et veiller à accorder le temps nécessaire à chaque intervenant (professionnels confirmés, débutants/stagiaires, méthodologies et habitudes propres à chacun) pour qu’il puisse accomplir sa mission (soins, toilettes, retraits de piles).
+● Le temps du nettoyage : lors de la prise de rendez-vous, il sera toujours utile d’incorporer un temps indispensable afin de permettre aux gestionnaires (chambres funéraires et mortuaires) de pouvoir procéder aux opérations de nettoyage des locaux entre chaque intervention. Il s’agit pour chacun de pouvoir utiliser les parties techniques en toute sécurité, et de répondre aux obligations réglementaires en matière d’hygiène liées à ce type de structures.
+● Horaires : Veiller à respecter les créneaux horaires convenus préalablement avec les gestionnaires des chambres mortuaires et funéraires pour éviter de perturber les horaires de fonctionnement des établissements, et la rotation des opérations.
+● Dans une même salle, le nombre d’interventions simultanées de soins de préparation des corps, ne peut excéder le nombre de postes de travail équipés afin de garantir la sécurité des intervenants.
+● Suivi des flux et des interventions : il est préconisé la mise en place d’un dispositif permettant le suivi et la traçabilité des activités en zone technique et contenir les informations suivantes :
+• La date
+• Le nom de l’intervenant
+• L’entreprise mandatée
+• Le nom du défunt
+• L’heure du début et de fin de l’intervention
+• Le type d’intervention
+Ce document doit pouvoir être présenté à tout organisme de contrôle qui le requiert.
+
+34
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Utilisation des équipements de protection individuelle (EPI)
+Les équipements de protection sont prioritairement collectifs. À défaut ou en complémentarité, les EPI constituent la dernière barrière de protection pour les intervenants. Ils visent à protéger tout professionnel face à un risque accidentel pouvant porter atteinte à son intégrité physique ou à sa santé. Les EPI restent exclusivement à la charge des travailleurs indépendants ou de l’employeur pour les salariés qu’il emploie. Les travailleurs ne disposant pas d’EPI ne peuvent pas prétendre à accéder en salle de préparation des corps (exemple : personnels en costumes retournant voir les familles en agence). Plus précisément, le port des EPI reste obligatoire pour toute personne accédant en zone technique durant toute opération funéraire ou mortuaire en cours.
+Composition des tenues de protection :
+La composition des EPI n’est pas toujours identique. Ces protections varient selon les situations, le périmètre du lieu de travail, la fréquence des interventions et la dangerosité du poste de travail occupé. D’un point de vue général, la liste des EPI en salle de préparation des corps est la suivante :
+EPI pour les personnes intervenant sur les corps pour des mises en bière :
+• Chaussures de sécurité • Blouse en coton • Gants nitrile jetables
+EPI pour les personnes intervenant sur les corps pour des toilettes (funéraires/ mortuaires ou rituelles) :
+• Chaussures de sécurité • Surchaussures • Blouse de coton : blouse jetable • Tablier imperméable jetable
+• Gants nitriles jetables • Lunettes de protection • Masque jetable • Charlotte jetable
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+35
+
+EPI pour les personnes intervenant sur les corps pour des soins de thanatopraxie :
+• Chaussures de sécurité
+• Surchaussures
+• Blouse de coton
+• Tablier imperméable jetable
+• Gants nitriles jetables
+• Manchettes de protection
+• Charlotte jetable
+• Lunettes de protection ou visière de protection
+• Masque B2P3 ou AX2P3
+Dans l’attente de la mise en place d’un système de captage efficace des vapeurs, le masque de protection respiratoire avec filtre B2P3 (protection contre les vapeurs de formol et les agents biologiques) ou le masque AX2P3 (protection contre les vapeurs de méthanol et les agents biologiques) doit être porté par le thanatopracteur. Les masques FFP2 ne protègent pas des vapeurs de formol et de méthanol ; les masques chirurgicaux ne protègent pas les voies respiratoires (fiches INRS ED 4136 ED 98).
+Préconisations relatives aux EPI 
+Il est préconisé que l’obligation du port des EPI soit inscrite dans le règlement intérieur de la structure accueillante. Afin que son application soit également imposée aux personnels de type indépendants, les contrats passés par le gestionnaire avec ces intervenants ou les plans de prévention doivent faire référence à ce document explicitement.
+L’employeur doit par ailleurs rédiger une consigne d’utilisation relative au port des EPI (articles R. 4323-104 et R. 4323-105 du code du travail).
+Ceci étant, conformément à l’article R. 4511-8 du code du travail :
+« Au titre de la coordination générale des mesures de prévention, le chef de l’entreprise utilisatrice alerte le chef de l’entreprise extérieure intéressée lorsqu’il est informé d’un danger grave concernant un des travailleurs de cette entreprise, même s’il estime que la cause du danger est exclusivement le fait de cette entreprise, afin que les mesures de prévention nécessaires puissent être prises par l’employeur intéressé. »
+Ainsi, la responsabilité légale du port des EPI est partagée entre les chefs d’entreprise : le gestionnaire a un rôle de coordination des mesures de prévention, et peut donner ses consignes de sécurité (article R. 4512-4), mais le chef de l’entreprise extérieure reste responsable des règles de sécurité appliquées à ses propres salariés.
+
+36
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Focus sur les mesures d’hygiène des locaux et équipements funéraires et mortuaires :
+
+Pour rappel, les carences d’entretien peuvent augmenter le risque de contamination (faibles fréquences de nettoyage, absence de produits adaptés, manque de sensibilisation et de formation des personnels, traçabilité superficielle ou inexistante, contrôles peu fréquents).
+Les lieux techniques à accès réglementés doivent être périodiquement entretenus. Il convient pour cela de séparer 2 éléments distincts :
+▼ Les sols
+▼ Les parties hautes
+
+Les sols 
+La composition des sols varie d’un établissement à l’autre. Il est recommandé d’abandonner progressivement les sols carrelés, pour une généralisation des sols en matériaux plastifiés et antidérapants de type « balatum ».
+Ces matériaux modernes sont résistants aux passages intensifs, et sont conçus pour supporter l’utilisation de produits chimiques adaptés (les carrelages sont de plus en plus délaissés car les joints de carrelages constituent un réservoir de substrats contaminants, toujours délicats à éliminer).
+Le sol reste un vecteur important de transmissions par les micro-organismes.
+Il en va de même pour toutes les projections de liquides biologiques durant les interventions et qui tomberont sur les sols.
+Si ces contaminations sont fréquentes, leur dangerosité dépend de la superficie touchée, de la quantité, de la pathogénicité ou de la toxicité de l’agent contaminant, et de sa durée de stagnation avant d’être transféré sur un autre support.
+Ces substances potentiellement dangereuses, peuvent être déplacées par les chaussures des intervenants, les roues des unités mobiles (tables ou les chariots), et par un lavage mal maîtrisé (faible nombre de lavages, lavages incomplets, lavages non décontaminant).
+
+Il est recommandé de proscrire en zone technique : aspirateur, serpillière et balais :
+• Aspirateur : l’air aspiré puis expulsé de l’appareil dissémine les agents contaminants en suspension dans l’air ambiant. Il peut également rentrer dans la catégorie des appareils interdits comme les sèche-mains. (air chaud brassé).
+• Serpillière : si elle n’est pas utilisée avec un produit décontaminant adapté, elle servira « d’incubateur » microbien, et ensemencera toute surface qui rentrera en contact avec elle, déplaçant et amplifiant ainsi la contamination. Son utilisation nécessite une manipulation à la main (contamination de l’utilisateur) et d’un balai-brosse, bien trop souvent en bois (le bois étant un matériau à proscrire car il retient les contaminants dans ses aspérités microscopiques).
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+37
+
+• Balai : il soulève de la poussière, et favorise la mise en suspension de particules potentiellement contaminantes. Certains balais restent difficilement décontaminables. (poils naturels, manche en bois).
+
+Préconisations pour l’hygiène des sols 
+• Nettoyage et désinfection privilégiée par l’utilisation d’une station d’hygiène.
+• Le nettoyage et désinfection des sols doivent être réalisés après chaque intervention et avant toute réutilisation de l’installation.
+• Proscrire tous produits d’entretien courant en n’utilisant que des produits nettoyants et désinfectant répondants aux normes conseillées par le ministère de la santé.
+• Privilégier un nécessaire d’entretien composé de matériaux lavables, et supportant l’action intensive de produits chimiques nettoyants et désinfectants.
+• Éviter l’utilisation de sols carrelés, au profit de sols plastifiés.
+• Remplacer l’aspirateur et le balai à poils, par des balais à lavettes sèches ou humides, mais à usage unique.
+• Débarrasser les sols de tout objet n’ayant pas de fonction directe avec une salle de préparation des défunts, ou pouvant présenter un danger électrique incompatible avec un nettoyage à « grandes eaux ».
+• Limiter les flux des passages en salle, en ne laissant entrer uniquement que des personnels ayant une mission directe avec les corps.
+
+Les parties hautes 
+S’entendent comme parties hautes, les murs et les mobiliers composants les parties techniques : principalement les tables d’autopsie ou de préparation des corps, les chariots élévateurs, les porte-civières, les brancards, les civières, les cellules réfrigérées, les tables de présentation, les unités de lavage, les lavabos, éviers et vidoirs, etc.
+Certaines parties hautes en contacts directs avec les défunts doivent toujours être considérées par prévention, comme porteuses d’agents pathogènes.
+Les parties hautes doivent pouvoir jouir d’une attention particulière quant à leurs entretiens car certaines zones de mobiliers sont difficiles d’accès. Cela rend leur nettoyage plus chronophage.
+
+Préconisations pour l’hygiène des parties hautes 
+• Nettoyage et désinfection privilégiée par l’utilisation d’une station d’Hygiène.
+• Toutes les parties hautes doivent être propres, entretenues et fonctionnelles pour être tenues à disposition des intervenants de façon sécurisée.
+
+38
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+• Le nettoyage et désinfection des parties hautes doivent être réalisés après chaque intervention et avant toute réutilisation des installations.
+• Le suivi des nettoyages et entretiens est consigné dans un dispositif pouvant être mise à disposition des unités de contrôles.
+• Le gestionnaire sera attentif aux demandes des intervenants et veillera à leur fournir des mobiliers conformes, sécurisés, et adaptés à leurs missions.
+• Supprimer la présence en salle de préparation des défunts du mobilier relatif au salon de présentation (crucifix, table de présentation, catafalques, sonos, mobiliers administratifs, porte-cartes, etc.).
+• Proscrire tout objet en matière poreuse (cartons, draps, cales tête en bois, papiers non plastifiés, valises en tissus des défunts, etc.)
+• Les parties hautes doivent pouvoir être nettoyées à « grandes eaux », les murs doivent donc être débarrassés de tous objets muraux et dont la présence ne serait pas justifiée.
+• La signalétique murale doit être en matériau lessivable nettoyable et désinfectable.
+La station d’hygiène : une solution efficace, économique et facile
+La station d’hygiène fonctionne sur un procédé simple : évacuer la poussière et les microparticules présentes sur les sols et les parties hautes, par un nettoyage à grandes eaux, et assurer parallèlement une décontamination des surfaces traitées par l’adjonction d’un produit décontaminant.
+L’unité se compose d’un tuyau, d’une douchette pistolet, et d’un bidon de décontaminant dont le mélange se fait automatiquement au passage de l’eau.
+Partant du principe que toutes les salles de préparation des corps disposent d’un siphon réglementaire et d’un point d’eau, la station peut facilement et très rapidement être mise en place sans compétence particulière. Son maniement ne nécessite pas de formation et peut donc être utilisé par tous les personnels.
+Son dosage automatisé permet non seulement de rester efficace sur la concentration minimale de décontamination mais aussi de réaliser des économies (bidons changés moins souvent), et participe à la limitation de rejet excessif de produits chimiques dans l’environnement par l’intermédiaire des eaux usées.
+La station d’hygiène par sa longueur de tuyau permet de décontaminer les sols, les murs et tous les mobiliers des salles de préparation des corps.
+La station peut également être utilisée pour le nettoyage des corps et décontaminer ainsi les dépouilles avant qu’elles ne soient remises à disposition des familles, dans un objectif de santé publique.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+39
+
+Préconisations
+• Déjà très largement répandue dans les cuisines professionnelles, la mise en place et l’utilisation de cet outil par les gestionnaires des établissements mortuaires et funéraires reste donc très fortement recommandée.
+• Le gestionnaire assure la sensibilisation des personnels sur l’utilisation des stations d’hygiène.
+• Les stations d’hygiène restent propres, entretenues et le bidon de nettoyant et désinfectant toujours approvisionné.
+Les blocs sanitaires 
+L’objectif du bloc sanitaire est de mettre à disposition un ensemble d’éléments (douche, lavabos, w.-c.) pour permettre aux professionnels utilisant les parties techniques des chambres mortuaires et funéraires, d’y trouver :
+• Un confort lié à leurs postes de travail respectifs (douche, WC, lavabo)
+• Un secours d’urgence lié à un incident sécuritaire rattaché à l’utilisation de produits chimiques. (projections accidentelles de produits chimiques sur la peau, les muqueuses ou les yeux : produits de thanatopraxie – formaldéhyde, ou produits d’entretien – produits chlorés par exemple)
+Constatations
+Les intervenants (chauffeurs, porteurs, agent de funérariums, agents mortuaires, thanatopracteurs) peuvent à l’occasion de certaines interventions, se salir ou transpirer (manipulation de personnes à surcharges pondérales, stress, équipement de protection inadapté aux températures excessives des laboratoires).
+Ces personnels, avant de reprendre une autre intervention sur un autre lieu, nécessitent, pour certains, de prendre une douche. Un interlocuteur transpirant et malodorant n’est pas compatible avec un service mortuaire ou funéraire de qualité, et ne renvoie pas une image très satisfaisante de la structure pour laquelle le professionnel travaille.
+Si l’utilisation du bloc douche reste d’un point de vue hygiénique, compréhensif, le côté psychologique reste très souvent occulté. Prendre une douche en fin de journée sur son poste de travail équivaut à laisser le stress des interventions liées à la mort et à la pénibilité de la profession, partir avec « l’eau du bain ». Ce principe de laisser au travail « le travail », est bien connu des agents d’amphithéâtre après les autopsies.
+Par ailleurs, prendre une douche sur son lieu de travail, diminue le risque de la transmission de micro-organisme aux membres de sa famille de retour au domicile.
+
+40
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Le manque d’entretien peut aussi dissuader les intervenants d’utiliser de telles commodités. Certaines défaillances techniques peuvent empêcher les professionnels de pouvoir jouir des équipements en toute quiétude (absence de tuyau ou de pommeau de douche, ballon d’eau chaude non opérationnel, portes ne fermant pas à clefs, éclairage défectueux, absence de matériel pour poser ses affaires). Il est donc nécessaire d’entretenir techniquement et hygiéniquement les blocs sanitaires de façon régulière.
+Préconisations pour les blocs sanitaires 
+• Il est recommandé aux structures accueillant les intervenants, de disposer d’un bloc sanitaire en zone technique, avec douche, w.-c. et lavabo pour le nettoyage des mains.
+• Si certaines structures actuelles sont déjà équipées de telles fonctionnalités, cela reste particulièrement recommandé pour les futurs établissements.
+• Le gestionnaire de l’établissement doit veiller aux nettoyages périodiques des blocs sanitaires.
+• Entretiens techniques et sécuritaires périodiques (Plomberie, Sécurité ballons d’eau chaude, VMC, Serrurerie, État des sols, Armoires).
+• Le suivi des nettoyages et entretiens est consigné par un dispositif pouvant être mis à disposition des unités de contrôles.
+• Aucun entreposage d’objets dans les douches ou les WC.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+41
+
+V.Recommandations relatives aux risques physiques au travail
+Le mobilier des salles techniques
+Le matériel choisi par le gestionnaire pour équiper la salle technique a toute son importance. L’enjeu est de répondre aux différents usages des intervenants, tout en évitant l’apparition de troubles musculo-squelettiques ou d’accidents de ces derniers.
+La Table de préparation des défunts (ou « table de soins »)
+Il s’agit d’un équipement obligatoire tant pour les chambres funéraires (article D. 2223-84 du CGCT) que les chambres mortuaires (arrêté du 7 mai 2001 relatif aux prescriptions techniques applicables aux chambres mortuaires des établissements de santé) qui répond à des prescriptions techniques réglementaires. Il est fortement déconseillé de remplacer la table de soins par un plan de travail d’une autre nature et qui ne saurait y satisfaire.
+Ainsi, la table de préparation des corps est constituée d’un seul tenant, plateau et pattes étant soudés entre eux, ce qui permet aux intervenants de travailler sur les défunts de la façon la plus sécurisée possible.
+La table est en matériau lessivable et adapté à l’utilisation intensive de produits chimiques décontaminant. L’utilisation à « grandes eaux » pour permettre son entretien et le lavage des dépouilles doit exclure toute partie pouvant contenir des matières poreuses comme le bois.
+L’utilisation de cale têtes en bois sur ces tables est à proscrire dans toute la zone technique, de par son risque élevé de vecteur contaminant.
+
+Il est conseillé de mettre à disposition des tables de préparation des défunts réglables en hauteur c’est-à-dire qui s’adaptent à chaque intervenant, à sa morphologie, à son poste de travail.
+
+Par ailleurs, la réalisation de certains actes de thanatopraxie nécessite de facto de la variation de la hauteur de cette table selon 3 positions :
+
+▼ Hauteur 1 : Élevée - Recherches artérielles.
+
+Le professionnel a besoin de s’approcher du corps pour effectuer un acte chirurgical de dissection sur un périmètre opératoire très restreint. Les risques de coupures sont importants.
+
+▼ Hauteur 2 : Moyenne - Ponction Cardiaque.
+
+Le professionnel a besoin de descendre le corps pour intervenir avec son tube de ponction. Cet instrument peut mesurer plus de 40 cm et nécessite de lever le bras relativement haut. Il s’agit d’un piquant/tranchant particulièrement dangereux. Le fait qu’il soit creux augmente les risques de contaminations sévères.
+
+42
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+▼ Hauteur 3 : Basse - Habillage du défunt.
+Le professionnel a besoin de soulever les jambes du défunt pour assurer son habillage. Un plan mal adapté augmenterait considérablement les mouvements accidentels liés aux troubles musculo-squelettiques.
+Pour les raisons évoquées ci-dessus, il est recommandé de mettre à disposition une table de préparation des défunts à hauteurs variables. Celle-ci peut-être soit hydraulique ou électrique ce choix relevant du gestionnaire et des moyens qu’il souhaite y consacrer.
+Le Plan de travail
+Il est fortement recommandé que les intervenants puissent déposer leurs matériels et instruments sur un plan de travail situé au même niveau que la table de préparation.
+Les risques encourus par les personnels
+• En l’absence d’un plan de travail bien positionné, les valises de thanatopraxie – par exemple – sont déposées à même le sol, ce qui augmente considérablement les risques de contamination si celui-ci n’est pas parfaitement décontaminé.
+• De plus, cela contraint les professionnels à s’accroupir et/ou se pencher à chaque prise de matériel, ce qui peut rapidement représenter plusieurs centaines de mouvements. Les troubles musculo-squelettiques qui en découlent peuvent être la source d’accidents du travail et de douleurs lombaires importantes. De plus, le risque de piqûres et de coupures est très élevé car les instruments manipulés sont des objets piquants et tranchants.
+Préconisations sur le plan de travail
+• Plan de travail lessivable et inoxydable
+• Longueur minimale de 1,2 mètre
+• Plan équipé de 4 roues à freins
+• L’espace dégagé dans la zone technique doit pouvoir être suffisant pour permettre la circulation du plan de travail autour du défunt
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+43
+
+Le Chariot élévateur
+L’utilisation d’un chariot élévateur est requise pour accéder au module réfrigéré (dépôt ou retrait de corps). Le chariot est utilisé comme une table de préparation. L’utilisation détournée du chariot élévateur est à l’origine de nombreux accidents (chutes accidentelles de défunts, plaies des doigts) voire de troubles musculo-squelettiques (fractures, lumbagos) dits « TMS »
+Les risques encourus par les personnels
+• Le chariot élévateur est composé de deux éléments, dont l’un est une simple civière retenue par un simple crochet. Lors de l’habillage, les chutes de plateaux hors des rails peuvent être constatées et les risques de section de doigts sont importants. De plus, cela oblige le professionnel à repositionner seul la civière dans les rails du chariot élévateur. Cette action est très préoccupante si elle se fait souvent seul et avec un corps placé sur le chariot.
+• Il est constaté que le chariot peut être utilisé comme une table de préparation. L’utilisation détournée du chariot élévateur est à l’origine de nombreux accidents (chutes accidentelles de défunts, plaies des doigts) voire de troubles musculo-squelettiques (fractures, lumbagos) dits « TMS ».
+• Le système hydraulique n’est pas conçu pour supporter des charges aussi lourdes (jusqu’à 200 kg) sur une période prolongée, qui plus est avec des contraintes mécaniques importantes si le chariot est utilisé comme table de préparation (utilisation du tube de ponction, habillages). Cette mauvaise pratique peut entraîner une usure prématurée des matériels, voir des fuites de liquides hydrauliques.
+• L’empiétement des chariots élévateurs est nettement inférieur à celui des tables de préparation des corps. Les risques de bascule sont d’autant plus élevés que le corps positionné est imposant.
+• Le système de freinage des chariots élévateurs est situé sur les roues de devant pour permettre au système élévateur de ne pas reculer lors du transfert d’une civière d’une case réfrigérée sur le chariot. Les roues arrière ne sont pas équipées de freins. Contrairement à la table de préparation qui possède en général 4 roues à freins ou 2 diagonalement opposées. L’habillage d’un défunt réalisé sur un chariot élévateur entraîne ce dernier contre les mobiliers ou les murs. Les risques de troubles musculo-squelettiques sont importants puisque l’unité reste par conséquent instable. Le professionnel doit à la fois veiller à la stabilité du corps qu’il habille, mais aussi à l’unité élévatrice mobile.
+L’utilisation des chariots élévateurs en remplacement d’une table de préparation est dangereuse pour les différents intervenants, et est, à cet égard, une pratique à proscrire.
+
+44
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Préconisation relative au chariot élévateur
+● Chaque chariot élévateur doit faire l’objet d’un entretien régulier par le gestionnaire (avec une attention particulière portée aux freins, fuites hydrauliques, roues).
+● Cet entretien peut faire l’objet d’un suivi écrit par le gestionnaire, qui pourra être présenté aux organismes de contrôle chargés d’attester la conformité des locaux.
+
+VI.La gestion des déchets d’activités de soins à risques infectieux (DASRI)
+Les déchets d’activités de soin à risques infectieux (DASRI) sont des déchets issus des activités de diagnostic, de suivi et de traitement préventif, curatif ou palliatif, dans les domaines de la médecine humaine et vétérinaire. La personne physique qui exerce à titre professionnel l’activité productrice de déchets est tenue de les éliminer.
+Les déchets issus des activités de thanatopraxie sont assimilés aux DASRI qui sont considérés comme des déchets dangereux.
+Le producteur des déchets issus de la thanatopraxie est responsable de ces déchets et doit veiller à bien appliquer la réglementation dédiée.
+Articles R. 1335-1 et R. 1335-2 du code de la santé publique
+Tri et conditionnement
+● Les DASRI doivent être collectés dans des emballages à usage unique afin d’être séparés des autres déchets.
+● Les emballages doivent être conformes à l’accord européen relatif au transport international des marchandises dangereuses par route (règlement dit « ADR ») conclu le 30 septembre 1957.
+● Il convient que le producteur de DASRI se fournisse auprès de fabricants ou de revendeurs dont les produits présentent les caractéristiques requises.
+Cas n° 1 : je suis thanatopracteur, diplômé ou stagiaire, ou encore professionnel du funéraire, et j’interviens dans une salle technique qui n’est pas gérée par mon employeur.
+J’ai deux options :
+• soit je pars avec les DASRI consécutifs à mon intervention que j’ai emballé conformément à la réglementation ;
+• soit j’utilise de préférence la poubelle DASRI mise à disposition par le gestionnaire de chambre funéraire. Dans ce cas, je participe aux frais de collecte et de traitement définis par une convention proposée par le gestionnaire.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+45
+
+Cas n° 2 : je suis gestionnaire de chambre funéraire.
+• Je mets à disposition une poubelle pour les déchets ménagers et assimilés, ainsi qu’une poubelle pour les DASRI qui respectent les normes correspondant à l’ADR pour les thanatopracteurs.
+• La poubelle DASRI doit être étiquetée, évacuée périodiquement et imperméable.
+Cas n° 3 : je suis directeur d’établissement de santé disposant d’une chambre mortuaire.
+• Je mets en place une procédure de tri par un représentant désigné et spécialement formé avec la participation des instances représentatives du personnel et des personnes compétentes (CSSCT, médecin du travail, CLIN, EOHH, etc.).
+• Je nomme un conseiller à la sécurité. Cette nomination est obligatoire lorsque je gère plus de 333 kg de DASRI par opération de chargement.
+• Je forme le personnel qui manipule les DASRI.
+• Le plus souvent, mes quantités sont supérieures à 100 kg/semaine. Dans ce cas, j’utilise de préférence des Grands Récipients pour Vrac (GRV) homologué par l’ADR pour stocker les DASRI conditionnés dans les emballages. Je dois détenir une copie du certificat d’agrément du modèle type. J’évite la surcharge des conteneurs pour faciliter leur fermeture et leur manutention. Ils sont réutilisables après nettoyage et désinfection sur le site de destruction des DASRI.
+Arrêté du 24 novembre 2003 relatif aux emballages des DASRI et assimilés et des pièces anatomiques d’origine humaine (modifié par l’arrêté du 6 janvier 2006).
+Article R. 1335-5 et R. 1335-6 du code de la santé publique.
+Entreposage
+Le lieu de stockage doit être adapté à la quantité produite.
+Pour moins de 5 kg/mois, le lieu doit être à l’écart des sources de chaleur et hors des locaux recevant du public.
+Pour plus de 5 kg/mois, le stockage doit se faire dans un local conforme présentant les caractéristiques suivantes :
+• être réservé à l’entreposage des DASRI ;
+• être protégé contre les risques incendie, les dégradations et les vols et contre la pénétration des animaux ;
+• être correctement ventilé (ventilation naturelle ou forcée, mise en dépression en cas de proximité d’une unité aseptique) et éclairé ;
+
+46
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+• être lavable et ainsi équipé d’une arrivée d’eau et d’une évacuation des eaux de lavage ;
+• contenir un robinet de puisage pourvu d’un disconnecteur d’extrémité.
+Cas n° 1 : je suis thanatopracteur, diplômé ou stagiaire, ou encore professionnel du funéraire, et j’interviens dans une salle technique qui n’est pas gérée par mon employeur.
+J’ai deux options :
+• soit je pars avec les DASRI consécutifs à mon intervention et j’ai emballé conformément à la réglementation ; dans ce cas j’entrepose ces DASRI à mon adresse professionnelle dans un lieu conforme ;
+• soit préférablement, j’utilise la poubelle DASRI, mise à disposition par le gestionnaire de chambre funéraire, qui dispose d’une plus grande capacité d’accueil et évitant ainsi le déplacement dangereux des DASRI.
+Cas n° 2 : je suis gestionnaire de chambre funéraire.
+• Je dispose d’un local conforme aux règles de sécurité précitées, dans lequel j’entrepose les poubelles DASRI.
+Cas n° 3 : je suis directeur d’établissement de santé disposant d’une chambre mortuaire.
+• Je dispose d’un local conforme aux règles de sécurité précitées, dans lequel j’entrepose les GRV.
+Arrêté du 20 mai 2014 modifiant l’arrêté du 7 septembre 1999 relatif au contrôle des filières d’élimination des déchets d’activités de soins à risques infectieux et assimilés et des pièces anatomiques.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+47
+
+Collecte et transport
+Les DASRI doivent être transportés vers le centre de regroupement ou le centre d’élimination.
+Le transport s’effectue dans des contenants conformes au modèle homologué par un laboratoire agréé (fûts ou jerricanes en matière plastique, GRV, Grand Emballage).
+Ces derniers doivent, entre autres, être marqués document de transport et déclaration (ADR) et étiquetés par une étiquette de danger (matières infectieuses).
+Le producteur de DASRI peut transporter lui-même les déchets ou alors établir une convention avec un transporteur.
+Dans ce dernier cas, la convention permet d’obtenir des éléments de vérification du professionnalisme des intervenants dans la filière transport (déclaration pour l’exercice de l’activité de transport par route de déchets).
+Cas n° 1 : je suis thanatopracteur, diplômé ou stagiaire, ou encore professionnel du funéraire, et j’interviens dans une salle technique qui n’est pas gérée par mon employeur.
+• Si je me déplace avec les DASRI consécutifs à mon intervention, mon véhicule doit être équipé d’un coffre séparé de l’habitacle par une paroi étanche.
+• Le coffre doit être muni d’une ventilation, de préférence mécanique permettant d’obtenir un taux de renouvellement de 5 volumes par heure. À défaut, le coffre doit être muni de deux grilles d’aération positionnées de part et d’autre du véhicule pour permettre un brassage de l’air dans le coffre et limiter la concentration de polluants.
+• Mon coffre doit être lavé et désinfecté après chaque déchargement.
+• À partir de 15 kg de DASRI transporté par trajet., le règlement ADR s’applique.
+• Enfin, je n’utilise pas de véhicule à 2 ou 3 roues et je ne transporte pas de voyageur dans mon véhicule contenant des DASRI.
+Cas n° 2 : je suis gestionnaire de chambre funéraire.
+• Je peux établir une convention avec une entreprise privée qui s’occupe du transport des DASRI produits dans mon établissement. Il est également possible d’assurer moi-même le transport avec ma propre camionnette et mon propre conducteur.
+• Dans les deux cas, toutes les règles de sécurité et de traçabilité doivent être respectées. Lorsque j’assure moi-même le transport, j’utilise des véhicules conformes et je vérifie leur état.
+• Enfin, je remets le bon de prise en charge ou le bordereau de suivi que j’ai rempli au conducteur qui le complète.
+
+48
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Cas n° 3 : je suis directeur d’établissement de santé disposant d’une chambre mortuaire.
+• Je peux établir une convention avec un transporteur ou effectuer moi-même le transport avec ma camionnette et mon propre conducteur en respectant les règles de sécurité précitées.
+• Je remets le bon de prise en charge ou le bordereau de suivi que j’ai rempli au conducteur qui le complète.
+Arrêté du 29 mai 2009 modifié relatif au transport des marchandises dangereuses par voies terrestres.
+Élimination et suivi de l’élimination
+L’élimination doit être effectuée dans un délai dépendant de la quantité de DASRI produits.
+La durée entre la production effective des déchets et leur incinération ou prétraitement par désinfection ne doit pas excéder les délais suivants :
+• entre 0 kg/mois et 5 kg/mois : transport et élimination dans les 3 mois qui suivent la production ;
+• entre 15 kg/mois et 100 kg/semaines : transport et élimination dans les 7 jours qui suivent la production ;
+• plus de 100 kg/semaine : transport et élimination dans les 72 heures qui suivent la production.
+Le producteur établi une convention écrite, avec le prestataire de services, qui peut être le centre d’élimination des DASRI ou le centre de regroupement, lieu de stockage intermédiaire des DASRI avant élimination.
+Ces conventions peuvent faire l’objet d’un contrôle notamment par le directeur de l’Agence Régionale de Santé ou par les services de l’État territorialement compétents.
+La destruction se fait par incinération ou par prétraitement par désinfection.
+Le producteur doit établir un bordereau de suivi d’élimination ou un bon de prise en charge qui doit accompagner les DASRI jusqu’au centre de traitement des déchets et qui doit lui revenir, contresigné par le centre de traitement ou de regroupement, justifiant ainsi de l’élimination. Ces bordereaux justifiant de l’élimination des déchets doivent être conservés pendant trois ans.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+49
+
+Je suis thanatopracteur, professionnel du funéraire, intervenant dans une salle technique qui n’est pas gérée par mon employeur, gestionnaire de chambre funéraire ou directeur d’établissement de santé disposant d’une chambre mortuaire
+• Je mets tout en œuvre pour que les délais prévus pour l’élimination des DASRI puissent être respectés;
+• Je passe une convention écrite avec une entreprise qui se charge de l’élimination des DASRI ou avec un centre de regroupement:
+• J’établis un bordereau de suivi pour le centre d’élimination ou un bon de prise en charge pour le centre de regroupement. Je reçois en retour un bordereau.
+Situation du thanatopracteur qui transporte les déchets dans son véhicule
+Les liquides physiologiques sont potentiellement porteurs de contamination bactérienne en concentration élevée. Ils sont récupérés par le thanatopracteur et transporté dans son véhicule vers un lieu de stockage pour être par la suite obligatoirement incinérés avec preuve de traçabilité. L’exposition du thanatopracteur dans son véhicule peut être importante et doit être prise en compte dans l’évaluation des risques.
+Le véhicule du thanatopracteur doit être équipé d’un coffre séparé de l’habitacle par une paroi étanche. Le coffre doit être muni d’une ventilation, de préférence mécanique permettant d’obtenir un taux de renouvellement de 5 volumes par heure. À défaut, le coffre doit être muni de deux grilles d’aération positionnées de part et d’autre du véhicule pour permettre un brassage de l’air dans le coffre et limiter la concentration de polluants.
+Compte tenu des risques encourus par cette exposition pour les personnels, il est conseillé de limiter le déplacement des DASRI lorsque cela est possible et de les faire traiter directement par les chambres funéraires et mortuaires par un système de mutualisation.
+Les équipements mis à disposition doivent être précisés dans les plans de prévention.
+Préconisations sur la poubelle DASRI (en dépression/à proximité de la bouche d’extraction)
+Les polluants émis en surface de la poubelle DASRI doivent également être captés pour éviter le dégazage de formaldéhyde ou de tout autre produit chimique dans le local. En effet la contribution de ces déchets à la pollution ambiante est importante. Une mesure très efficace pour remédier à cette pollution consiste à installer des poubelles ventilées, l’extraction des polluants (anneau d’aspiration) placée sur la partie supérieure de la poubelle.
+
+50
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+VII.Préconisations techniques adaptées aux futurs établissements
+Dispositions et aménagement des locaux (surfaces, matières, dispositifs d’évacuation, de ventilation)
+Les structures à venir doivent prendre en compte l’évolution des pratiques, des réglementations et des habitudes, sans oublier les difficultés financières que connaissent de plus en plus d’entreprises ou d’hôpitaux. Il convient de simplifier la partie technique non en la réduisant à son plus simple appareil, mais en accentuant le confort et la sécurité de ses utilisateurs.
+La séparation des locaux
+La zone technique ou (partie technique) peut par exemple se décliner en 3 parties : • Une salle de conservation
+• Une salle de soins
+• Une salle de toilette
+En effet, la mise en commun de ces locaux perturbe non seulement les flux des personnels mais également les flux des interventions entraînant des gênes et un ralentissement pour les interventions en cours notamment de thanatopraxie mais aussi lors des toilettes rituelles. Il est donc préconisé, a minima pour les aménagements futurs une séparation de la salle de soins et de la salle de toilette.
+Cela permet : • De faire plusieurs interventions simultanées • De ne pas gêner les rituels en cours • De donner la possibilité aux familles d’assister à la toilette sans déroger au fait que les familles ne puissent pas accéder aux zones techniques.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+51
+
+Exemple de plan de circulation - Chambre funéraire ou mortuaire
+Accès Familles Accès réservés aux Professionnels
+
+Couloir famille
+
+Bloc sanitaire
+
+Salon de présentation
+
+Salon 2
+
+Salon 3
+
+Salle de cérémonie
+
+Couloir technique
+
+Salle de soins de thanatopraxie
+
+Salle de conservation des défunts
+
+Salle de toilette
+
+Bloc sanitaire
+
+Cellules réfrigérées
+
+Bloc sanitaire
+
+52
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Préconisations pour la salle de soins
+La salle de soins est identifiée par une signalétique plastifiée et lisible indiquée par la mention SALLE DE SOINS.
+
+• Une zone sanitaire permettra aux thanatopracteurs de se changer, prendre une douche et déposer leurs affaires dans un vestiaire.
+• Toutes les ouvertures en verre sont opacifiées pour rendre impossible la vue de l’intérieur de la salle de soins par une tierce personne de l’extérieur.
+• La salle de soins accueille une seule intervention à la fois.
+• L’ensemble des systèmes est couplé à un seul module de commande (interrupteur ou détecteur) avec une temporisation de plusieurs minutes après extinction de la lumière pour assainir complètement l’air dans le local.
+• Les interrupteurs et les prises sont étanches et installées réglementairement.
+• Un éclairage à panneaux LED. C’est un dispositif économique qui évite aussi l’entretien technique sur une longue période. Ce type d’éclairage est apprécié des thanatopracteurs car la zone d’éclairage permet la dissection et sécurise l’emploi des piquants tranchants par une bonne vision du champ opératoire. Ceci limite les 2 facteurs d’accidentologie prédominants chez les thanatopracteurs que sont les TMS (troubles musculo squelettiques) et les blessures par les piquants tranchants.
+• L’unité d’hygiène est installée pour assurer l’entretien de la zone.
+• Un revêtement au sol de type balatum adapté aux passages intensifs et aux lavages à grandes eaux. Il doit être conçu pour résister aux produits chimiques de décontamination.
+• Les carrelages muraux disparaissent au profit de revêtements lessivables et résistants aux chocs des équipements de manutention mobiles. Un renfort de protection pourrait être envisagé pour soutenir les parties basses des murs et cloisons (jusqu’à 1.5 mètres).
+• Un siphon à panier démontable est disposé pour évacuer les eaux de lavage de la salle.
+• La salle de soins est équipée pour récupérer tous les DASRI issus des soins (DASRI mous, DASRI liquides et piquants tranchants). L’opérateur participera aux frais de collecte et de transports définis par une convention proposée par le gestionnaire, le but étant de ne plus avoir de DASRI en transit permanent sur les routes. Ceci limite le risque de contaminations des personnels et des véhicules, ainsi que les TMS lors des déchargements des fûts hors des véhicules.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+53
+
+L’approche technique de la salle de soins est simplifiée :
+Une salle de soins moderne, épurée qui prend en compte les facteurs de risques liés à la dangerosité du poste de travail, mais qui reste sensible aux approches économiques et structurelles de l’établissement accueillant. D’une superficie de 12 m2, son mobilier est nettement plus compact. Ce nouveau concept concentre tous les systèmes techniques :
+La table de soins tout en un
+
+Équipée d’une table solidement fixée au sol :
+Une table fixée solidement au sol diminue les risques d’accidents musculaires et tendineux des professionnels. Certaines tables offrent une possibilité de rotation sur un axe central qui facilite les transferts des corps sur un autre équipement.
+Équipée d’une table à hauteur réglable :
+Cette fonctionnalité permet d’adapter la hauteur du corps à la morphologie de l’intervenant. et répond ainsi aux préconisations des ergonomes ou de la médecine du travail. Le dispositif peut être soit manuel ou électrique en fonction des choix du gestionnaire
+Équipée d’une table avec aspiration à la source
+La table est équipée d’un système visant à améliorer le confort olfactif des intervenants sur des cas particulièrement odorants. Il convient d’adapter un système d’aspiration à la source directement à la table.
+La table peut donc à elle seule, remédier à un certain nombre de situations à risque et augmenter ainsi le confort et la sécurité des postes de travail. Elle entraîne la fin des unités de lavages, des bidets et autre équipement satellitaire.
+
+54
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Équipée d’un évier eau chaude et eau froide à tube surverse :
+L’évier encastrable concentre l’arrivée des fluides et de leurs évacuations en un seul et même point, l’évier à tube surverse permet également la suppression du bac à désinfection. (économie d’achat du bac et résolution du problème de son stockage et de son entretien)
+Équipée d’une robinetterie à commande non manuelle :
+Préconisée par cellule infrarouge ou commande au pied ou commande au coude, cette conception ferait chuter les risques de contamination par contact, puisque l’opérateur ne touche plus à la robinetterie.
+Équipée d’un flexible avec sa douchette :
+Son tuyau, adapté à la longueur permettant de laver un corps lui donne une autonomie intéressante sans gêner personne, l’arrivée d’eau ayant déjà été anticipé pour l’évier incorporé.
+La table élévatrice avec évacuation à la source
+Table avec une aspiration à la source fixée au sol ou sur 4 roues avec blocage, elle est réglable en hauteur, proclive et déclive pour faciliter l’évacuation des écoulements du corps, et faciliter la dépose et l’évacuation du corps.
+
+Une table élévatrice sans évier, mais avec une évacuation sous le plateau via un tuyau extensible directement dirigé vers le siphon de sol. Pour nettoyer le plateau on peut utiliser la centrale d’hygiène (avec son tuyau de 10 m minimum).
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+55
+
+La salle de toilettes
+Ce local adapté permet notamment d’accomplir les toilettes rituelles dans de bonnes conditions tout en respectant les impératifs liés à la zone technique.
+La salle de toilette doit répondre à plusieurs exigences :
+• Être fonctionnelle, donc équipée du nécessaire pour que la toilette puisse se dérouler dans les meilleures conditions possibles.
+• Être en partie autonome pour une gestion des flux des personnels et des familles sans déroger aux impératifs réglementaires définis pour la zone technique.
+• Un accès direct sur l’extérieur est aménagé pour permettre aux membres de la famille de venir participer à la toilette rituelle sans enfreindre la réglementation qui régit la zone technique.
+• La salle de toilette est identifiée par une signalétique plastifiée et lisible indiqué par la mention « SALLE DE TOILETTES - Accès réglementé »
+• Toutes les ouvertures en verre sont opacifiées pour rendre impossible la vue de l’intérieur de la salle de soins par une tierce personne de l’extérieur.
+• Une zone sanitaire permet aux toiletteurs de se changer, prendre une douche et déposer leurs affaires dans un vestiaire.
+• Une table de préparation des corps fixée au sol, et équipée d’un tuyau d’évacuation pour récupérer les eaux de lavage des corps.
+
+• La table est agrémentée de clayettes pour surélever le corps et permettre aux eaux sales de s’écouler sous le défunt.
+
+56
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+• Une table sur 4 roues avec blocage, réglable en hauteur avec proclive déclive pour faciliter l’évacuation des écoulements du corps, et faciliter la dépose et l’évacuation du corps, sans aspiration,
+
+• Un meuble bac double, avec un grand évier, et un bac évier latéral pour la récupération des eaux de la table de toilette, la robinetterie eau chaude eau froide, et le flexible avec sa douchette.
+• La salle de toilette est équipée pour récupérer tous les DASRI issus des toilettes (DASRI mous et piquants tranchants).
+• Les carrelages muraux disparaissent au profit de revêtements lessivables et résistants aux chocs des équipements de manutention mobiles. Un renfort de protection peut être envisagé pour soutenir les parties basses des murs et cloisons (jusqu’à 1.5 mètres).
+• Un revêtement au sol de type balatum adapté aux passages intensifs et aux lavages à grandes eaux. Il doit être conçu pour résister aux produits chimiques de décontamination.
+• Un éclairage à panneaux LED, dispositif économique, qui évite aussi l’entretien technique sur une longue période.
+• Les interrupteurs et les prises sont étanches et placés réglementairement.
+• La station d’hygiène est installée pour assurer l’entretien de la zone.
+• Un siphon de sol et son panier démontable qui permet le rinçage et la désinfection d’une salle très humide.
+• La salle de toilettes dispose d’un chauffage à bain d’huile pour ne pas descendre sous 17 °C.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+57
+
+Conclusion
+Ce guide a été réalisé sous l’égide de la Direction Générale des Collectivités Locales, fort des contributions de la Direction Générale du Travail ; de la Direction Générale de la Santé ; de la Caisse Régionale Maladie d’Île de France ; de la Direction Régionale des Entreprises, de la Concurrence, de la Consommation, du Travail et de l’Emploi ; de l’Agence Nationale de Sécurité Sanitaire de l’Alimentation, de l’Environnement et du Travail et des membres du Conseil National des Opérations Funéraires.
+Ces recommandations trouvent particulièrement écho dans le contexte de l’épidémie de covid-19 et d’état d’urgence sanitaire dans lequel est finalisé ce manuel. Il a ainsi vocation à être diffusé le plus largement et rapidement possible, et approprié par l’ensemble des parties prenantes.
+
+58
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Annexe 1 - Normes existantes relatives aux chambres funéraires et aux chambres mortuaires
+● Dispositions générales CGCT R2223-67 à R2223-98 ● Dispositions générales CGCT D.2223-80 à D-2223-87 ● Arrêté du 7 mai 2001 relatif aux prescriptions techniques applicables aux chambres
+mortuaires des établissements de santé.
+Responsabilité de l’employeur
+
+L’employeur prend les mesures nécessaires pour assurer la sécurité et protéger la santé physique et mentale des travailleurs. Article L. 4121-1 du code du travail
+1° Des actions de prévention des risques professionnels ;
+2° Des actions d’information et de formation ;
+3° La mise en place d’une organisation et de moyens adaptés.
+L’employeur veille à l’adaptation de ces mesures pour tenir compte du changement des circonstances et tendre à l’amélioration des situations existantes.
+
+L’employeur met en œuvre les mesures prévues sur le fondement des principes généraux de prévention suivants Article L. 4121-2 du code du travail :
+1° Éviter les risques ;
+2° Évaluer les risques qui ne peuvent pas être évités ;
+3° Combattre les risques à la source ;
+4° Adapter le travail à l’homme, en particulier en ce qui concerne la conception des postes de travail ainsi que le choix des équipements de travail et des méthodes de travail et de production, en vue notamment de limiter le travail monotone et le travail cadencé et de réduire les effets de ceux-ci sur la santé ;
+5° Tenir compte de l’état d’évolution de la technique ;
+6° Remplacer ce qui est dangereux par ce qui n’est pas dangereux ou par ce qui est moins dangereux ;
+7° Planifier la prévention en y intégrant, dans un ensemble cohérent, la technique, l’organisation du travail, les conditions de travail, les relations sociales et l’influence des facteurs ambiants, notamment les risques liés au harcèlement moral, tel qu’il est défini à l’article L. 1152-1 ;
+8° Prendre des mesures de protection collective en leur donnant la priorité sur les mesures de protection individuelle ;
+9° Donner les instructions appropriées aux travailleurs.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+59
+
+L’employeur, compte tenu de la nature des activités de l’établissement, évalue les risques pour la santé et la sécurité des travailleurs, y compris dans le choix des procédés de fabrication, des équipements de travail, des substances ou préparations chimiques, dans l’aménagement ou le réaménagement des lieux de travail ou des installations et dans la définition des postes de travail. Article L. 4121-3 du code du travail.
+À la suite de cette évaluation, l’employeur met en œuvre les actions de prévention ainsi que les méthodes de travail et de production garantissant un meilleur niveau de protection de la santé et de la sécurité des travailleurs. Il intègre ces actions et ces méthodes dans l’ensemble des activités de l’établissement et à tous les niveaux de l’encadrement.
+Responsabilité dans le cadre des plans de prévention
+Chaque chef d’entreprise est responsable de l’application des mesures de prévention nécessaires à la protection des travailleurs qu’il emploie. Article R. 4511-6 du code du travail.
+Pour les activités qui impliquent des agents biologiques pathogènes, l’employeur : Article R. 4424-5 du code du travail.
+1° Fournit aux travailleurs des moyens de protection individuelle, notamment des vêtements de protection appropriés ;
+2° Veille à ce que les moyens de protection individuelle soient enlevés lorsque le travailleur quitte le lieu de travail ;
+3° Fait en sorte, lorsqu’ils sont réutilisables, que les moyens de protection individuelle soient rangés dans un endroit spécifique, nettoyés, désinfectés et vérifiés avant et après chaque utilisation et, s’il y a lieu, réparés ou remplacés ;
+4° Met à la disposition des travailleurs des installations sanitaires appropriées, un dispositif de lavage oculaire et des antiseptiques pour la peau ainsi que, s’il y a lieu, des collyres prescrits par le médecin du travail ;
+5° Pour les activités impliquant le prélèvement, la manipulation et le traitement d’échantillons d’origine humaine ou animale, met au point des procédures et met à disposition des travailleurs des matériels adaptés visant à minimiser les risques de contamination.
+Les dispositions du présent titre s’appliquent au chef de l’entreprise utilisatrice et au chef de l’entreprise extérieure lorsqu’une entreprise extérieure fait intervenir des travailleurs pour exécuter ou participer à l’exécution d’une opération, quelle que soit sa nature, dans un établissement d’une entreprise utilisatrice, y compris dans ses dépendances ou chantiers. Article R. 4511-1 du code du travail.
+
+60
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Le chef de l’entreprise utilisatrice assure la coordination générale des mesures de prévention qu’il prend et de celles que prennent l’ensemble des chefs des entreprises extérieures intervenant dans son établissement. Article R. 4511-5 du code du travail. Chaque chef d’entreprise est responsable de l’application des mesures de prévention nécessaires à la protection des travailleurs qu’il emploie. Article R. 4511-6 du code du travail.
+Réglementation relative aux établissements recevant du public (ERP)
+● code de la construction et de l’habitation A. 123-2 à R. 123-17. ● Définition et application des règles de sécurité relative aux ERP : conception du bâtiment,
+dispositifs d’alarme et plan d’évacuation, registre de sécurité R. 123-51, accessibilité R.111-19-7 à R.111-19-12, contrôles et sanctions (contrôle des installations électriques, des moyens de secours et de sécurité incendie, des portes et portails…).
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+61
+
+Annexe 2 – Proposition d’un modèle de règlement d’accès aux parties techniques.
+Les parties techniques d’une chambre funéraire/mortuaire sont le lieu de travail des professionnels du funéraire. Le gestionnaire de ces locaux a la responsabilité de réguler les interventions de chacun dans le respect des différentes réglementations pour garantir des conditions de travail optimales.
+
+Accès
+
+L’accès des parties techniques est autorisé sous condition d’acceptation de ce présent règlement.
+Les professionnels du funéraire : agent de chambre funéraire, ambulancier, porteur, chauffeur porteur, maître de cérémonie, conseiller funéraire, toiletteur, thanatopracteur sont autorisés à accéder à ces locaux techniques. Les autorités publiques, policier, maire… sont également autorisées. Les officiants cultuels sont également autorisés.
+En dehors des catégories énoncées, il appartiendra au gestionnaire d’autoriser l’accès au cas par cas selon les demandes particulières.
+
+Régulation
+
+Chaque intervention fait l’objet d’une prise de rendez-vous avec le gestionnaire. Le gestionnaire a pour but de prendre en compte le temps nécessaire à l’intervention et de noter de manière précise : la date, le nom de l’intervenant, l’entreprise mandatée, le type d’intervention, l’heure du début de l’intervention et l’heure de fin d’intervention.
+Les intervenants veillent à respecter les créneaux horaires convenus préalablement avec le gestionnaire pour éviter de perturber les horaires de fonctionnement des établissements, et la rotation des opérations.
+
+Hygiène
+
+Le gestionnaire a la responsabilité de l’hygiène des locaux et des équipements. Le gestionnaire est attentif aux demandes des intervenants et veille à leur fournir des mobiliers conformes, sécurisés, et adaptés à leurs missions.
+Les intervenants sont dans l’obligation d’utiliser leurs EPI.
+
+Officiants cultuels
+
+Des rites mortuaires sont possibles dans les parties techniques mais ces locaux ne sont pas des lieux de rassemblement cultuels. Le nombre des intervenants est limité à 3 personnes.
+
+Nom : Prénom : Entreprise : Fonction :
+
+à le
+Signature
+
+62
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+Utilisation des parties techniques L’utilisation des parties techniques par les prestataires peut faire l’objet d’un contrat de mise à disposition prévoyant différentes modalités notamment :
+• La mise à disposition du local pour une certaine durée. • la mise à disposition d’EPI. • Les modalités de nettoyage et de désinfection. • Les modalités de gestion des DASRI.
+Ce contrat peut faire l’objet d’une facturation entre le gestionnaire et le prestataire intervenant dans les parties techniques de la chambre mortuaire ou funéraire.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+63
+
+Annexe 3 – Liens web vers de la documentation spécialisée
+● Tableaux des maladies professionnelles Base de données INRS.
+● Principes généraux de ventilation Guide pratique de ventilation, ED 695, INRS, 2015.
+● Incendie et lieu de travail. Prévention et lutte contre le feu ED 990, INRS, 2007.
+● Élimination des sources d’inflammation dans les zones à risque d’explosion, ED 6183, INRS, 2014.
+● Quels vêtements de protection contre les risques chimiques ? ED 127, INRS, 2015.
+● Des gants contre les risques chimiques Fiche pratique de sécurité, ED 112, INRS, 2003.
+● Les équipements de protection individuelle des yeux et du visage Choix et utilisation, ED 798, INRS, 2009.
+● Les appareils de protection respiratoire. Choix et utilisation, ED 6106, INRS, 2018.
+● Conduite à tenir en cas d’accident avec exposition au sang (AES) A 775, INRS, 2018.
+● Déchets infectieux. Élimination des DASRI et assimilés ED 918, INRS, 2018.
+● Le transport des matières, dangereuses. L’ADR en question, ED 6134, INRS, 2012.
+● Définition réglementaire d’un agent chimique dangereux : R4412-3 Code du travail.
+● Risques chimiques Dossier Web INRS.
+● Arrêté du 13 juillet 2006 modifiant l’arrêté du 5 janvier 1993 fixant la liste des substances, préparations et procédés cancérogènes au sens du deuxième alinéa de l’article R.231-56 du Code du travail
+● Risque chimique : fiche ou notice de poste, ED 6027, INRS, 2018.
+● Contrôle du risque chimique sur les lieux de travail. Circulaire 2010-2003 du 13 avril 2010 DGT.
+● Mesure des expositions aux agents chimiques et biologiques Dossier Web INRS.
+● Valeurs limites d’exposition professionnelle aux agents chimiques en France Aide-mémoire technique, ED 984, INRS, 2016.
+● Mise à disposition sur le marché et l’utilisation des produits biocides. n° 528/2012 Règlement (UE).
+
+64
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+● Produits biocides Ministère chargé de l’environnement, 2016.
+● La thanatopraxie : état des pratiques et risques professionnels, INRS, 2005.
+● Controlling Formaldehyde Exposures During Embalming Number 98-149, NIOSH 1998.
+● Aldéhyde formique et solutions aqueuses. Fiche toxicologique n° 7 INRS, 2011.
+● Méthanol. Fiche toxicologique n° 5 INRS, 2018.
+● IARC monograph on the evaluation of carcinogenic risks to humans, Volume 88 (2006). Formaldehyde, 2-Butoxyethanol and 1-tert-Butoxypropan-2-ol
+● Répertoire toxicologique de la Commission des normes, de l’équité, de la santé et de la sécurité du travail (CNESST) du Québec.
+● Évaluation de la vitesse d’évaporation et de la concentration d’un composé organique volatil dans l’atmosphère d’un local de travail, INRS, 2009.
+● Recommandations pour les conditions d’exercice de la thanatopraxie, Collection Avis et Rapports, Haut Conseil de la Santé Publique, 2012
+● Arrêté du 10 juillet 2013 relatif à la prévention des risques biologiques auxquels sont soumis certains travailleurs susceptibles d’être en contact avec des objets perforants.
+● Arrêté du 9 octobre 2013 relatif aux conditions d’exercice de l’activité d’utilisateur professionnel et de distributeur de certains types de produits biocides.
+● Valeurs limites d’exposition à des agents chimiques en milieu professionnel. Évaluation des effets sur la santé et des méthodes de mesure des niveaux d’exposition sur le lieu de travail pour le formaldéhyde Avis de l’ANSES. Rapport d’expertise collective, Anses, Février 2018.
+● Risques chimiques et biologiques en thanatopraxie : cadre réglementaire et mesures de prévention Hygiène et Sécurité du Travail N° 258, INRS, Mars 2020.
+● Alternatives au formaldéhyde en thanatopraxie. Avis de l’Anses, Rapport d’expertise collective, Anses, Mars 2020.
+
+Guide de recommandations relatif aux parties techiques des chambres funéraires et mortuaires. Juin 2020
+
+65
+
+

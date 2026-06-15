@@ -1,15 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-// ─── PALETTE ──────────────────────────────────────────────────────────────────
-// Aucune teinte bleue dans les textes.
-// Texte primaire  : #f0ece6 (blanc chaud)
-// Texte secondaire: #b8b4ae (gris neutre clair)
-// Texte atténué   : #888480 (gris moyen)
-// Texte faint     : #666260 (gris foncé)
-// Accent or       : #c9a84c / #e0c060
-// Fond principal  : #0c1018 (charbon)
-// Fond carte      : #111118 (neutre sombre)
-
+// ─── CATÉGORIES ───────────────────────────────────────────────────────────────
 const CATEGORIES = [
   { icon: "🏛️", label: "Concessions funéraires",  query: "Quelles sont les règles applicables aux concessions funéraires : durée, renouvellement et procédure de reprise par la commune ?" },
   { icon: "🚐", label: "Transport de corps",       query: "Quelles sont les obligations légales pour le transport de corps avant et après mise en bière, notamment les autorisations requises ?" },
@@ -25,55 +16,7 @@ const CATEGORIES = [
   { icon: "🤝", label: "Droits de la famille",     query: "Qui est prioritaire pour l'organisation des funérailles en cas de conflit familial ? Quelle est la hiérarchie légale et la jurisprudence applicable ?" },
 ];
 
-const SYSTEM_PROMPT = `Tu es un expert juridique de haut niveau, spécialisé exclusivement en droit funéraire français et en droit du cimetière. Tu assistes des professionnels des pompes funèbres (directeurs, maîtres de cérémonies, responsables d'exploitation) dans la compréhension et l'application de la législation funéraire.
-
-## Domaines de compétence
-
-Tu maîtrises parfaitement :
-- Le Code Général des Collectivités Territoriales (CGCT), Livre II Titre II Chapitre III (Art. L2223-1 à L2223-45) et les décrets d'application (Art. R2223-1 et suivants)
-- Les circulaires et instructions de la Direction Générale des Collectivités Locales (DGCL)
-- Le décret n°2012-608 du 30 avril 2012 relatif aux diplômes dans le secteur funéraire
-- L'arrêté du 23 août 2010 fixant les modèles de devis funéraires
-- Le décret n°95-330 du 21 mars 1995 réglementant les conditions d'exercice de l'activité des pompes funèbres
-- Les arrêtés relatifs au transport de corps (avant et après mise en bière)
-- La loi du 19 décembre 2008 relative à la législation funéraire
-- La réglementation sur les soins de conservation (thanatopraxie)
-- Les textes sur la crémation (loi du 19 décembre 2008, décret du 12 mars 2007)
-- La réglementation sur les cendres funéraires (loi du 19 décembre 2008)
-- Les procédures d'exhumation (réglementaires, judiciaires, familiales)
-- Le droit des concessions funéraires (durée, renouvellement, état d'abandon, reprise)
-- La jurisprudence administrative (Conseil d'État, Cours administratives d'appel, Tribunaux administratifs) et judiciaire en matière funéraire
-- Les règlements communaux de cimetières et la police des funérailles
-- La réglementation OPQUESP et les conditions d'habilitation
-- Les droits et obligations des familles et les conflits de préséance
-
-## Format de réponse OBLIGATOIRE
-
-Structure chaque réponse ainsi :
-
-**1. Réponse directe** (2-3 phrases synthétiques au début)
-
-**2. Développement juridique** avec :
-- Les textes applicables cités précisément : "Art. L2223-XX CGCT" / "Art. R2223-XX CGCT"
-- Les circulaires avec numéro NOR et date : "Circ. DGCL NOR: INTB0000XXX du JJ/MM/AAAA"
-- Les décrets avec numéro et date : "Décret n°XX-XXX du JJ/MM/AAAA"
-- La jurisprudence pertinente : "CE, JJ/MM/AAAA, req. n°XXXXXX" ou "CAA [ville], JJ/MM/AAAA"
-
-**3. Point(s) de vigilance pratique** (signalés avec ⚠️) si la situation présente des risques ou ambiguïtés
-
-**4. Si nécessaire** : mentionner explicitement si une consultation de la préfecture ou d'un avocat spécialisé est recommandée
-
-## Règles absolues
-- Cite toujours les sources juridiques précises, jamais de généralités sans référence
-- Signale clairement les zones d'incertitude juridique ou d'interprétation divergente entre juridictions
-- Distingue le droit en vigueur des pratiques admises sans base légale explicite
-- Tu ne traites QUE les questions de droit funéraire français et droit du cimetière
-- Tes réponses ont valeur informative et ne remplacent pas un conseil juridique personnalisé
-
-Réponds uniquement en français, avec rigueur et précision professionnelle.`;
-
 // ─── RENDU MARKDOWN ───────────────────────────────────────────────────────────
-
 function splitWithPatterns(text) {
   const combined = /(\*\*(.+?)\*\*|\*(.+?)\*|(Art\.\s[LR]\d{4}-\d+(?:-\d+)?(?:\s[A-Z])?|CGCT|DGCL|Circ\.\s[A-Z]+|Décret\sn°[\d-]+|loi\sdu\s[\d/]+|NOR\s?:\s?[\w]+|OPQUESP|L\.\s2223-\d+|R\.\s2223-\d+))/g;
   const result = [];
@@ -136,13 +79,34 @@ function parseResponse(text) {
   });
 }
 
-// ─── COMPOSANT PRINCIPAL ──────────────────────────────────────────────────────
+// ─── COMPOSANT SOURCES ────────────────────────────────────────────────────────
+function Sources({ sources }) {
+  if (!sources || sources.length === 0) return null;
+  return (
+    <div style={{
+      marginTop: "0.9rem",
+      borderTop: "1px solid rgba(201,168,76,0.15)",
+      paddingTop: "0.65rem"
+    }}>
+      <div style={{ fontSize: "0.68rem", color: "#888480", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.4rem" }}>
+        Documents consultés
+      </div>
+      {sources.map((s, i) => (
+        <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.4rem", marginBottom: "0.2rem" }}>
+          <span style={{ color: "#c9a84c", fontSize: "0.75rem" }}>›</span>
+          <span style={{ color: "#a09890", fontSize: "0.8rem" }}>{s.title || s.filename}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
+// ─── COMPOSANT PRINCIPAL ──────────────────────────────────────────────────────
 export default function LexFuneraire() {
-  const [question, setQuestion]         = useState("");
-  const [messages, setMessages]         = useState([]);
-  const [isLoading, setIsLoading]       = useState(false);
-  const [error, setError]               = useState(null);
+  const [question, setQuestion]             = useState("");
+  const [messages, setMessages]             = useState([]);
+  const [isLoading, setIsLoading]           = useState(false);
+  const [error, setError]                   = useState(null);
   const [showCategories, setShowCategories] = useState(false);
   const messagesEndRef = useRef(null);
   const textareaRef    = useRef(null);
@@ -157,37 +121,46 @@ export default function LexFuneraire() {
     textareaRef.current?.focus();
   };
 
-const handleSubmit = async () => {
-  if (!question.trim() || isLoading) return;
-  const userMessage  = { role: "user", content: question.trim() };
-  const newMessages  = [...messages, userMessage];
-  setMessages(newMessages);
-  setQuestion("");
-  setIsLoading(true);
-  setError(null);
-  if (textareaRef.current) textareaRef.current.style.height = "auto";
+  const handleSubmit = async () => {
+    if (!question.trim() || isLoading) return;
 
-  try {
-    const res = await fetch("/api/claude", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: question.trim() }),
-    });
+    const userMessage = { role: "user", content: question.trim() };
+    const newMessages = [...messages, userMessage];
+    setMessages(newMessages);
+    setQuestion("");
+    setIsLoading(true);
+    setError(null);
+    if (textareaRef.current) textareaRef.current.style.height = "auto";
 
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    try {
+      // ✅ CORRIGÉ : endpoint /api/ask + champ "question" + historique
+      const res = await fetch("/api/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question: userMessage.content,
+          history: messages   // historique des messages précédents
+        }),
+      });
 
-    const data = await res.json();
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-    const txt = data.answer || "Réponse indisponible.";
+      const data = await res.json();
+      const txt = data.answer || "Réponse indisponible.";
 
-    setMessages([...newMessages, { role: "assistant", content: txt }]);
-  } catch {
-    setError("Erreur de connexion. Veuillez réessayer.");
-    setMessages(newMessages.slice(0, -1));
-  } finally {
-    setIsLoading(false);
-  }
-};
+      setMessages([...newMessages, {
+        role: "assistant",
+        content: txt,
+        sources: data.sources || []   // ✅ NOUVEAU : sources documentaires
+      }]);
+
+    } catch {
+      setError("Erreur de connexion. Veuillez réessayer.");
+      setMessages(newMessages.slice(0, -1));
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleKey   = (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSubmit(); } };
   const handleReset = () => { setMessages([]); setError(null); setQuestion(""); setShowCategories(false); };
@@ -197,174 +170,76 @@ const handleSubmit = async () => {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
-
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { background: #0c1018; height: 100%; }
 
-        /* ── APP ── */
-        .lf-app {
-          height: 100vh; display: flex; flex-direction: column;
-          background: #0c1018;
-          font-family: 'Crimson Pro', Georgia, serif;
-          color: #d8d4d0;           /* blanc chaud — base générale */
-        }
-
-        /* ── HEADER ── */
-        .lf-header {
-          background: #111118;
-          border-bottom: 1px solid #242430;
-          padding: 0 1.5rem; height: 56px;
-          display: flex; align-items: center; gap: 0.9rem; flex-shrink: 0;
-        }
-        .lf-logo {
-          width: 36px; height: 36px;
-          background: linear-gradient(135deg, #b89040, #e0c060);
-          border-radius: 8px; display: flex; align-items: center; justify-content: center;
-          font-size: 1.1rem; flex-shrink: 0;
-          box-shadow: 0 2px 8px rgba(184,144,64,0.25);
-        }
-        .lf-brand   { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; font-weight: 700; color: #f0ece6; letter-spacing: 0.01em; }
+        .lf-app { height: 100vh; display: flex; flex-direction: column; background: #0c1018; font-family: 'Crimson Pro', Georgia, serif; color: #d8d4d0; }
+        .lf-header { background: #111118; border-bottom: 1px solid #242430; padding: 0 1.5rem; height: 56px; display: flex; align-items: center; gap: 0.9rem; flex-shrink: 0; }
+        .lf-logo { width: 36px; height: 36px; background: linear-gradient(135deg, #b89040, #e0c060); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; box-shadow: 0 2px 8px rgba(184,144,64,0.25); }
+        .lf-brand { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; font-weight: 700; color: #f0ece6; letter-spacing: 0.01em; }
         .lf-tagline { font-size: 0.72rem; color: #989490; letter-spacing: 0.07em; text-transform: uppercase; font-style: italic; }
-
         .lf-header-actions { display: flex; gap: 0.5rem; align-items: center; margin-left: auto; }
-        .lf-badge {
-          background: rgba(184,144,64,0.08); border: 1px solid rgba(184,144,64,0.25);
-          color: #c9a84c; font-size: 0.68rem; padding: 0.25rem 0.65rem;
-          border-radius: 20px; letter-spacing: 0.08em; text-transform: uppercase;
-        }
-        .lf-icon-btn {
-          background: transparent; border: 1px solid #242430;
-          color: #989490;                       /* gris neutre */
-          border-radius: 6px; cursor: pointer; padding: 0.3rem 0.6rem;
-          font-size: 0.78rem; font-family: 'Crimson Pro', serif;
-          transition: all 0.15s; display: flex; align-items: center; gap: 0.3rem;
-        }
+        .lf-badge { background: rgba(184,144,64,0.08); border: 1px solid rgba(184,144,64,0.25); color: #c9a84c; font-size: 0.68rem; padding: 0.25rem 0.65rem; border-radius: 20px; letter-spacing: 0.08em; text-transform: uppercase; }
+        .lf-icon-btn { background: transparent; border: 1px solid #242430; color: #989490; border-radius: 6px; cursor: pointer; padding: 0.3rem 0.6rem; font-size: 0.78rem; font-family: 'Crimson Pro', serif; transition: all 0.15s; display: flex; align-items: center; gap: 0.3rem; }
         .lf-icon-btn:hover { border-color: #c9a84c; color: #c9a84c; }
 
-        /* ── BODY ── */
-        .lf-body  { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
+        .lf-body { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
         .lf-inner { max-width: 820px; width: 100%; margin: 0 auto; padding: 0 1.25rem; flex: 1; display: flex; flex-direction: column; }
 
-        /* ── WELCOME ── */
-        .lf-welcome      { padding: 2.5rem 0 1.5rem; text-align: center; animation: lf-in 0.5s ease; }
+        .lf-welcome { padding: 2.5rem 0 1.5rem; text-align: center; animation: lf-in 0.5s ease; }
         .lf-welcome-title { font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; font-weight: 700; color: #f0ece6; }
         .lf-welcome-title span { color: #c9a84c; font-style: italic; }
-        .lf-rule   { width: 48px; height: 1.5px; background: linear-gradient(90deg, transparent, #c9a84c, transparent); margin: 1rem auto; }
-        .lf-welcome-sub  { color: #989490; font-size: 1rem; font-style: italic; line-height: 1.7; max-width: 460px; margin: 0 auto; }
+        .lf-rule { width: 48px; height: 1.5px; background: linear-gradient(90deg, transparent, #c9a84c, transparent); margin: 1rem auto; }
+        .lf-welcome-sub { color: #989490; font-size: 1rem; font-style: italic; line-height: 1.7; max-width: 460px; margin: 0 auto; }
 
-        /* ── CATÉGORIES ── */
-        .lf-cats-label {
-          font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-          color: #888480;               /* gris neutre — plus de bleu */
-          margin: 1.5rem 0 0.6rem; font-family: 'Crimson Pro', serif;
-        }
+        .lf-cats-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888480; margin: 1.5rem 0 0.6rem; font-family: 'Crimson Pro', serif; }
         .lf-cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 0.55rem; animation: lf-in 0.4s ease; }
-        .lf-cat {
-          background: #111118; border: 1px solid #242430; border-radius: 8px;
-          padding: 0.65rem 0.8rem; cursor: pointer;
-          display: flex; align-items: center; gap: 0.55rem;
-          color: #c0bcb8;               /* gris clair neutre — plus de bleu */
-          font-family: 'Crimson Pro', serif; font-size: 0.88rem;
-          transition: all 0.18s; text-align: left;
-        }
+        .lf-cat { background: #111118; border: 1px solid #242430; border-radius: 8px; padding: 0.65rem 0.8rem; cursor: pointer; display: flex; align-items: center; gap: 0.55rem; color: #c0bcb8; font-family: 'Crimson Pro', serif; font-size: 0.88rem; transition: all 0.18s; text-align: left; }
         .lf-cat:hover { background: #1c1c24; border-color: rgba(201,168,76,0.4); color: #f0ece6; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
         .lf-cat-ico { font-size: 1rem; flex-shrink: 0; }
 
-        /* ── MESSAGES ── */
         .lf-msgs { flex: 1; display: flex; flex-direction: column; gap: 1.1rem; padding: 1.2rem 0; }
-        .lf-msg  { display: flex; gap: 0.75rem; animation: lf-up 0.25s ease; }
+        .lf-msg { display: flex; gap: 0.75rem; animation: lf-up 0.25s ease; }
         .lf-msg.user { flex-direction: row-reverse; }
-
         .lf-av { width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 0.15rem; font-size: 0.8rem; font-weight: 700; }
-        .lf-av.ai  { background: linear-gradient(135deg, #b89040, #d4aa50); color: #0c1018; }
-        .lf-av.usr { background: #242430; color: #e8e4e0; border: 1px solid #343440; } /* neutre, pas de bleu */
-
+        .lf-av.ai { background: linear-gradient(135deg, #b89040, #d4aa50); color: #0c1018; }
+        .lf-av.usr { background: #242430; color: #e8e4e0; border: 1px solid #343440; }
         .lf-bubble { max-width: 82%; padding: 0.9rem 1.1rem; border-radius: 10px; font-size: 0.92rem; line-height: 1.7; }
-        .lf-bubble.ai  { background: #111118; border: 1px solid #242430; border-top-left-radius: 2px; }
-        .lf-bubble.usr {
-          background: linear-gradient(135deg, #1c1c26, #242432);  /* neutre sombre — plus de bleu électrique */
-          border: 1px solid rgba(201,168,76,0.15); border-top-right-radius: 2px;
-          color: #f0ece6;               /* blanc chaud */
-          font-style: italic;
-        }
+        .lf-bubble.ai { background: #111118; border: 1px solid #242430; border-top-left-radius: 2px; }
+        .lf-bubble.usr { background: linear-gradient(135deg, #1c1c26, #242432); border: 1px solid rgba(201,168,76,0.15); border-top-right-radius: 2px; color: #f0ece6; font-style: italic; }
 
-        /* ── LOADING ── */
         .lf-typing { display: flex; gap: 0.75rem; animation: lf-up 0.2s ease; }
-        .lf-dots   { background: #111118; border: 1px solid #242430; border-radius: 10px; border-top-left-radius: 2px; padding: 0.85rem 1rem; display: flex; gap: 5px; align-items: center; }
-        .lf-dot    { width: 6px; height: 6px; background: #c9a84c; border-radius: 50%; animation: lf-pulse 1.3s ease infinite; }
+        .lf-dots { background: #111118; border: 1px solid #242430; border-radius: 10px; border-top-left-radius: 2px; padding: 0.85rem 1rem; display: flex; gap: 5px; align-items: center; }
+        .lf-dot { width: 6px; height: 6px; background: #c9a84c; border-radius: 50%; animation: lf-pulse 1.3s ease infinite; }
         .lf-dot:nth-child(2) { animation-delay: 0.18s; }
         .lf-dot:nth-child(3) { animation-delay: 0.36s; }
 
-        /* ── INPUT ── */
-        .lf-input-wrap {
-          position: sticky; bottom: 0; flex-shrink: 0;
-          background: linear-gradient(0deg, #0c1018 80%, rgba(12,16,24,0));
-          padding: 0.8rem 0 1rem;
-        }
+        .lf-input-wrap { position: sticky; bottom: 0; flex-shrink: 0; background: linear-gradient(0deg, #0c1018 80%, rgba(12,16,24,0)); padding: 0.8rem 0 1rem; }
         .lf-input-row { display: flex; background: #111118; border: 1px solid #242430; border-radius: 10px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
         .lf-input-row:focus-within { border-color: rgba(201,168,76,0.45); box-shadow: 0 0 0 3px rgba(201,168,76,0.06); }
-
-        .lf-cats-toggle {
-          background: transparent; border: none; border-right: 1px solid #242430;
-          color: #888480;               /* gris neutre */
-          cursor: pointer; padding: 0 0.85rem; font-size: 1rem;
-          transition: color 0.15s; flex-shrink: 0;
-        }
+        .lf-cats-toggle { background: transparent; border: none; border-right: 1px solid #242430; color: #888480; cursor: pointer; padding: 0 0.85rem; font-size: 1rem; transition: color 0.15s; flex-shrink: 0; }
         .lf-cats-toggle:hover { color: #c9a84c; }
-
-        .lf-textarea {
-          flex: 1; background: transparent; border: none;
-          color: #f0ece6;               /* blanc chaud — texte saisi */
-          font-family: 'Crimson Pro', Georgia, serif; font-size: 0.97rem;
-          resize: none; outline: none; padding: 0.75rem 0.85rem;
-          min-height: 46px; max-height: 130px; line-height: 1.55;
-        }
-        .lf-textarea::placeholder { color: #585450; font-style: italic; } /* gris foncé neutre */
-
-        .lf-send {
-          background: linear-gradient(135deg, #b89040, #d4aa50); border: none;
-          color: #0c1018; cursor: pointer; padding: 0 1.1rem; font-size: 0.9rem;
-          transition: all 0.18s; flex-shrink: 0; font-weight: 700;
-          display: flex; align-items: center; gap: 0.4rem;
-        }
+        .lf-textarea { flex: 1; background: transparent; border: none; color: #f0ece6; font-family: 'Crimson Pro', Georgia, serif; font-size: 0.97rem; resize: none; outline: none; padding: 0.75rem 0.85rem; min-height: 46px; max-height: 130px; line-height: 1.55; }
+        .lf-textarea::placeholder { color: #585450; font-style: italic; }
+        .lf-send { background: linear-gradient(135deg, #b89040, #d4aa50); border: none; color: #0c1018; cursor: pointer; padding: 0 1.1rem; font-size: 0.9rem; transition: all 0.18s; flex-shrink: 0; font-weight: 700; display: flex; align-items: center; gap: 0.4rem; }
         .lf-send:hover:not(:disabled) { background: linear-gradient(135deg, #c9a84c, #e0c060); }
         .lf-send:disabled { opacity: 0.3; cursor: not-allowed; }
 
         .lf-foot { display: flex; justify-content: center; align-items: center; gap: 0.8rem; margin-top: 0.45rem; flex-wrap: wrap; }
-        .lf-foot-txt { font-size: 0.7rem; color: #686460; font-style: italic; } /* gris moyen neutre */
-        .lf-src {
-          font-size: 0.68rem; background: rgba(36,36,48,0.6); border: 1px solid #2e2e3a;
-          color: #686460;               /* gris foncé neutre — plus de bleu */
-          padding: 0.15rem 0.5rem; border-radius: 10px; letter-spacing: 0.04em;
-        }
+        .lf-foot-txt { font-size: 0.7rem; color: #686460; font-style: italic; }
+        .lf-src { font-size: 0.68rem; background: rgba(36,36,48,0.6); border: 1px solid #2e2e3a; color: #686460; padding: 0.15rem 0.5rem; border-radius: 10px; letter-spacing: 0.04em; }
 
-        /* ── PANEL CATÉGORIES ── */
         .lf-cats-panel { background: #0e0e18; border: 1px solid #242430; border-radius: 10px; padding: 0.8rem; margin-bottom: 0.6rem; animation: lf-in 0.2s ease; }
-        .lf-panel-label {
-          font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
-          color: #888480;               /* gris neutre */
-          margin-bottom: 0.6rem;
-        }
+        .lf-panel-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888480; margin-bottom: 0.6rem; }
         .lf-panel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 0.45rem; }
-        .lf-panel-btn {
-          background: #111118; border: 1px solid #242430; border-radius: 7px;
-          padding: 0.5rem 0.65rem; cursor: pointer;
-          display: flex; align-items: center; gap: 0.45rem;
-          color: #c0bcb8;               /* gris clair neutre */
-          font-size: 0.82rem; font-family: 'Crimson Pro', serif;
-          transition: all 0.15s; text-align: left;
-        }
+        .lf-panel-btn { background: #111118; border: 1px solid #242430; border-radius: 7px; padding: 0.5rem 0.65rem; cursor: pointer; display: flex; align-items: center; gap: 0.45rem; color: #c0bcb8; font-size: 0.82rem; font-family: 'Crimson Pro', serif; transition: all 0.15s; text-align: left; }
         .lf-panel-btn:hover { border-color: rgba(201,168,76,0.4); color: #f0ece6; background: #1c1c24; }
-
-        /* ── ERREUR ── */
         .lf-error { background: rgba(180,60,60,0.08); border: 1px solid rgba(180,60,60,0.25); color: #d08080; border-radius: 8px; padding: 0.65rem 0.9rem; font-size: 0.88rem; margin-bottom: 0.5rem; }
 
-        /* ── ANIMATIONS ── */
-        @keyframes lf-in    { from { opacity: 0 }                         to { opacity: 1 } }
+        @keyframes lf-in    { from { opacity: 0 }                            to { opacity: 1 } }
         @keyframes lf-up    { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: translateY(0) } }
         @keyframes lf-pulse { 0%, 60%, 100% { opacity: 0.4; transform: scale(1) } 30% { opacity: 1; transform: scale(1.35) } }
-
-        ::-webkit-scrollbar       { width: 4px; }
+        ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #2e2e3a; border-radius: 2px; }
       `}</style>
@@ -401,7 +276,7 @@ const handleSubmit = async () => {
                 <div className="lf-rule" />
                 <p className="lf-welcome-sub">
                   Assistant juridique spécialisé pour les professionnels du secteur.<br />
-                  Réponses fondées sur le CGCT, les circulaires DGCL et la jurisprudence.
+                  Réponses fondées sur vos documents de référence (CGCT, guides DGCL, décrets).
                 </p>
                 <p className="lf-cats-label">Sujets fréquents — cliquez pour pré-remplir</p>
                 <div className="lf-cats">
@@ -423,7 +298,13 @@ const handleSubmit = async () => {
                       {msg.role === "assistant" ? "⚖" : "Q"}
                     </div>
                     <div className={`lf-bubble ${msg.role === "assistant" ? "ai" : "usr"}`}>
-                      {msg.role === "assistant" ? parseResponse(msg.content) : msg.content}
+                      {msg.role === "assistant"
+                        ? <>
+                            {parseResponse(msg.content)}
+                            <Sources sources={msg.sources} />
+                          </>
+                        : msg.content
+                      }
                     </div>
                   </div>
                 ))}
@@ -480,10 +361,10 @@ const handleSubmit = async () => {
             </div>
 
             <div className="lf-foot">
-              <span className="lf-foot-txt">Réponses à valeur informative · Ne remplace pas un avis juridique personnalisé</span>
+              <span className="lf-foot-txt">Réponses fondées sur vos documents · Ne remplace pas un avis juridique personnalisé</span>
               <span className="lf-src">CGCT</span>
               <span className="lf-src">DGCL</span>
-              <span className="lf-src">Jurisprudence</span>
+              <span className="lf-src">Décrets</span>
             </div>
           </div>
         </div>
