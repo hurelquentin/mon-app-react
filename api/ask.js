@@ -5,7 +5,6 @@
 import fs from "fs";
 import path from "path";
 
-// ─── MOTS VIDES FRANÇAIS ─────────────────────────────────────────────────────
 const STOP_WORDS = new Set([
   "le","la","les","de","du","des","un","une","et","est","en","que","qui",
   "dans","sur","pour","par","avec","sans","il","elle","ils","elles","je",
@@ -14,10 +13,9 @@ const STOP_WORDS = new Set([
   "etre","avoir","faire","quelles","quelle","quel","quels","comment",
   "pourquoi","quand","combien","lors","dont","leur","leurs","mais","or",
   "car","donc","cette","cet","ces","tout","tous","toute","toutes","bien",
-  "aussi","meme","comme","plus","moins","tres","selon","entre"
+  "aussi","meme","comme","moins","selon","entre"
 ]);
 
-// ─── CHARGEMENT DE L'INDEX AU DÉMARRAGE (cold start) ─────────────────────────
 let docs = [];
 try {
   const jsonPath = path.join(process.cwd(), "public", "data", "pdf-index.json");
@@ -28,15 +26,18 @@ try {
   console.error("[LexFunéraire] Erreur chargement pdf-index.json :", e.message);
 }
 
-// ─── RECHERCHE PAR MOTS-CLÉS ──────────────────────────────────────────────────
-function extractKeywords(text) {
+function normalizeText(text = "") {
   return text
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")   // supprime les accents pour le matching
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function extractKeywords(text = "") {
+  return normalizeText(text)
     .replace(/[^a-z\s-]/g, " ")
     .split(/\s+/)
-    .filter(w => w.length > 3 && !STOP_WORDS.has(w));
+    .filter((w) => w.length > 3 && !STOP_WORDS.has(w));
 }
 
 function searchDocs(question) {
@@ -44,37 +45,90 @@ function searchDocs(question) {
   if (keywords.length === 0) return [];
 
   return docs
-    .filter(doc => doc.content)
-    .map(doc => {
-      const content = doc.content
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-      // Score = nombre de mots-clés trouvés dans le document
+    .filter((doc) => doc.content)
+    .map((doc) => {
+      const content = normalizeText(doc.content);
       const score = keywords.reduce(
         (acc, kw) => acc + (content.includes(kw) ? 1 : 0),
         0
       );
       return { ...doc, score };
     })
-    .filter(doc => doc.score > 0)
+    .filter((doc) => doc.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 3); // ← Max 3 documents pour ne pas saturer le contexte IA
+    .slice(0, 3);
 }
 
-// ─── HANDLER PRINCIPAL ────────────────────────────────────────────────────────
+async function searchExternalSources(question) {
+  return [
+    {
+      title: "Légifrance",
+      url: `https://www.legifrance.gouv.fr/search/all?query=${encodeURIComponent(question)}`
+    },
+    {
+      title: "Résonance Funéraire",
+      url: `https://www.resonance-funeraire.com/recherche?q=${encodeURIComponent(question)}`
+    },
+    {
+      title: "Funéraire Magazine",
+      url: `https://www.google.com/search?q=site%3Afuneraire-magazine.fr+${encodeURIComponent(question)}`
+    }
+  ];
+}
+
+function buildFinalPrompt(question, pdfMatches, externalMatches) {
+  const pdfContext = pdfMatches.length
+    ? pdfMatches
+        .map((doc) => `### ${doc.title}\n${(doc.content || "").slice(0, 5000)}`)
+        .join("\n\n---\n\n")
+    : "Aucun extrait PDF pertinent trouvé.";
+
+  const externalContext = externalMatches.length
+    ? externalMatches.map((s) => `- ${s.title}: ${s.url}`).join("\n")
+    : "Aucune source externe ajoutée.";
+
+  return `
+Tu es un assistant juridique spécialisé en droit funéraire français.
+
+Consignes :
+- Réponds de manière complète, technique et structurée.
+- Base-toi d’abord sur les documents PDF fournis.
+- Si nécessaire, complète avec des sources externes fiables.
+- Priorise Légifrance pour les textes, codes, décrets, jurisprudence et références officielles.
+- Utilise les sources professionnelles comme Résonance Funéraire ou Funéraire Magazine comme appui pratique.
+- Ne mentionne jamais de pagination, de page ou de numéro de page.
+- Ne donne pas de réponse trop courte si la question demande de la technique.
+- Ne cite que des sources réelles et vérifiables.
+
+Question de l'utilisateur :
+${question}
+
+Extraits PDF :
+${pdfContext}
+
+Sources externes :
+${externalContext}
+
+Format attendu :
+1. Réponse directe.
+2. Base juridique.
+3. Analyse technique.
+4. Points de vigilance.
+5. Sources utilisées.
+`.trim();
+}
+
 export default async function handler(req, res) {
-  // CORS — restreint à votre domaine en production
   const allowedOrigin = process.env.FRONTEND_URL || "*";
   res.setHeader("Access-Control-Allow-Origin", allowedOrigin);
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
   if (req.method === "OPTIONS") return res.status(200).end();
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Méthode non autorisée" });
   }
 
-  // Validation de la question
   const questionRaw = (req.body?.question || "").trim();
   if (!questionRaw) {
     return res.status(400).json({ answer: "Merci de saisir une question." });
@@ -85,23 +139,18 @@ export default async function handler(req, res) {
     });
   }
 
-  // Recherche par mots-clés dans l'index PDF
   const matches = searchDocs(questionRaw);
+  const externalMatches = await searchExternalSources(questionRaw);
 
-  // Aucun document pertinent trouvé → réponse de fallback sans appeler l'IA
-  if (matches.length === 0) {
-    return res.json({
-      answer:
-        "Je n'ai pas trouvé d'élément suffisamment précis dans les documents disponibles pour répondre avec certitude. " +
-        "Vous pouvez envoyer votre demande à contact@adefuneraire.fr pour une réflexion approfondie.",
-      sources: []
-    });
-  }
+  const pdfContext = matches.length
+    ? matches
+        .map((doc) => `### ${doc.title}\n${(doc.content || "").slice(0, 5000)}`)
+        .join("\n\n---\n\n")
+    : "Aucun extrait PDF pertinent trouvé.";
 
-  // Construction du contexte — max 2 500 caractères par document
-  const context = matches
-    .map(doc => `### ${doc.title}\n${doc.content.slice(0, 2500)}`)
-    .join("\n\n---\n\n");
+  const externalContext = externalMatches.length
+    ? externalMatches.map((s) => `- ${s.title}: ${s.url}`).join("\n")
+    : "Aucune source externe ajoutée.";
 
   const GROQ_API_KEY = process.env.GROQ_API_KEY;
   if (!GROQ_API_KEY) {
@@ -109,22 +158,32 @@ export default async function handler(req, res) {
     return res.status(500).json({ answer: "Erreur de configuration serveur." });
   }
 
-  // Historique de conversation — max 6 messages précédents
   const history = Array.isArray(req.body?.history)
-    ? req.body.history.slice(-6).map(m => ({
+    ? req.body.history.slice(-6).map((m) => ({
         role: m.role === "assistant" ? "assistant" : "user",
-        content: String(m.content)
+        content: String(m.content || "")
       }))
     : [];
 
   const systemPrompt = `Tu es un assistant expert en droit funéraire français, spécialisé dans le CGCT et les textes réglementaires funéraires.
-Tu réponds UNIQUEMENT à partir du contexte documentaire fourni ci-dessous.
-Tu ne dois jamais inventer d'information ni citer d'articles qui ne figurent pas dans le contexte.
 
-Si le contexte permet de répondre clairement : donne une réponse structurée, précise et professionnelle.
-Si le contexte est insuffisant ou ambigu : explique-le clairement et invite l'utilisateur à écrire à contact@adefuneraire.fr pour une réflexion approfondie.
+Tu dois répondre en t'appuyant d'abord sur les extraits PDF fournis, puis compléter si nécessaire avec des sources externes fiables.
 
-Réponds toujours en français, avec rigueur et précision professionnelle.`;
+Priorité de réponse :
+1. Utilise d’abord les documents PDF fournis.
+2. Si les PDF ne suffisent pas, complète avec des sources externes fiables.
+3. Priorise Légifrance pour les textes, articles, décrets, codes et jurisprudence.
+4. Complète éventuellement avec des sources professionnelles reconnues du secteur funéraire comme Résonance Funéraire et Funéraire Magazine.
+5. Ne mentionne jamais de paginage, de page, ou de numéro de page.
+6. Réponds de façon complète, technique, structurée et nuancée.
+7. Si une information vient d’une source PDF, cite seulement le document ou le titre, pas la page.
+8. Si une information externe est utilisée, indique clairement la source.
+9. N’invente jamais de règle juridique.
+10. Si un point est incertain, précise qu’il doit être vérifié.
+
+Tu ne dois jamais inventer d'information. Réponds toujours en français, avec rigueur professionnelle.`;
+
+  const finalPrompt = buildFinalPrompt(questionRaw, matches, externalMatches);
 
   try {
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
@@ -140,11 +199,11 @@ Réponds toujours en français, avec rigueur et précision professionnelle.`;
           ...history,
           {
             role: "user",
-            content: `Contexte documentaire :\n${context}\n\nQuestion : ${questionRaw}`
+            content: finalPrompt
           }
         ],
         temperature: 0.2,
-        max_tokens: 1000
+        max_tokens: 1800
       })
     });
 
@@ -159,18 +218,25 @@ Réponds toujours en français, avec rigueur et précision professionnelle.`;
 
     return res.json({
       answer,
-      sources: matches.map(doc => ({
-        title: doc.title,
-        filename: doc.filename
-      }))
+      sources: [
+        ...matches.map((doc) => ({
+          type: "pdf",
+          title: doc.title,
+          filename: doc.filename
+        })),
+        ...externalMatches.map((s) => ({
+          type: "web",
+          title: s.title,
+          url: s.url
+        }))
+      ]
     });
-
   } catch (error) {
     console.error("[LexFunéraire] Erreur /api/ask :", error.message);
     return res.status(500).json({
       answer:
         "Une erreur est survenue lors du traitement de votre question. " +
-        "Merci d'envoyer votre demande à contact@adefuneraire.fr pour une réflexion approfondie."
+        "Merci d'envoyer votre demande à [contact@adefuneraire.fr](mailto:contact@adefuneraire.fr) pour une réflexion approfondie."
     });
   }
 }
