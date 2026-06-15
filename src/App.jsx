@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const CATEGORIES = [
   {
@@ -63,24 +63,15 @@ const CATEGORIES = [
   }
 ];
 
-function renderText(text) {
-  if (!text) return null;
-  return text.split("\n").map((line, i) => (
-    <p key={i} style={{ margin: "0 0 0.75rem 0", whiteSpace: "pre-wrap" }}>
-      {line}
-    </p>
-  ));
-}
-
 function Sources({ sources }) {
   if (!sources || sources.length === 0) return null;
 
   return (
     <div className="sources">
-      <h4>Sources</h4>
-      <ul>
+      <div className="sources-title">Sources</div>
+      <div className="sources-list">
         {sources.map((source, index) => (
-          <li key={index}>
+          <div key={index} className="source-item">
             {source.type === "web" && source.url ? (
               <a href={source.url} target="_blank" rel="noreferrer">
                 {source.title}
@@ -88,9 +79,69 @@ function Sources({ sources }) {
             ) : (
               <span>{source.title}</span>
             )}
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
+    </div>
+  );
+}
+
+function MessageContent({ content }) {
+  const blocks = useMemo(() => {
+    const text = String(content || "");
+    return text.split("\n").map((line, index) => ({
+      index,
+      line,
+      trimmed: line.trim()
+    }));
+  }, [content]);
+
+  return (
+    <div className="message-content">
+      {blocks.map(({ index, line, trimmed }) => {
+        if (!trimmed) return <div key={index} className="message-space" />;
+
+        if (/^(#{1,3})\s/.test(trimmed)) {
+          return (
+            <div key={index} className="message-heading">
+              {trimmed.replace(/^#{1,3}\s/, "")}
+            </div>
+          );
+        }
+
+        if (/^[-•]\s/.test(trimmed)) {
+          return (
+            <div key={index} className="message-bullet">
+              {trimmed.replace(/^[-•]\s/, "• ")}
+            </div>
+          );
+        }
+
+        if (/^\d+\.\s/.test(trimmed)) {
+          return (
+            <div key={index} className="message-number">
+              {trimmed}
+            </div>
+          );
+        }
+
+        return (
+          <div key={index} className="message-paragraph">
+            {line}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function ChatMessage({ message }) {
+  return (
+    <div className={`message ${message.role === "user" ? "user" : "assistant"}`}>
+      <MessageContent content={message.content} />
+      {message.sources && message.sources.length > 0 && (
+        <Sources sources={message.sources} />
+      )}
     </div>
   );
 }
@@ -112,7 +163,7 @@ export default function App() {
   }, [messages, loading]);
 
   const sendQuestion = async (question) => {
-    const q = question.trim();
+    const q = String(question || "").trim();
     if (!q || loading) return;
 
     const userMessage = { role: "user", content: q };
@@ -159,55 +210,79 @@ export default function App() {
     }
   };
 
+  const intro = useMemo(
+    () =>
+      "Réponses structurées, sources affichées, et lecture optimisée pour les professionnels du funéraire.",
+    []
+  );
+
   return (
-    <div className="app">
-      <header className="header">
-        <h1>LexFunéraire</h1>
-        <p>Assistant juridique spécialisé en droit funéraire français.</p>
+    <div className="app-shell">
+      <header className="hero">
+        <div className="hero-badge">LexFunéraire</div>
+        <h1>Assistant juridique pour le secteur funéraire</h1>
+        <p>{intro}</p>
       </header>
 
-      <section className="categories">
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat.label}
-            type="button"
-            className="category-btn"
-            onClick={() => sendQuestion(cat.query)}
-            disabled={loading}
-          >
-            <span>{cat.icon}</span>
-            <span>{cat.label}</span>
-          </button>
-        ))}
+      <section className="topics-panel">
+        <div className="panel-title">Sujets fréquents</div>
+        <div className="topics-grid">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat.label}
+              type="button"
+              className="topic-card"
+              onClick={() => sendQuestion(cat.query)}
+              disabled={loading}
+            >
+              <span className="topic-icon">{cat.icon}</span>
+              <span className="topic-label">{cat.label}</span>
+            </button>
+          ))}
+        </div>
       </section>
 
-      <main className="chat">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`message ${message.role === "user" ? "user" : "assistant"}`}
-          >
-            {renderText(message.content)}
-            {message.sources && message.sources.length > 0 && (
-              <Sources sources={message.sources} />
-            )}
+      <main className="chat-panel">
+        <div className="chat-header">
+          <div>
+            <div className="chat-title">Conversation</div>
+            <div className="chat-subtitle">
+              Réponses enrichies à partir des documents et des sources externes.
+            </div>
           </div>
-        ))}
+        </div>
 
-        {loading && <div className="message assistant">Recherche en cours...</div>}
-        <div ref={endRef} />
+        <div className="chat-list">
+          {messages.map((message, index) => (
+            <ChatMessage key={index} message={message} />
+          ))}
+
+          {loading && (
+            <div className="message assistant">
+              <div className="message-paragraph">Recherche en cours...</div>
+            </div>
+          )}
+
+          <div ref={endRef} />
+        </div>
       </main>
 
       <footer className="composer">
-        <textarea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Posez votre question ici..."
-          rows={4}
-        />
-        <button type="button" onClick={() => sendQuestion(input)} disabled={loading}>
-          {loading ? "Envoi..." : "Envoyer"}
-        </button>
+        <div className="composer-inner">
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Posez votre question ici..."
+            rows={4}
+          />
+          <button
+            type="button"
+            onClick={() => sendQuestion(input)}
+            disabled={loading}
+          >
+            {loading ? "Envoi..." : "Envoyer"}
+          </button>
+        </div>
       </footer>
     </div>
   );
