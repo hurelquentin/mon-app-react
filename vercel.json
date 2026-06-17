@@ -4,9 +4,9 @@
   "framework": "vite",
   "functions": {
     "api/ask.js": {
-      "includeFiles": "public/data/pdf-index.json"
+      "includeFiles": "public/data/**"
     }
-  },
+  }
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)",     "destination": "/index.html" }
