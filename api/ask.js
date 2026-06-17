@@ -1,5 +1,5 @@
 // api/ask.js — Fonction serverless Vercel
-// PDF-first RAG · TOUS les PDFs correspondants · Jurisprudence · Questions connexes
+// Moteur IA : Google Gemini 2.0 Flash (gratuit, 1 500 req/jour, contexte 1M tokens)
 
 import fs   from "fs";
 import path from "path";
@@ -49,8 +49,6 @@ function keywords(text = "") {
 }
 
 // ─── RECHERCHE PDFs — TOUS LES DOCUMENTS PERTINENTS ──────────────────────────
-// Plus de limite à 3 : tous les PDFs avec au moins 1 mot-clé sont retournés,
-// triés par score décroissant.
 function searchPDFs(question) {
   const kw = keywords(question);
   if (!kw.length) return [];
@@ -58,14 +56,14 @@ function searchPDFs(question) {
   const results = docs
     .filter(d => d.content)
     .map(d => {
-      const c = norm(d.content);
+      const c     = norm(d.content);
       const score = kw.reduce((acc, k) => acc + (c.includes(k) ? 1 : 0), 0);
       return { ...d, score };
     })
-    .filter(d => d.score > 0)           // au moins 1 mot-clé trouvé
-    .sort((a, b) => b.score - a.score); // meilleurs en premier
+    .filter(d => d.score > 0)
+    .sort((a, b) => b.score - a.score);
 
-  console.log(`[LEX] PDFs retenus : ${results.length}/${docs.length} (question : "${question.slice(0, 60)}...")`);
+  console.log(`[LEX] PDFs retenus : ${results.length}/${docs.length}`);
   return results;
 }
 
@@ -80,7 +78,6 @@ function searchJurisprudence(question) {
       const sujetStr  = norm(j.sujet    || "");
       const princStr  = norm(j.principe || "");
       const textesStr = (j.textes_vises || []).join(" ").toLowerCase();
-
       let score = 0;
       kw.forEach(k => {
         if (motsCles.includes(k))  score += 3;
@@ -99,17 +96,12 @@ function searchJurisprudence(question) {
 function buildExternalSources(question) {
   const q = encodeURIComponent(question);
   return [
-    { title: "Légifrance — textes officiels",  url: `https://www.legifrance.gouv.fr/search/all?query=${q}` },
-    { title: "Résonance Funéraire",             url: `https://www.resonance-funeraire.com/recherche?q=${q}` }
+    { title: "Légifrance — textes officiels", url: `https://www.legifrance.gouv.fr/search/all?query=${q}` },
+    { title: "Résonance Funéraire",           url: `https://www.resonance-funeraire.com/recherche?q=${q}` }
   ];
 }
 
-// ─── CONSTRUCTION DU PROMPT — ALLOCATION DYNAMIQUE DU CONTENU ────────────────
-// Budget total : 30 000 caractères pour les PDFs.
-// Ce budget est réparti équitablement entre tous les documents retenus :
-//   1 doc  → 30 000 chars      4 docs → 7 500 chars chacun
-//   2 docs → 15 000 chars      6 docs → 5 000 chars chacun
-//   3 docs → 10 000 chars      8 docs → 3 750 chars chacun
+// ─── CONSTRUCTION DU PROMPT ───────────────────────────────────────────────────
 function buildUserPrompt(question, pdfMatches, juriMatches, extSources) {
   const BUDGET_TOTAL = 30000;
   const charsPerDoc  = pdfMatches.length > 0
@@ -118,7 +110,7 @@ function buildUserPrompt(question, pdfMatches, juriMatches, extSources) {
 
   const pdfBlock = pdfMatches.length
     ? pdfMatches
-        .map(d => `### ${d.title} (score: ${d.score})\n${(d.content || "").slice(0, charsPerDoc)}`)
+        .map(d => `### ${d.title}\n${(d.content || "").slice(0, charsPerDoc)}`)
         .join("\n\n---\n\n")
     : "Aucun extrait PDF pertinent trouvé.";
 
@@ -135,7 +127,7 @@ function buildUserPrompt(question, pdfMatches, juriMatches, extSources) {
 
   return `Question : ${question}
 
-=== EXTRAITS PDF (${pdfMatches.length} document${pdfMatches.length > 1 ? "s" : ""} · ${charsPerDoc} car. max chacun) ===
+=== EXTRAITS PDF (${pdfMatches.length} document${pdfMatches.length > 1 ? "s" : ""}) ===
 ${pdfBlock}
 
 === JURISPRUDENCE CONNEXE ===
@@ -146,38 +138,97 @@ ${extBlock}`.trim();
 }
 
 // ─── SYSTEM PROMPT ────────────────────────────────────────────────────────────
-const SYSTEM_PROMPT = `Tu es un assistant juridique expert en droit funéraire français (CGCT, textes réglementaires, jurisprudence).
+const SYSTEM_PROMPT = `Tu es un assistant juridique expert en droit funéraire français, spécialisé dans le CGCT et les textes réglementaires funéraires.
 
 Règles de contenu :
-1. Base-toi en priorité sur les extraits PDF fournis dans le message. Tous les documents fournis sont pertinents, utilise-les tous.
-2. Cite la jurisprudence connexe si elle est fournie, avec sa référence complète.
-3. N'invente aucune décision de justice, article ou référence.
-4. Si une information est incertaine, signale-le avec ⚠️.
+1. Base-toi en priorité sur les extraits PDF fournis dans le message. Utilise TOUS les documents pertinents fournis.
+2. Cite la jurisprudence connexe si elle est fournie, avec sa référence complète : juridiction, date, textes visés, principe retenu.
+3. N'invente aucune décision de justice, article ou référence. Si l'information est absente de ta base, dis-le clairement.
+4. Si une information est incertaine ou non confirmée, signale-le avec ⚠️ et recommande de vérifier auprès de la préfecture.
 
-Règles de rédaction :
-- Ne mentionne JAMAIS de numéro de page, de pagination, de sommaire, de table des matières, de chapitre ou de renvoi à la structure d'un document.
-- Cite uniquement le titre du texte ou de la décision, jamais sa structure interne.
+Règles de rédaction absolues :
+- Ne mentionne JAMAIS de numéro de page, de pagination, de sommaire, de table des matières, de chapitre ou de renvoi à la structure physique d'un document.
+- Cite uniquement le titre du texte juridique ou de la décision, jamais sa structure interne.
 - Réponds toujours en français, avec rigueur et précision professionnelle.
+- Ne donne jamais de conseil juridique personnel. Oriente vers un professionnel si la situation est complexe.
 
-Format de réponse (respecter rigoureusement) :
+Format de réponse (à respecter rigoureusement) :
 **Réponse directe :** [2-3 phrases de synthèse]
 
-**Base juridique :** [articles CGCT, décrets, circulaires]
+**Base juridique :** [articles CGCT, décrets, circulaires DGCL avec références exactes]
 
-**Analyse :** [développement structuré en s'appuyant sur TOUS les documents fournis]
+**Analyse :** [développement structuré, en s'appuyant sur tous les documents fournis]
 
 **Jurisprudence :** [si disponible : juridiction, date, principe retenu]
 
-⚠️ **Points de vigilance :** [risques, nuances, cas particuliers]
+⚠️ **Points de vigilance :** [risques, nuances, cas particuliers à surveiller]
 
 ---
-Termine CHAQUE réponse par ce bloc exactement, sans exception :
+Termine CHAQUE réponse par ce bloc exactement, sans exception ni variation :
 
 ===SUGGESTIONS===
-- [question de suivi pertinente 1 ?]
-- [question de suivi pertinente 2 ?]
-- [question de suivi pertinente 3 ?]
+- [première question de suivi pertinente ?]
+- [deuxième question de suivi pertinente ?]
+- [troisième question de suivi pertinente ?]
 ===FIN===`;
+
+// ─── CONVERSION HISTORIQUE POUR GEMINI ───────────────────────────────────────
+// Gemini utilise "model" au lieu de "assistant", et "parts" au lieu de "content"
+function convertHistoryToGemini(history) {
+  return history.map(m => ({
+    role:  m.role === "assistant" ? "model" : "user",
+    parts: [{ text: String(m.content || "") }]
+  }));
+}
+
+// ─── APPEL API GEMINI 2.0 FLASH ───────────────────────────────────────────────
+async function callGemini(systemPrompt, history, userMessage, apiKey) {
+  const url  = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+  const body = {
+    system_instruction: {
+      parts: [{ text: systemPrompt }]
+    },
+    contents: [
+      ...convertHistoryToGemini(history),
+      { role: "user", parts: [{ text: userMessage }] }
+    ],
+    generationConfig: {
+      temperature:     0.2,
+      maxOutputTokens: 2000,
+      candidateCount:  1
+    },
+    safetySettings: [
+      { category: "HARM_CATEGORY_HARASSMENT",        threshold: "BLOCK_NONE" },
+      { category: "HARM_CATEGORY_HATE_SPEECH",       threshold: "BLOCK_NONE" },
+      { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
+      { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
+    ]
+  };
+
+  const response = await fetch(url, {
+    method:  "POST",
+    headers: { "Content-Type": "application/json" },
+    body:    JSON.stringify(body)
+  });
+
+  if (!response.ok) {
+    const err = await response.text();
+    console.error("[LEX] Gemini error:", response.status, err);
+    throw new Error(`Gemini ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  // Extraction du texte depuis la réponse Gemini
+  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+  if (!text) {
+    console.error("[LEX] Gemini réponse vide :", JSON.stringify(data));
+    throw new Error("Réponse Gemini vide");
+  }
+
+  return text;
+}
 
 // ─── PARSING DES SUGGESTIONS ─────────────────────────────────────────────────
 function parseSuggestions(rawAnswer) {
@@ -193,7 +244,7 @@ function parseSuggestions(rawAnswer) {
   return { answer, suggestions };
 }
 
-// ─── HANDLER ─────────────────────────────────────────────────────────────────
+// ─── HANDLER PRINCIPAL ────────────────────────────────────────────────────────
 export default async function handler(req, res) {
   const origin = process.env.FRONTEND_URL || "*";
   res.setHeader("Access-Control-Allow-Origin",  origin);
@@ -209,17 +260,16 @@ export default async function handler(req, res) {
   if (questionRaw.length > 2000)
     return res.status(400).json({ answer: "La question est trop longue (max 2 000 caractères)." });
 
-  const GROQ_API_KEY = process.env.GROQ_API_KEY;
-  if (!GROQ_API_KEY) {
-    console.error("[LEX] GROQ_API_KEY manquante");
+  const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+  if (!GEMINI_API_KEY) {
+    console.error("[LEX] GEMINI_API_KEY manquante");
     return res.status(500).json({ answer: "Erreur de configuration serveur." });
   }
 
-  const pdfMatches   = searchPDFs(questionRaw);
-  const juriMatches  = searchJurisprudence(questionRaw);
-  const extSources   = buildExternalSources(questionRaw);
+  const pdfMatches  = searchPDFs(questionRaw);
+  const juriMatches = searchJurisprudence(questionRaw);
+  const extSources  = buildExternalSources(questionRaw);
 
-  // Fallback si aucun PDF ne correspond
   if (pdfMatches.length === 0) {
     return res.json({
       answer:        "Je n'ai pas trouvé d'élément suffisamment précis dans les documents disponibles. Vous pouvez contacter contact@adefuneraire.fr pour une réflexion approfondie.",
@@ -239,40 +289,15 @@ export default async function handler(req, res) {
   const userPrompt = buildUserPrompt(questionRaw, pdfMatches, juriMatches, extSources);
 
   try {
-    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method:  "POST",
-      headers: {
-        Authorization:  `Bearer ${GROQ_API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model:       "llama-3.3-70b-versatile",
-        messages:    [
-          { role: "system", content: SYSTEM_PROMPT },
-          ...history,
-          { role: "user",   content: userPrompt }
-        ],
-        temperature: 0.2,
-        max_tokens:  2000
-      })
-    });
-
-    if (!response.ok) {
-      const err = await response.text();
-      console.error("[LEX] Groq error:", response.status, err);
-      throw new Error(`Groq ${response.status}`);
-    }
-
-    const data     = await response.json();
-    const rawReply = data?.choices?.[0]?.message?.content?.trim() || "";
+    const rawReply = await callGemini(SYSTEM_PROMPT, history, userPrompt, GEMINI_API_KEY);
     const { answer, suggestions } = parseSuggestions(rawReply);
 
     return res.json({
       answer,
       suggestions,
       sources: [
-        ...pdfMatches.map(d => ({ type: "pdf",  title: d.title,    filename: d.filename, score: d.score })),
-        ...extSources.map(s  => ({ type: "web",  title: s.title,    url: s.url }))
+        ...pdfMatches.map(d => ({ type: "pdf", title: d.title, filename: d.filename, score: d.score })),
+        ...extSources.map(s  => ({ type: "web", title: s.title, url: s.url }))
       ],
       jurisprudence: juriMatches.map(j => ({
         juridiction:  j.juridiction,
@@ -287,7 +312,7 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
-    console.error("[LEX] Erreur :", error.message);
+    console.error("[LEX] Erreur Gemini :", error.message);
     return res.status(500).json({
       answer: "Une erreur est survenue. Merci de contacter contact@adefuneraire.fr."
     });

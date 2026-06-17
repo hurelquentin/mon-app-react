@@ -1,5 +1,5 @@
 // backend/server.js — Serveur Express UNIQUEMENT pour le développement local
-// En production, c'est api/ask.js (serverless Vercel) qui est utilisé.
+// Moteur IA : Google Gemini 2.0 Flash
 
 import express from "express";
 import cors    from "cors";
@@ -51,29 +51,19 @@ try {
 function norm(text = "") {
   return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
-
 function keywords(text = "") {
-  return norm(text)
-    .replace(/[^a-z\s-]/g, " ")
-    .split(/\s+/)
+  return norm(text).replace(/[^a-z\s-]/g, " ").split(/\s+/)
     .filter(w => w.length > 3 && !STOP_WORDS.has(w));
 }
 
-// ─── RECHERCHE PDFs — TOUS LES DOCUMENTS PERTINENTS ──────────────────────────
+// ─── RECHERCHE PDFs ───────────────────────────────────────────────────────────
 function searchPDFs(question) {
   const kw = keywords(question);
   if (!kw.length) return [];
-
-  const results = docs
-    .filter(d => d.content)
-    .map(d => {
-      const c     = norm(d.content);
-      const score = kw.reduce((acc, k) => acc + (c.includes(k) ? 1 : 0), 0);
-      return { ...d, score };
-    })
-    .filter(d => d.score > 0)
-    .sort((a, b) => b.score - a.score);
-
+  const results = docs.filter(d => d.content).map(d => {
+    const c = norm(d.content);
+    return { ...d, score: kw.reduce((a, k) => a + (c.includes(k) ? 1 : 0), 0) };
+  }).filter(d => d.score > 0).sort((a, b) => b.score - a.score);
   console.log(`[LEX] PDFs retenus : ${results.length}/${docs.length}`);
   return results;
 }
@@ -82,24 +72,20 @@ function searchPDFs(question) {
 function searchJurisprudence(question) {
   const kw = keywords(question);
   if (!kw.length) return [];
-  return juriDB
-    .map(j => {
-      const motsCles  = (j.mots_cles || []).map(m => norm(m)).join(" ");
-      const sujetStr  = norm(j.sujet    || "");
-      const princStr  = norm(j.principe || "");
-      const textesStr = (j.textes_vises || []).join(" ").toLowerCase();
-      let score = 0;
-      kw.forEach(k => {
-        if (motsCles.includes(k))  score += 3;
-        if (sujetStr.includes(k))  score += 2;
-        if (textesStr.includes(k)) score += 2;
-        if (princStr.includes(k))  score += 1;
-      });
-      return { ...j, score };
-    })
-    .filter(j => j.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3);
+  return juriDB.map(j => {
+    const m = (j.mots_cles || []).map(x => norm(x)).join(" ");
+    const s = norm(j.sujet || "");
+    const p = norm(j.principe || "");
+    const t = (j.textes_vises || []).join(" ").toLowerCase();
+    let score = 0;
+    kw.forEach(k => {
+      if (m.includes(k)) score += 3;
+      if (s.includes(k)) score += 2;
+      if (t.includes(k)) score += 2;
+      if (p.includes(k)) score += 1;
+    });
+    return { ...j, score };
+  }).filter(j => j.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
 }
 
 // ─── SOURCES EXTERNES ─────────────────────────────────────────────────────────
@@ -107,70 +93,97 @@ function buildExternalSources(question) {
   const q = encodeURIComponent(question);
   return [
     { title: "Légifrance — textes officiels", url: `https://www.legifrance.gouv.fr/search/all?query=${q}` },
-    { title: "Résonance Funéraire",            url: `https://www.resonance-funeraire.com/recherche?q=${q}` }
+    { title: "Résonance Funéraire",           url: `https://www.resonance-funeraire.com/recherche?q=${q}` }
   ];
 }
 
-// ─── PROMPT AVEC ALLOCATION DYNAMIQUE ────────────────────────────────────────
+// ─── PROMPT ───────────────────────────────────────────────────────────────────
 function buildUserPrompt(question, pdfMatches, juriMatches, extSources) {
-  const BUDGET_TOTAL = 30000;
-  const charsPerDoc  = pdfMatches.length > 0
-    ? Math.floor(BUDGET_TOTAL / pdfMatches.length)
-    : BUDGET_TOTAL;
+  const BUDGET = 30000;
+  const chars  = pdfMatches.length > 0 ? Math.floor(BUDGET / pdfMatches.length) : BUDGET;
 
   const pdfBlock = pdfMatches.length
-    ? pdfMatches
-        .map(d => `### ${d.title} (score: ${d.score})\n${(d.content || "").slice(0, charsPerDoc)}`)
-        .join("\n\n---\n\n")
+    ? pdfMatches.map(d => `### ${d.title}\n${(d.content||"").slice(0, chars)}`).join("\n\n---\n\n")
     : "Aucun extrait PDF pertinent trouvé.";
 
   const juriBlock = juriMatches.length
     ? juriMatches.map(j =>
-        `### ${j.juridiction} — ${j.date}\nSujet : ${j.sujet}\nPrincipe : ${j.principe}\nTextes : ${(j.textes_vises || []).join(", ")}`
+        `### ${j.juridiction} — ${j.date}\nSujet : ${j.sujet}\nPrincipe : ${j.principe}\nTextes : ${(j.textes_vises||[]).join(", ")}`
       ).join("\n\n---\n\n")
     : "Aucune décision jurisprudentielle dans la base.";
 
-  const extBlock = extSources.map(s => `- ${s.title} : ${s.url}`).join("\n");
-
   return `Question : ${question}
 
-=== EXTRAITS PDF (${pdfMatches.length} document${pdfMatches.length > 1 ? "s" : ""} · ${charsPerDoc} car. max chacun) ===
+=== EXTRAITS PDF (${pdfMatches.length} document${pdfMatches.length>1?"s":""}) ===
 ${pdfBlock}
 
 === JURISPRUDENCE CONNEXE ===
 ${juriBlock}
 
 === SOURCES EXTERNES ===
-${extBlock}`.trim();
+${extSources.map(s=>`- ${s.title} : ${s.url}`).join("\n")}`.trim();
 }
 
 const SYSTEM_PROMPT = `Tu es un assistant juridique expert en droit funéraire français (CGCT, textes réglementaires, jurisprudence).
 
-Règles de contenu :
-1. Base-toi sur TOUS les extraits PDF fournis dans le message.
-2. Cite la jurisprudence connexe si elle est fournie, avec sa référence complète.
-3. N'invente aucune décision de justice, article ou référence.
-4. Signale les incertitudes avec ⚠️.
-
-Règles de rédaction :
-- Ne mentionne JAMAIS de numéro de page, de pagination, de sommaire, de table des matières, de chapitre ou de renvoi à la structure d'un document.
-- Réponds toujours en français, avec rigueur et précision professionnelle.
+Règles :
+1. Base-toi sur TOUS les extraits PDF fournis.
+2. Cite la jurisprudence connexe si fournie.
+3. N'invente aucune référence. Signale les incertitudes avec ⚠️.
+4. Ne mentionne JAMAIS de numéro de page, sommaire, table des matières ou structure documentaire.
+5. Réponds en français avec rigueur professionnelle.
 
 Format : **Réponse directe** → **Base juridique** → **Analyse** → **Jurisprudence** → ⚠️ **Points de vigilance**
 
-Termine CHAQUE réponse par :
+Termine par :
 ===SUGGESTIONS===
-- [question de suivi 1 ?]
-- [question de suivi 2 ?]
-- [question de suivi 3 ?]
+- [question 1 ?]
+- [question 2 ?]
+- [question 3 ?]
 ===FIN===`;
+
+// ─── APPEL GEMINI ─────────────────────────────────────────────────────────────
+async function callGemini(systemPrompt, history, userMessage, apiKey) {
+  const url  = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+  const body = {
+    system_instruction: { parts: [{ text: systemPrompt }] },
+    contents: [
+      ...history.map(m => ({
+        role:  m.role === "assistant" ? "model" : "user",
+        parts: [{ text: String(m.content || "") }]
+      })),
+      { role: "user", parts: [{ text: userMessage }] }
+    ],
+    generationConfig: { temperature: 0.2, maxOutputTokens: 2000, candidateCount: 1 },
+    safetySettings: [
+      { category: "HARM_CATEGORY_HARASSMENT",        threshold: "BLOCK_NONE" },
+      { category: "HARM_CATEGORY_HATE_SPEECH",       threshold: "BLOCK_NONE" },
+      { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
+      { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
+    ]
+  };
+
+  const response = await fetch(url, {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body)
+  });
+
+  if (!response.ok) {
+    const err = await response.text();
+    console.error("[LEX] Gemini error:", response.status, err);
+    throw new Error(`Gemini ${response.status}`);
+  }
+
+  const data = await response.json();
+  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+  if (!text) throw new Error("Réponse Gemini vide");
+  return text;
+}
 
 function parseSuggestions(raw) {
   const match = raw.match(/===SUGGESTIONS===([\s\S]*?)===FIN===/);
   if (!match) return { answer: raw.trim(), suggestions: [] };
   const answer      = raw.slice(0, raw.indexOf("===SUGGESTIONS===")).trim();
-  const suggestions = match[1]
-    .split("\n")
+  const suggestions = match[1].split("\n")
     .map(l => l.replace(/^[-•*\d.]\s*/, "").trim())
     .filter(l => l.length > 5 && l.endsWith("?"));
   return { answer, suggestions };
@@ -182,20 +195,17 @@ app.use(express.json());
 
 // ─── ROUTE SANTÉ ──────────────────────────────────────────────────────────────
 app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", pdfs: docs.length, jurisprudence: juriDB.length, port: PORT });
+  res.json({ status: "ok", ia: "Gemini 2.0 Flash", pdfs: docs.length, jurisprudence: juriDB.length });
 });
 
 // ─── ROUTE PRINCIPALE ─────────────────────────────────────────────────────────
 app.post("/api/ask", async (req, res) => {
   const questionRaw = (req.body?.question || "").trim();
-  if (!questionRaw)
-    return res.status(400).json({ answer: "Merci de saisir une question." });
-  if (questionRaw.length > 2000)
-    return res.status(400).json({ answer: "Question trop longue (max 2 000 caractères)." });
+  if (!questionRaw) return res.status(400).json({ answer: "Merci de saisir une question." });
+  if (questionRaw.length > 2000) return res.status(400).json({ answer: "Question trop longue." });
 
-  const GROQ_API_KEY = process.env.GROQ_API_KEY;
-  if (!GROQ_API_KEY)
-    return res.status(500).json({ answer: "Clé API Groq manquante dans .env" });
+  const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+  if (!GEMINI_API_KEY) return res.status(500).json({ answer: "GEMINI_API_KEY manquante dans .env" });
 
   const pdfMatches  = searchPDFs(questionRaw);
   const juriMatches = searchJurisprudence(questionRaw);
@@ -211,39 +221,17 @@ app.post("/api/ask", async (req, res) => {
   }
 
   const history = Array.isArray(req.body?.history)
-    ? req.body.history.slice(-6).map(m => ({
-        role:    m.role === "assistant" ? "assistant" : "user",
-        content: String(m.content || "")
-      }))
+    ? req.body.history.slice(-6).map(m => ({ role: m.role, content: String(m.content || "") }))
     : [];
 
   const userPrompt = buildUserPrompt(questionRaw, pdfMatches, juriMatches, extSources);
 
   try {
-    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method:  "POST",
-      headers: { Authorization: `Bearer ${GROQ_API_KEY}`, "Content-Type": "application/json" },
-      body:    JSON.stringify({
-        model:       "llama-3.3-70b-versatile",
-        messages:    [
-          { role: "system", content: SYSTEM_PROMPT },
-          ...history,
-          { role: "user",   content: userPrompt }
-        ],
-        temperature: 0.2,
-        max_tokens:  2000
-      })
-    });
-
-    if (!response.ok) throw new Error(`Groq ${response.status}`);
-
-    const data     = await response.json();
-    const rawReply = data?.choices?.[0]?.message?.content?.trim() || "";
+    const rawReply = await callGemini(SYSTEM_PROMPT, history, userPrompt, GEMINI_API_KEY);
     const { answer, suggestions } = parseSuggestions(rawReply);
 
     return res.json({
-      answer,
-      suggestions,
+      answer, suggestions,
       sources: [
         ...pdfMatches.map(d => ({ type: "pdf", title: d.title, filename: d.filename, score: d.score })),
         ...extSources.map(s  => ({ type: "web", title: s.title, url: s.url }))
@@ -264,7 +252,8 @@ app.post("/api/ask", async (req, res) => {
 // ─── DÉMARRAGE ────────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
   console.log(`\n🚀 [LEX] Serveur Express : http://localhost:${PORT}`);
+  console.log(`   IA      : Gemini 2.0 Flash`);
   console.log(`   Santé   : http://localhost:${PORT}/api/health`);
-  console.log(`   PDFs    : ${docs.length} documents indexés`);
+  console.log(`   PDFs    : ${docs.length} documents`);
   console.log(`   Juris.  : ${juriDB.length} décisions\n`);
 });
