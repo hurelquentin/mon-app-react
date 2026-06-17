@@ -1,5 +1,5 @@
 // api/ask.js — Fonction serverless Vercel
-// PDF-first RAG + Jurisprudence dédiée + Questions connexes
+// PDF-first RAG · TOUS les PDFs correspondants · Jurisprudence · Questions connexes
 
 import fs   from "fs";
 import path from "path";
@@ -17,13 +17,13 @@ const STOP_WORDS = new Set([
 ]);
 
 // ─── CHARGEMENT DES INDEX ─────────────────────────────────────────────────────
-let docs    = [];
-let juriDB  = [];
+let docs   = [];
+let juriDB = [];
 
 try {
   const p = path.join(process.cwd(), "public", "data", "pdf-index.json");
   docs    = JSON.parse(fs.readFileSync(p, "utf8").replace(/^\uFEFF/, ""));
-  console.log(`[LEX] PDFs : ${docs.length} documents`);
+  console.log(`[LEX] PDFs : ${docs.length} documents indexés`);
 } catch (e) {
   console.error("[LEX] Erreur pdf-index.json :", e.message);
 }
@@ -48,19 +48,25 @@ function keywords(text = "") {
     .filter(w => w.length > 3 && !STOP_WORDS.has(w));
 }
 
-// ─── RECHERCHE PDFs ───────────────────────────────────────────────────────────
+// ─── RECHERCHE PDFs — TOUS LES DOCUMENTS PERTINENTS ──────────────────────────
+// Plus de limite à 3 : tous les PDFs avec au moins 1 mot-clé sont retournés,
+// triés par score décroissant.
 function searchPDFs(question) {
   const kw = keywords(question);
   if (!kw.length) return [];
-  return docs
+
+  const results = docs
     .filter(d => d.content)
     .map(d => {
       const c = norm(d.content);
-      return { ...d, score: kw.reduce((a, k) => a + (c.includes(k) ? 1 : 0), 0) };
+      const score = kw.reduce((acc, k) => acc + (c.includes(k) ? 1 : 0), 0);
+      return { ...d, score };
     })
-    .filter(d => d.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3);
+    .filter(d => d.score > 0)           // au moins 1 mot-clé trouvé
+    .sort((a, b) => b.score - a.score); // meilleurs en premier
+
+  console.log(`[LEX] PDFs retenus : ${results.length}/${docs.length} (question : "${question.slice(0, 60)}...")`);
+  return results;
 }
 
 // ─── RECHERCHE JURISPRUDENCE ──────────────────────────────────────────────────
@@ -70,15 +76,14 @@ function searchJurisprudence(question) {
 
   return juriDB
     .map(j => {
-      // Champs où chercher — avec poids différents
+      const motsCles  = (j.mots_cles || []).map(m => norm(m)).join(" ");
       const sujetStr  = norm(j.sujet    || "");
       const princStr  = norm(j.principe || "");
-      const motsCles  = (j.mots_cles || []).map(m => norm(m)).join(" ");
       const textesStr = (j.textes_vises || []).join(" ").toLowerCase();
 
       let score = 0;
       kw.forEach(k => {
-        if (motsCles.includes(k))  score += 3; // mots-clés = fort signal
+        if (motsCles.includes(k))  score += 3;
         if (sujetStr.includes(k))  score += 2;
         if (textesStr.includes(k)) score += 2;
         if (princStr.includes(k))  score += 1;
@@ -94,25 +99,29 @@ function searchJurisprudence(question) {
 function buildExternalSources(question) {
   const q = encodeURIComponent(question);
   return [
-    {
-      title: "Légifrance — textes officiels",
-      url:   `https://www.legifrance.gouv.fr/search/all?query=${q}`
-    },
-    {
-      title: "Résonance Funéraire",
-      url:   `https://www.resonance-funeraire.com/recherche?q=${q}`
-    }
+    { title: "Légifrance — textes officiels",  url: `https://www.legifrance.gouv.fr/search/all?query=${q}` },
+    { title: "Résonance Funéraire",             url: `https://www.resonance-funeraire.com/recherche?q=${q}` }
   ];
 }
 
-// ─── CONSTRUCTION DU PROMPT UTILISATEUR ──────────────────────────────────────
+// ─── CONSTRUCTION DU PROMPT — ALLOCATION DYNAMIQUE DU CONTENU ────────────────
+// Budget total : 30 000 caractères pour les PDFs.
+// Ce budget est réparti équitablement entre tous les documents retenus :
+//   1 doc  → 30 000 chars      4 docs → 7 500 chars chacun
+//   2 docs → 15 000 chars      6 docs → 5 000 chars chacun
+//   3 docs → 10 000 chars      8 docs → 3 750 chars chacun
 function buildUserPrompt(question, pdfMatches, juriMatches, extSources) {
-  // Bloc PDFs
+  const BUDGET_TOTAL = 30000;
+  const charsPerDoc  = pdfMatches.length > 0
+    ? Math.floor(BUDGET_TOTAL / pdfMatches.length)
+    : BUDGET_TOTAL;
+
   const pdfBlock = pdfMatches.length
-    ? pdfMatches.map(d => `### ${d.title}\n${(d.content || "").slice(0, 4500)}`).join("\n\n---\n\n")
+    ? pdfMatches
+        .map(d => `### ${d.title} (score: ${d.score})\n${(d.content || "").slice(0, charsPerDoc)}`)
+        .join("\n\n---\n\n")
     : "Aucun extrait PDF pertinent trouvé.";
 
-  // Bloc jurisprudence
   const juriBlock = juriMatches.length
     ? juriMatches.map(j =>
         `### ${j.juridiction} — ${j.date}\n` +
@@ -120,14 +129,13 @@ function buildUserPrompt(question, pdfMatches, juriMatches, extSources) {
         `Principe : ${j.principe}\n` +
         `Textes visés : ${(j.textes_vises || []).join(", ")}`
       ).join("\n\n---\n\n")
-    : "Aucune décision jurisprudentielle correspondante dans la base.";
+    : "Aucune décision jurisprudentielle dans la base.";
 
-  // Bloc sources externes
   const extBlock = extSources.map(s => `- ${s.title} : ${s.url}`).join("\n");
 
   return `Question : ${question}
 
-=== EXTRAITS PDF ===
+=== EXTRAITS PDF (${pdfMatches.length} document${pdfMatches.length > 1 ? "s" : ""} · ${charsPerDoc} car. max chacun) ===
 ${pdfBlock}
 
 === JURISPRUDENCE CONNEXE ===
@@ -141,15 +149,14 @@ ${extBlock}`.trim();
 const SYSTEM_PROMPT = `Tu es un assistant juridique expert en droit funéraire français (CGCT, textes réglementaires, jurisprudence).
 
 Règles de contenu :
-1. Base-toi en priorité sur les extraits PDF fournis.
-2. Cite la jurisprudence connexe si elle est fournie dans le message, avec sa référence complète : juridiction, date, textes visés, principe.
-3. N'invente aucune décision de justice, article ou référence. Si tu n'as pas d'information suffisante, dis-le clairement.
-4. Tu peux mentionner Légifrance comme source complémentaire.
-5. Si une information est incertaine, signale-le avec ⚠️ et recommande de vérifier en préfecture.
+1. Base-toi en priorité sur les extraits PDF fournis dans le message. Tous les documents fournis sont pertinents, utilise-les tous.
+2. Cite la jurisprudence connexe si elle est fournie, avec sa référence complète.
+3. N'invente aucune décision de justice, article ou référence.
+4. Si une information est incertaine, signale-le avec ⚠️.
 
 Règles de rédaction :
 - Ne mentionne JAMAIS de numéro de page, de pagination, de sommaire, de table des matières, de chapitre ou de renvoi à la structure d'un document.
-- Ne cite que le titre du texte ou de la décision, jamais sa structure interne.
+- Cite uniquement le titre du texte ou de la décision, jamais sa structure interne.
 - Réponds toujours en français, avec rigueur et précision professionnelle.
 
 Format de réponse (respecter rigoureusement) :
@@ -157,7 +164,7 @@ Format de réponse (respecter rigoureusement) :
 
 **Base juridique :** [articles CGCT, décrets, circulaires]
 
-**Analyse :** [développement structuré]
+**Analyse :** [développement structuré en s'appuyant sur TOUS les documents fournis]
 
 **Jurisprudence :** [si disponible : juridiction, date, principe retenu]
 
@@ -180,7 +187,7 @@ function parseSuggestions(rawAnswer) {
   const answer      = rawAnswer.slice(0, rawAnswer.indexOf("===SUGGESTIONS===")).trim();
   const suggestions = match[1]
     .split("\n")
-    .map(l => l.replace(/^[-•*]\s*/, "").trim())
+    .map(l => l.replace(/^[-•*\d.]\s*/, "").trim())
     .filter(l => l.length > 5 && l.endsWith("?"));
 
   return { answer, suggestions };
@@ -208,9 +215,19 @@ export default async function handler(req, res) {
     return res.status(500).json({ answer: "Erreur de configuration serveur." });
   }
 
-  const pdfMatches  = searchPDFs(questionRaw);
-  const juriMatches = searchJurisprudence(questionRaw);
-  const extSources  = buildExternalSources(questionRaw);
+  const pdfMatches   = searchPDFs(questionRaw);
+  const juriMatches  = searchJurisprudence(questionRaw);
+  const extSources   = buildExternalSources(questionRaw);
+
+  // Fallback si aucun PDF ne correspond
+  if (pdfMatches.length === 0) {
+    return res.json({
+      answer:        "Je n'ai pas trouvé d'élément suffisamment précis dans les documents disponibles. Vous pouvez contacter contact@adefuneraire.fr pour une réflexion approfondie.",
+      suggestions:   [],
+      sources:       extSources.map(s => ({ type: "web", title: s.title, url: s.url })),
+      jurisprudence: juriMatches
+    });
+  }
 
   const history = Array.isArray(req.body?.history)
     ? req.body.history.slice(-6).map(m => ({
@@ -223,7 +240,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method: "POST",
+      method:  "POST",
       headers: {
         Authorization:  `Bearer ${GROQ_API_KEY}`,
         "Content-Type": "application/json"
@@ -254,8 +271,8 @@ export default async function handler(req, res) {
       answer,
       suggestions,
       sources: [
-        ...pdfMatches.map(d => ({ type: "pdf",  title: d.title,  filename: d.filename })),
-        ...extSources.map(s  => ({ type: "web",  title: s.title,  url: s.url }))
+        ...pdfMatches.map(d => ({ type: "pdf",  title: d.title,    filename: d.filename, score: d.score })),
+        ...extSources.map(s  => ({ type: "web",  title: s.title,    url: s.url }))
       ],
       jurisprudence: juriMatches.map(j => ({
         juridiction:  j.juridiction,
