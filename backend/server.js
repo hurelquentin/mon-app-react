@@ -64,7 +64,7 @@ function searchDocs(question) {
     })
     .filter((doc) => doc.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 3);
+    .slice(0, 5);
 }
 
 async function searchExternalSources(question) {
