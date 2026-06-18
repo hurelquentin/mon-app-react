@@ -1,5 +1,6 @@
 // api/ask.js — Fonction serverless Vercel
-// Moteur IA : Google Gemini 2.0 Flash (gratuit, 1 500 req/jour, contexte 1M tokens)
+// Moteur IA : Mistral AI — mistral-small-latest
+// Format API identique à Groq/OpenAI — aucune conversion nécessaire
 
 import fs   from "fs";
 import path from "path";
@@ -40,29 +41,19 @@ try {
 function norm(text = "") {
   return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
-
 function keywords(text = "") {
-  return norm(text)
-    .replace(/[^a-z\s-]/g, " ")
-    .split(/\s+/)
+  return norm(text).replace(/[^a-z\s-]/g, " ").split(/\s+/)
     .filter(w => w.length > 3 && !STOP_WORDS.has(w));
 }
 
-// ─── RECHERCHE PDFs — TOUS LES DOCUMENTS PERTINENTS ──────────────────────────
+// ─── RECHERCHE PDFs ───────────────────────────────────────────────────────────
 function searchPDFs(question) {
   const kw = keywords(question);
   if (!kw.length) return [];
-
-  const results = docs
-    .filter(d => d.content)
-    .map(d => {
-      const c     = norm(d.content);
-      const score = kw.reduce((acc, k) => acc + (c.includes(k) ? 1 : 0), 0);
-      return { ...d, score };
-    })
-    .filter(d => d.score > 0)
-    .sort((a, b) => b.score - a.score);
-
+  const results = docs.filter(d => d.content).map(d => {
+    const c = norm(d.content);
+    return { ...d, score: kw.reduce((a, k) => a + (c.includes(k) ? 1 : 0), 0) };
+  }).filter(d => d.score > 0).sort((a, b) => b.score - a.score);
   console.log(`[LEX] PDFs retenus : ${results.length}/${docs.length}`);
   return results;
 }
@@ -71,25 +62,20 @@ function searchPDFs(question) {
 function searchJurisprudence(question) {
   const kw = keywords(question);
   if (!kw.length) return [];
-
-  return juriDB
-    .map(j => {
-      const motsCles  = (j.mots_cles || []).map(m => norm(m)).join(" ");
-      const sujetStr  = norm(j.sujet    || "");
-      const princStr  = norm(j.principe || "");
-      const textesStr = (j.textes_vises || []).join(" ").toLowerCase();
-      let score = 0;
-      kw.forEach(k => {
-        if (motsCles.includes(k))  score += 3;
-        if (sujetStr.includes(k))  score += 2;
-        if (textesStr.includes(k)) score += 2;
-        if (princStr.includes(k))  score += 1;
-      });
-      return { ...j, score };
-    })
-    .filter(j => j.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3);
+  return juriDB.map(j => {
+    const m = (j.mots_cles || []).map(x => norm(x)).join(" ");
+    const s = norm(j.sujet || "");
+    const p = norm(j.principe || "");
+    const t = (j.textes_vises || []).join(" ").toLowerCase();
+    let score = 0;
+    kw.forEach(k => {
+      if (m.includes(k)) score += 3;
+      if (s.includes(k)) score += 2;
+      if (t.includes(k)) score += 2;
+      if (p.includes(k)) score += 1;
+    });
+    return { ...j, score };
+  }).filter(j => j.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
 }
 
 // ─── SOURCES EXTERNES ─────────────────────────────────────────────────────────
@@ -101,29 +87,20 @@ function buildExternalSources(question) {
   ];
 }
 
-// ─── CONSTRUCTION DU PROMPT ───────────────────────────────────────────────────
+// ─── PROMPT ───────────────────────────────────────────────────────────────────
 function buildUserPrompt(question, pdfMatches, juriMatches, extSources) {
-  const BUDGET_TOTAL = 30000;
-  const charsPerDoc  = pdfMatches.length > 0
-    ? Math.floor(BUDGET_TOTAL / pdfMatches.length)
-    : BUDGET_TOTAL;
+  const BUDGET = 30000;
+  const chars  = pdfMatches.length > 0 ? Math.floor(BUDGET / pdfMatches.length) : BUDGET;
 
   const pdfBlock = pdfMatches.length
-    ? pdfMatches
-        .map(d => `### ${d.title}\n${(d.content || "").slice(0, charsPerDoc)}`)
-        .join("\n\n---\n\n")
+    ? pdfMatches.map(d => `### ${d.title}\n${(d.content || "").slice(0, chars)}`).join("\n\n---\n\n")
     : "Aucun extrait PDF pertinent trouvé.";
 
   const juriBlock = juriMatches.length
     ? juriMatches.map(j =>
-        `### ${j.juridiction} — ${j.date}\n` +
-        `Sujet : ${j.sujet}\n` +
-        `Principe : ${j.principe}\n` +
-        `Textes visés : ${(j.textes_vises || []).join(", ")}`
+        `### ${j.juridiction} — ${j.date}\nSujet : ${j.sujet}\nPrincipe : ${j.principe}\nTextes : ${(j.textes_vises||[]).join(", ")}`
       ).join("\n\n---\n\n")
     : "Aucune décision jurisprudentielle dans la base.";
-
-  const extBlock = extSources.map(s => `- ${s.title} : ${s.url}`).join("\n");
 
   return `Question : ${question}
 
@@ -134,99 +111,74 @@ ${pdfBlock}
 ${juriBlock}
 
 === SOURCES EXTERNES ===
-${extBlock}`.trim();
+${extSources.map(s => `- ${s.title} : ${s.url}`).join("\n")}`.trim();
 }
 
-// ─── SYSTEM PROMPT ────────────────────────────────────────────────────────────
 const SYSTEM_PROMPT = `Tu es un assistant juridique expert en droit funéraire français, spécialisé dans le CGCT et les textes réglementaires funéraires.
 
-Règles de contenu :
-1. Base-toi en priorité sur les extraits PDF fournis dans le message. Utilise TOUS les documents pertinents fournis.
-2. Cite la jurisprudence connexe si elle est fournie, avec sa référence complète : juridiction, date, textes visés, principe retenu.
-3. N'invente aucune décision de justice, article ou référence. Si l'information est absente de ta base, dis-le clairement.
-4. Si une information est incertaine ou non confirmée, signale-le avec ⚠️ et recommande de vérifier auprès de la préfecture.
+Règles absolues :
+1. Base-toi sur TOUS les extraits PDF fournis dans le message. Utilise chaque document pertinent.
+2. Cite la jurisprudence connexe si elle est fournie, avec sa référence complète (juridiction, date, textes visés, principe).
+3. N'invente aucune décision de justice, article ou référence. Si l'information est absente, dis-le clairement.
+4. Signale toute incertitude avec ⚠️ et recommande de vérifier en préfecture si nécessaire.
+5. Ne mentionne JAMAIS de numéro de page, pagination, sommaire, table des matières, chapitre ou structure documentaire.
+6. Réponds toujours en français, avec rigueur et précision professionnelle.
 
-Règles de rédaction absolues :
-- Ne mentionne JAMAIS de numéro de page, de pagination, de sommaire, de table des matières, de chapitre ou de renvoi à la structure physique d'un document.
-- Cite uniquement le titre du texte juridique ou de la décision, jamais sa structure interne.
-- Réponds toujours en français, avec rigueur et précision professionnelle.
-- Ne donne jamais de conseil juridique personnel. Oriente vers un professionnel si la situation est complexe.
-
-Format de réponse (à respecter rigoureusement) :
+Format de réponse :
 **Réponse directe :** [2-3 phrases de synthèse]
-
 **Base juridique :** [articles CGCT, décrets, circulaires DGCL avec références exactes]
-
-**Analyse :** [développement structuré, en s'appuyant sur tous les documents fournis]
-
+**Analyse :** [développement structuré s'appuyant sur tous les documents fournis]
 **Jurisprudence :** [si disponible : juridiction, date, principe retenu]
+⚠️ **Points de vigilance :** [risques, nuances, cas particuliers]
 
-⚠️ **Points de vigilance :** [risques, nuances, cas particuliers à surveiller]
-
----
-Termine CHAQUE réponse par ce bloc exactement, sans exception ni variation :
-
+Termine CHAQUE réponse par ce bloc exactement :
 ===SUGGESTIONS===
-- [première question de suivi pertinente ?]
-- [deuxième question de suivi pertinente ?]
-- [troisième question de suivi pertinente ?]
+- [question de suivi 1 ?]
+- [question de suivi 2 ?]
+- [question de suivi 3 ?]
 ===FIN===`;
 
-// ─── CONVERSION HISTORIQUE POUR GEMINI ───────────────────────────────────────
-// Gemini utilise "model" au lieu de "assistant", et "parts" au lieu de "content"
-function convertHistoryToGemini(history) {
-  return history.map(m => ({
-    role:  m.role === "assistant" ? "model" : "user",
-    parts: [{ text: String(m.content || "") }]
-  }));
-}
+// ─── APPEL API MISTRAL ────────────────────────────────────────────────────────
+// Format identique à Groq et OpenAI — aucune conversion nécessaire
+async function callMistral(systemPrompt, history, userMessage, apiKey) {
+  console.log("[LEX] Appel Mistral (mistral-small-latest)...");
 
-// ─── APPEL API GEMINI 2.0 FLASH ───────────────────────────────────────────────
-async function callGemini(systemPrompt, history, userMessage, apiKey) {
-  const url  = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-  const body = {
-    system_instruction: {
-      parts: [{ text: systemPrompt }]
-    },
-    contents: [
-      ...convertHistoryToGemini(history),
-      { role: "user", parts: [{ text: userMessage }] }
-    ],
-    generationConfig: {
-      temperature:     0.2,
-      maxOutputTokens: 2000,
-      candidateCount:  1
-    },
-    safetySettings: [
-      { category: "HARM_CATEGORY_HARASSMENT",        threshold: "BLOCK_NONE" },
-      { category: "HARM_CATEGORY_HATE_SPEECH",       threshold: "BLOCK_NONE" },
-      { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
-      { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
-    ]
-  };
-
-  const response = await fetch(url, {
+  const response = await fetch("https://api.mistral.ai/v1/chat/completions", {
     method:  "POST",
-    headers: { "Content-Type": "application/json" },
-    body:    JSON.stringify(body)
+    headers: {
+      "Authorization": `Bearer ${apiKey}`,
+      "Content-Type":  "application/json"
+    },
+    body: JSON.stringify({
+      model:       "mistral-small-latest",
+      messages:    [
+        { role: "system", content: systemPrompt },
+        ...history.map(m => ({
+          role:    m.role === "assistant" ? "assistant" : "user",
+          content: String(m.content || "")
+        })),
+        { role: "user", content: userMessage }
+      ],
+      temperature: 0.2,
+      max_tokens:  2000
+    })
   });
 
   if (!response.ok) {
-    const err = await response.text();
-    console.error("[LEX] Gemini error:", response.status, err);
-    throw new Error(`Gemini ${response.status}`);
+    const errText = await response.text();
+    console.error(`[LEX] Mistral HTTP ${response.status} :`, errText);
+    throw new Error(`Mistral ${response.status} : ${errText.slice(0, 300)}`);
   }
 
   const data = await response.json();
+  const text = data?.choices?.[0]?.message?.content?.trim() || "";
 
-  // Extraction du texte depuis la réponse Gemini
-  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
   if (!text) {
-    console.error("[LEX] Gemini réponse vide :", JSON.stringify(data));
-    throw new Error("Réponse Gemini vide");
+    console.error("[LEX] Réponse Mistral vide :", JSON.stringify(data).slice(0, 300));
+    throw new Error("Réponse Mistral vide");
   }
 
+  console.log(`[LEX] Mistral OK — ${text.length} caractères`);
   return text;
 }
 
@@ -234,17 +186,14 @@ async function callGemini(systemPrompt, history, userMessage, apiKey) {
 function parseSuggestions(rawAnswer) {
   const match = rawAnswer.match(/===SUGGESTIONS===([\s\S]*?)===FIN===/);
   if (!match) return { answer: rawAnswer.trim(), suggestions: [] };
-
   const answer      = rawAnswer.slice(0, rawAnswer.indexOf("===SUGGESTIONS===")).trim();
-  const suggestions = match[1]
-    .split("\n")
+  const suggestions = match[1].split("\n")
     .map(l => l.replace(/^[-•*\d.]\s*/, "").trim())
     .filter(l => l.length > 5 && l.endsWith("?"));
-
   return { answer, suggestions };
 }
 
-// ─── HANDLER PRINCIPAL ────────────────────────────────────────────────────────
+// ─── HANDLER ─────────────────────────────────────────────────────────────────
 export default async function handler(req, res) {
   const origin = process.env.FRONTEND_URL || "*";
   res.setHeader("Access-Control-Allow-Origin",  origin);
@@ -260,10 +209,12 @@ export default async function handler(req, res) {
   if (questionRaw.length > 2000)
     return res.status(400).json({ answer: "La question est trop longue (max 2 000 caractères)." });
 
-  const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-  if (!GEMINI_API_KEY) {
-    console.error("[LEX] GEMINI_API_KEY manquante");
-    return res.status(500).json({ answer: "Erreur de configuration serveur." });
+  const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY;
+  if (!MISTRAL_API_KEY) {
+    console.error("[LEX] ❌ MISTRAL_API_KEY manquante dans les variables d'environnement");
+    return res.status(500).json({
+      answer: "Configuration manquante : MISTRAL_API_KEY non définie. Vérifiez le fichier .env"
+    });
   }
 
   const pdfMatches  = searchPDFs(questionRaw);
@@ -272,7 +223,7 @@ export default async function handler(req, res) {
 
   if (pdfMatches.length === 0) {
     return res.json({
-      answer:        "Je n'ai pas trouvé d'élément suffisamment précis dans les documents disponibles. Vous pouvez contacter contact@adefuneraire.fr pour une réflexion approfondie.",
+      answer:        "Je n'ai pas trouvé d'élément suffisamment précis dans les documents disponibles. Contactez contact@adefuneraire.fr.",
       suggestions:   [],
       sources:       extSources.map(s => ({ type: "web", title: s.title, url: s.url })),
       jurisprudence: juriMatches
@@ -289,7 +240,7 @@ export default async function handler(req, res) {
   const userPrompt = buildUserPrompt(questionRaw, pdfMatches, juriMatches, extSources);
 
   try {
-    const rawReply = await callGemini(SYSTEM_PROMPT, history, userPrompt, GEMINI_API_KEY);
+    const rawReply = await callMistral(SYSTEM_PROMPT, history, userPrompt, MISTRAL_API_KEY);
     const { answer, suggestions } = parseSuggestions(rawReply);
 
     return res.json({
@@ -300,21 +251,16 @@ export default async function handler(req, res) {
         ...extSources.map(s  => ({ type: "web", title: s.title, url: s.url }))
       ],
       jurisprudence: juriMatches.map(j => ({
-        juridiction:  j.juridiction,
-        date:         j.date,
-        numero:       j.numero,
-        sujet:        j.sujet,
-        principe:     j.principe,
-        textes_vises: j.textes_vises,
-        url:          j.url,
-        a_verifier:   j.a_verifier
+        juridiction: j.juridiction, date: j.date, numero: j.numero,
+        sujet: j.sujet, principe: j.principe, textes_vises: j.textes_vises,
+        url: j.url, a_verifier: j.a_verifier
       }))
     });
 
   } catch (error) {
-    console.error("[LEX] Erreur Gemini :", error.message);
+    console.error("[LEX] ❌ Erreur :", error.message);
     return res.status(500).json({
-      answer: "Une erreur est survenue. Merci de contacter contact@adefuneraire.fr."
+      answer: `Erreur : ${error.message}`
     });
   }
 }
