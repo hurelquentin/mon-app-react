@@ -252,7 +252,7 @@ app.post("/api/ask", async (req, res) => {
 // ─── DÉMARRAGE ────────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
   console.log(`\n🚀 [LEX] Serveur Express : http://localhost:${PORT}`);
-  console.log(`   IA      : Gemini 2.0 Flash`);
+  console.log(`   IA      : Gemini 1.5 Flash`);
   console.log(`   Santé   : http://localhost:${PORT}/api/health`);
   console.log(`   PDFs    : ${docs.length} documents`);
   console.log(`   Juris.  : ${juriDB.length} décisions\n`);

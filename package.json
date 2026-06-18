@@ -8,6 +8,7 @@
     "dev": "concurrently --names \"VITE,API\" --prefix-colors \"cyan,yellow\" \"vite\" \"node backend/server.js\"",
     "dev:vite": "vite",
     "dev:api": "node backend/server.js",
+    "server": "node backend/server.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
